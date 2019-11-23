@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /node_modules
+
+Sitemap: /sitemap.xml
