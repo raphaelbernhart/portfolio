@@ -33,7 +33,7 @@
 
 <body>
     <!-- #region NAV -->
-    <div Name="NAVIGATION" class='container-fluid'>
+    <div Name="NAVIGATION" class='container-fluid d-none d-xl-block'>
         <div class='container'>
             <nav class="navigation">
                 <li>
@@ -87,8 +87,8 @@
         <div class='container-fluid header'>
             <div style="padding-top: 230px;" class='container mainheading-container position-relative'>
                 <h2 class="text-white mainheading">Hey<span style="color: var(--Maincolor); font-size: 9rem;">.</span></h2>
-                <h1 style="font-style: normal; text-transform: unset; font-size: 6rem; font-weight: 400; font-style: italic; margin-top: -20px;" class="text-white">Ich bin <span style="color: var(--Highlight)">Raphael</span></h1>
-                <div class="mainheading-line"></div>
+                <h1 style="font-style: normal; text-transform: unset; font-size: 6rem; font-weight: 400; font-style: italic; margin-top: -20px;" class="text-white d-none d-md-block">Ich bin <span style="color: var(--Highlight)">Raphael</span></h1>
+                <div class="mainheading-line d-none d-lg-block"></div>
                 <h4 style="margin-top: 23px; letter-spacing: 22px;" class="text-white">GRAFIK, WEBDESIGN UND VIDEO</h4>
                 <button style="margin-top: 20px;" id="btn-header" class="btn-primary">Kontaktiere Mich</button>
             </div>
@@ -111,8 +111,8 @@
         <div class='container aboutme margin section-aboutme'>
             <div class='row'>
                 <div class='col-lg-6 aboutme-txt'>
-                    <h2>Über Mich</h2>
-                    <div class="aboutme-line"></div><br>
+                    <h2>Über Mich<div class="aboutme-line"></div></h2>
+                    <br>
                     <p>Ich bin ein Graphik Designer, Cinematograph und Photgraph aus Tirol, Österreich.<br><br> Am Anfang war ich als Lerhling in einer Werbegantur in Saalfelden, Österreich tätig. Als nächsten Schritt besuche ich momentan die WDA in Innsbruck,
                         Österreich, welche in meinen Augen eine der besten Möglichkeiten ist um in Tirol in diesem Bereich ausgebildet zu werden.</p>
                 </div>
@@ -286,7 +286,7 @@
         <div id="showroom-web" class="container showroom-web margin">
             <div class='row margin-small'>
                 <div class='col-xl-5'>
-                    <div class="d-flex align-items-center showroom-container-text showroom-padding-right">
+                    <div class="d-flex align-items-center showroom-container-text">
                         <div class="showroom-wrapper">
                             <h2>The<br>Campers</h2>
                             <div style="margin-bottom: 20px;" class="lines">
@@ -298,14 +298,14 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-xl-7 showroom-padding-left'>
+                <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
                         <img src="./content/images/showroom/web/thecampers/thecampers_showroom1.jpg" alt="Mockup eines Redesigns der Starbucks App">
                     </div>
                 </div>
             </div>
             <div class='row margin-small'>
-                <div class='col-xl-7 showroom-padding-right'>
+                <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
                         <img src="./content/images/showroom/web/starbucks/starbucks1.jpg" alt="Mockup eines Redesigns der Starbucks App">
                     </div>
@@ -330,7 +330,7 @@
         <div id="showroom-video" class="container showroom-video margin d-none">
             <div class='row margin-small'>
                 <div class='col-xl-5'>
-                    <div class="d-flex align-items-center showroom-container-text showroom-padding-right">
+                    <div class="d-flex align-items-center showroom-container-text">
                         <div class="showroom-wrapper">
                             <h2>Yung Platon x GunFire</h2>
                             <div style="margin-bottom: 20px;" class="lines">
@@ -342,20 +342,20 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-xl-7 showroom-padding-left'>
+                <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
                         <img src="./content/images/showroom/video/tetris-bfw/tetris01.jpg" alt="Mockup eines Redesigns der Starbucks App">
                     </div>
                 </div>
             </div>
             <div class='row margin-small'>
-                <div class='col-xl-7 showroom-padding-right'>
+                <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
                         <img src="./content/images/showroom/video/kdn-bfw/kdn01.jpg" alt="Mockup eines Redesigns der Starbucks App">
                     </div>
                 </div>
                 <div class='col-xl-5'>
-                    <div class="d-flex align-items-center showroom-container-text showroom-padding-right">
+                    <div class="d-flex align-items-center showroom-container-text">
                         <div class="showroom-wrapper">
                             <h2>BanditsfromWestside</h2>
                             <div style="margin-bottom: 20px;" class="lines">
@@ -375,7 +375,7 @@
         <div id="showroom-graphic" class="container showroom-graphic margin d-none">
             <div class='row margin-small'>
                 <div class='col-xl-5'>
-                    <div class="d-flex align-items-center showroom-container-text showroom-padding-right">
+                    <div class="d-flex align-items-center showroom-container-text">
                         <div class="showroom-wrapper">
                             <h2>Offside</h2>
                             <div style="margin-bottom: 20px;" class="lines">
@@ -386,20 +386,20 @@
                         </div>
                     </div>
                 </div>
-                <div class='col-xl-7 showroom-padding-left'>
+                <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
                         <img src="./content/images/showroom/grafik/offside1.jpg" alt="Mockup eines Redesigns der Starbucks App">
                     </div>
                 </div>
             </div>
             <div class='row margin-small'>
-                <div class='col-xl-7 showroom-padding-right'>
+                <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
                         <img src="./content/images/showroom/grafik/vk1.jpg" alt="Mockup eines Redesigns der Starbucks App">
                     </div>
                 </div>
                 <div class='col-xl-5'>
-                    <div class="d-flex align-items-center showroom-container-text showroom-padding-right">
+                    <div class="d-flex align-items-center showroom-container-text">
                         <div class="showroom-wrapper">
                             <h2>BanditsfromWestside</h2>
                             <div style="margin-bottom: 20px;" class="lines">
@@ -424,7 +424,7 @@
                 </div>
                 <br><a style="font-size: 16px; margin-top: -5px;" target="_blank" class="btn-primary" href="https://www.twago.de/hire/provider/project?utm_campaign=hireme&utm_medium=hireme&company=388813&utm_source=share">Beauftrage Mich</a>
                 <p style="margin-top: 3%;" class="text-white"><a href="mailto:raphy02rb@gmail.com">raphy02rb@gmail.com</a><br>
-                    <br><span style="font-weight: 700;">Raphael Bernhart</span><br>Achenweg 30<br>6364 Brixen im Thale<br><br><a href="tel:+43 664 860 65 67">+43 664 860 65 67</a><br><a href="http://raphaelbernhart.ddns.net/">www.raphaelbernhart.at</a>
+                    <br><span style="font-weight: 700;">Raphael Bernhart</span><br>Achenweg 30<br>6364 Brixen im Thale<br><br><a href="tel:+43 664 860 65 67">+43 664 860 65 67</a><br><a href="http://raphaelbernhart.ddns.net/">raphaelbernhart.ddns.net</a>
                 </p>
                 <div style="margin-top: 60px;">
                     <a href="https://www.behance.net/raphaelbernhart"><i class="fab fa-behance icon contact-icon"></i></a>
