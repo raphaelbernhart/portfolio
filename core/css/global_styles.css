@@ -158,6 +158,17 @@
         a:hover {
             text-decoration: none;
             color: rgb(150, 150, 150);
+            fill: rgb(150, 150, 150);
+            transition: 0.5s;
+        }
+        #unsplash-icon {
+            fill: white;
+            height: 25px;
+            vertical-align: top;
+            transition: 0.5s;
+        }
+        #unsplash-icon:hover {
+            fill: rgb(150, 150, 150);
             transition: 0.5s;
         }
         i{
