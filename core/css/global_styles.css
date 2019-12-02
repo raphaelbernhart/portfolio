@@ -390,6 +390,10 @@
             cursor: pointer;
             transition: 0.5s;
         }
+
+        .choices-container:hover {
+            z-index: 100!important;
+        }
         
         .choices-content {
             position: relative;
