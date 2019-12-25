@@ -1,5 +1,6 @@
 
-// Nav-Color Toggle
+/* ---------------------------- Nav-Color Toggle ---------------------------- */
+
 $(window).scroll(function() {
 	var $height = $(window).scrollTop();
   if($height > 458) {
@@ -11,13 +12,14 @@ $(window).scroll(function() {
 
 $(window).scroll(function() {
 	var $height = $(window).scrollTop();
-  if($height > 3026) {
+  if($height > 3140) {
         $('#nav-home, #nav-aboutme, #nav-showroom, #nav-contact').removeClass('text-dark');
 	} else {
 	}
 });
 
-// Infocards Text
+/* ----------------------------- Infocards Text ----------------------------- */
+
 $(document).ready(function() {
     $("#choice-web").hover(function() {
         $("#choices-web-text").toggleClass("d-none");
@@ -44,7 +46,8 @@ $(document).ready(function() {
 
 
 
-// Infocard Projekt Toggle
+/* ------------------------- Infocard Projekt Toggle ------------------------ */
+
 $(document).ready(function() {
     $("#choice-web").click(function() {
         $("#showroom-web").removeClass("d-none");
@@ -71,14 +74,16 @@ $(document).ready(function() {
 
 
 
-// Showroom Show-More Button
+/* ------------------------ Showroom Show-More Button ----------------------- */
+
 $("showroom-web-showMore").click(function() {
     $("").show("fast");
   });
 
 
   
-// NAV-Line-Home
+/* ------------------------------ NAV-Line-Home ----------------------------- */
+
 $(window).scroll(function() {
 	var $height = $(window).scrollTop();
   if($height > 590) {
@@ -90,7 +95,8 @@ $(window).scroll(function() {
 	}
 });
 
-//NAV-LINE-ABOUTME
+/* ---------------------------- NAV-LINE-ABOUTME ---------------------------- */
+
 $(window).scroll(function() {
 	var $height = $(window).scrollTop();
   if($height > 1345) {
@@ -101,7 +107,8 @@ $(window).scroll(function() {
 	}
 });
 
-//NAV-LINE-KONTAKT
+/* ---------------------------- NAV-LINE-KONTAKT ---------------------------- */
+
 $(window).scroll(function() {
 	var $height = $(window).scrollTop();
   if($height > 3100) {
@@ -111,3 +118,14 @@ $(window).scroll(function() {
         $('#nav-line-contact').removeClass('active');
 	}
 });
+
+
+/* ----------------------- H2 Lines dynamisch einfügen ---------------------- */
+$('h2').after('<div class="lines"><div class="line1"></div><div class="line2"></div></div>');
+
+/* ---------------------------- SHOW MORE BUTTONS --------------------------- */
+function webSM() {
+    $('#showroom-web-more').toggleClass('d-none');
+
+    $('.btn-SM').html($('.btn-SM').html() == 'show less' ? 'show more' : 'show less');
+}

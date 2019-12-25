@@ -120,9 +120,11 @@
         .btn-primary {
             background-color: var(--Maincolor);
             min-width: 250px;
-            font-size: 1.2rem!important;
+            font-size: 0.9rem!important;
             padding: 7px 45px 5px;
-            border: 0px;
+            transform: scale(1)!important;
+            border: 0px!important;
+            border-radius: 0px!important;
             text-transform: uppercase;
             letter-spacing: 3px;
             transition: 0.5s;
@@ -130,15 +132,15 @@
         
         .btn-primary:hover {
             background-color: var(--Maincolor-Dark);
-            transform: scale(1.1);
+            transform: scale(1.1)!important;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
             cursor: pointer;
             transition: 0.5s;
         }
 
         .btn-primary:active {
-            background-color: var(--Highlight)!important;
-            transition: 0.2s;
+            background-color: var(--Maincolor)!important;
+            transition: 0.5s;
         }
         
         .btn-primary:link {
@@ -147,20 +149,26 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
             transition: 0.5s;
         }
+
+        .btn-center {
+            display: block;
+            margin: 0 auto;
+        }
         
         /* Other */
         a {
-            color: white;
-            transition: 0.5s;
+            color: var(--Background);
             cursor: pointer;
+            transition: 0.5s;
         }
         
         a:hover {
             text-decoration: none;
-            color: rgb(150, 150, 150);
-            fill: rgb(150, 150, 150);
+            color: rgb(150, 150, 150)!important;
+            fill: rgb(150, 150, 150)!important;
             transition: 0.5s;
         }
+
         #unsplash-icon {
             fill: white;
             height: 25px;
@@ -182,8 +190,8 @@
         /*LINES*/
         
         .lines {
-            margin-top: 1.5%;
-            margin-bottom: 1.5%;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
         
         .line1 {
@@ -455,6 +463,11 @@
 
         .showroom-wrapper {
             width: 100%;
+        }
+
+        .showroom-item {
+            margin-top: 80px;
+            margin-bottom: 80px;
         }
         
         .showroom-container-text {
