@@ -142,13 +142,6 @@
             background-color: var(--Maincolor)!important;
             transition: 0.5s;
         }
-        
-        .btn-primary:link {
-            background-color: var(--Maincolor-Dark);
-            transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-            transition: 0.5s;
-        }
 
         .btn-center {
             display: block;
