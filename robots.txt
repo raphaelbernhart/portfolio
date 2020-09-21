@@ -1,7 +1,0 @@
-user-agent: *
-allow: /
-
-user-agent: magicsearchbot
-allow: /
-
-sitemap: http://raphaelbernhart.ddns.net/sitemap.xml
