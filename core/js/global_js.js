@@ -12,7 +12,7 @@ $(window).scroll(function() {
 
 $(window).scroll(function() {
 	var $height = $(window).scrollTop();
-  if($height > 3140) {
+  if($height > 4090) {
         $('#nav-home, #nav-aboutme, #nav-showroom, #nav-contact').removeClass('text-dark');
 	} else {
 	}
@@ -25,6 +25,7 @@ $(document).ready(function() {
         $("#choices-web-text").toggleClass("d-none");
         $("#choices-web-icon").toggleClass("d-none");
         $("#choices-web-title").toggleClass("text-center");
+        $('#choice-web .choice-icon').toggleClass('choice-icon-center');
     })
 })
 
@@ -33,6 +34,7 @@ $(document).ready(function() {
         $("#choices-video-text").toggleClass("d-none");
         $("#choices-video-icon").toggleClass("d-none");
         $("#choices-video-title").toggleClass("text-center");
+        $('#choice-video .choice-icon').toggleClass('choice-icon-center');
     })
 })
 
@@ -41,6 +43,7 @@ $(document).ready(function() {
         $("#choices-graphic-text").toggleClass("d-none");
         $("#choices-graphic-icon").toggleClass("d-none");
         $("#choices-graphic-title").toggleClass("text-center");
+        $('#choice-graphic .choice-icon').toggleClass('choice-icon-center');
     })
 })
 
