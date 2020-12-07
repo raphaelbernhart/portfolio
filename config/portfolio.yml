@@ -57,6 +57,7 @@ spec:
   tls:
   - hosts:
     - raphaelbernhart.at
+    - www.raphaelbernhart.at
     secretName: raphaelbernhart-at-tls
   rules:
   - host: raphaelbernhart.at
