@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: raphy02/portfolio:1.1.0
+        image: raphy02/portfolio:1.1.1
         ports:
         - containerPort: 80
         resources:
