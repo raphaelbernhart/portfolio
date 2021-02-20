@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: raphy02/portfolio:1.1.2
+        image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.1.2
         imagePullPolicy: Always
         ports:
         - containerPort: 80
@@ -23,6 +23,8 @@ spec:
           requests:
             memory: "6M"
             cpu: "30m"
+      imagePullSecrets:
+      - name: regcred
 
 ---
 
