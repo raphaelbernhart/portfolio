@@ -450,17 +450,17 @@
             <div class='row showroom-item'>
                 <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
-                        <img src="./content/images/showroom/video/kdn-bfw/kdn01.jpg"
+                        <img src="./content/images/showroom/video/video02.jpg"
                             alt="Mockup eines Redesigns der Starbucks App">
                     </div>
                 </div>
                 <div class='col-xl-5'>
                     <div class="d-flex align-items-center showroom-container-text">
                         <div class="showroom-wrapper">
-                            <h2>BanditsfromWestside</h2>
-                            <h3>Kinder der Nacht - Musikvideo</h3>
+                            <h2>WDA Innsbruck</h2>
+                            <h3>"Rebound" - Semesterprojekt</h3>
                             <a class="btn btn-primary" target="_blank"
-                                href="https://www.youtube.com/watch?v=qciUvta1-Go">Zum Video</a>
+                                href="https://vimeo.com/523033458">Zum Video</a>
                         </div>
                     </div>
                 </div>
@@ -572,11 +572,28 @@
         navContact.addEventListener('click', () => { jump('.section-contact',{ offset: -220, }) }),
         headerContactMe.addEventListener('click', () => { jump('.section-contact') }),
         headerScroll.addEventListener('click', () => { jump('.section-aboutme', { offset: -115, }) }),
+
         choiceWeb.addEventListener('click', () => { jump('.section-showroom', { offset: 300, }) }),
         choiceVideo.addEventListener('click', () => { jump('.section-showroom', { offset: 300, }) }),
         choiceGraphic.addEventListener('click', () => { jump('.section-showroom', { offset: 300, }) });
+
+        $(document).ready(function() {
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            const showroom = urlParams.get('showroom');
+
+            if (showroom === 'video') {
+                $("#showroom-video").removeClass("d-none");
+                $("#showroom-web").addClass("d-none");
+                $("#showroom-graphic").addClass("d-none");
+
+                jump('.section-showroom', { offset: 450, });
+            }
+        })
     </script>
-    <script src='core/js/global_js.js '></script>
+    <script defer src='core/js/global_js.js'></script>
 </body>
 
 </html>
