@@ -328,10 +328,10 @@
         
         .mainheading-line {
             height: 20px;
-            width: 410px;
+            width: 375px;
             background-color: var(--Maincolor);
             margin-top: -50px;
-            margin-left: 372px;
+            margin-left: 326px;
         }
         
         .scroll-container {
