@@ -8,6 +8,8 @@ spec:
     matchLabels:
       app: portfolio
   replicas: 2
+  strategy:
+    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -15,7 +17,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.1.5
+        image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.1.6
         imagePullPolicy: Always
         ports:
         - containerPort: 80
