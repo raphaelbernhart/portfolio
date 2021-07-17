@@ -1,0 +1,19 @@
+{
+  "name": "portfolio",
+  "version": "1.1.4",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "docker build": "docker build -t registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:$npm_package_version .",
+    "docker push" : "docker push registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:$npm_package_versio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelbernhart/portfolio.git"
+  },
+  "author": "Raphael Bernhart",
+  "bugs": {
+    "url": "https://github.com/raphaelbernhart/portfolio/issues"
+  },
+  "homepage": "https://github.com/raphaelbernhart/portfolio#readme"
+}
