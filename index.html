@@ -19,7 +19,7 @@
 
         gtag('config', 'UA-139955768-2');
     </script> -->
-    <script async src="https://analytics.raphaelbernhart.at/tracker.js" data-ackee-server="https://analytics.raphaelbernhart.at" data-ackee-domain-id="4973c0ba-7ace-45f0-8f55-26d39cc0ef4e"></script>
+    <!-- <script async src="https://analytics.raphaelbernhart.at/tracker.js" data-ackee-server="https://analytics.raphaelbernhart.at" data-ackee-domain-id="4973c0ba-7ace-45f0-8f55-26d39cc0ef4e"></script> -->
 
     <!-- Metadaten -->
     <meta name="keywords"
@@ -83,17 +83,19 @@
         <div name="Header Icons" class='container-fluid header-icon-container margin-top'>
             <div class='container'>
                 <div style="float: right;">
-                    <a href="https://github.com/raphaelbernhart" target="_blank"><i
+                    <a onclick="referring('github', 'https://github.com/raphaelbernhart')" target="_blank"><i
                         class="fab fa-github icon header-icon"></i></a>
-                    <a href="https://www.behance.net/raphaelbernhart" target="_blank"><i
+                    <a onclick="referring('behance', 'https://www.behance.net/raphaelbernhart')" target="_blank"><i
                             class="fab fa-behance icon header-icon"></i></a>
-                    <a href="mailto:mail@raphaelbernhart.at" target="_blank"><i
+                    <a onclick="referring('mail', 'mailto:mail@raphaelbernhart.at')"  target="_blank"><i
                             class="fas fa-envelope icon header-icon"></i></a>
-                    <a href="https://unsplash.com/@raphy02" target="_blank"><svg version="1.1" viewBox="0 0 32 32"
+                    <a onclick="referring('unsplash', 'https://unsplash.com/@raphy02')" target="_blank">
+                        <svg version="1.1" viewBox="0 0 32 32"
                             id="unsplash-icon" class="header-icon">
                             <title id="unsplash-home">Unsplash</title>
                             <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                        </svg></a>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -337,7 +339,7 @@
                         <div class="showroom-wrapper">
                             <h2>The<br>Campers</h2>
                             <h3>UI/UX Design<br>Umsetzung</h3>
-                            <a class="btn btn-primary" target="_blank" href="https://www.the-campers.at">Zur Website</a>
+                            <button onclick="referring('thecampers', 'https://www.the-campers.at')" class="btn btn-primary" target="_blank">Zur Website</button>
                         </div>
                     </div>
                 </div>
@@ -360,7 +362,7 @@
                         <div class="showroom-wrapper">
                             <h2>Rebound Product Site</h2>
                             <h3>UI/UX Design<br>Umsetzung</h3>
-                            <a class="btn btn-primary" href="https://demo.raphaelbernhart.at/rebound/">Zur Website</a>
+                            <button class="btn btn-primary" onclick="referring('project_demo_rebound', 'https://demo.raphaelbernhart.at/rebound/')">Zur Website</butt>
                         </div>
                     </div>
                 </div>
@@ -524,17 +526,19 @@
                     6364 Brixen im Thale
                 </p>
                 <div style="margin-top: 60px;">
-                    <a href="https://github.com/raphaelbernhart" target="_blank"><i
-                        class="fab fa-github icon header-icon" style="padding-left: 0px!important;"></i></a>
-                    <a href="https://www.behance.net/raphaelbernhart" target="_blank"><i
+                    <a onclick="referring('github', 'https://github.com/raphaelbernhart')" target="_blank"><i
+                        class="fab fa-github icon header-icon"></i></a>
+                    <a onclick="referring('behance', 'https://www.behance.net/raphaelbernhart')" target="_blank"><i
                             class="fab fa-behance icon header-icon"></i></a>
-                    <a href="mailto:mail@raphaelbernhart.at" target="_blank"><i
+                    <a onclick="referring('mail', 'mailto:mail@raphaelbernhart.at')"  target="_blank"><i
                             class="fas fa-envelope icon header-icon"></i></a>
-                    <a href="https://unsplash.com/@raphy02" target="_blank"><svg version="1.1" viewBox="0 0 32 32"
+                    <a onclick="referring('unsplash', 'https://unsplash.com/@raphy02')" target="_blank">
+                        <svg version="1.1" viewBox="0 0 32 32"
                             id="unsplash-icon" class="header-icon">
                             <title id="unsplash-home">Unsplash</title>
                             <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                        </svg></a>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -595,6 +599,27 @@
         })
     </script>
     <script defer src='core/js/global_js.js'></script>
+
+    <!-- Analytics -->
+    <script src="/core/js/ackee-tracker.min.js"></script>
+    <script>
+        const ackeeInstance = ackeeTracker.create('https://analytics.raphaelbernhart.at', {
+            detailed: true,
+            ignoreLocalhost: false,
+        })
+        .record('4973c0ba-7ace-45f0-8f55-26d39cc0ef4e')
+
+        const referring = (referrer, link) => {
+            if (ackeeInstance.hasOwnProperty('action')) {
+                ackeeInstance.action('f9810984-0e23-4fc6-8eaf-79dbb7f4d234', {
+                    key: referrer,
+                    value: 1
+                })
+            }
+
+            window.open(link, '_blank')
+        }
+    </script>
 </body>
 
 </html>
