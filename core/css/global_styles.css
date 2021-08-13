@@ -124,7 +124,7 @@
         
         .btn-primary {
             background-color: var(--Maincolor);
-            color: white;
+            color: white!important;
             min-width: 250px;
             font-size: 0.9rem!important;
             padding: 9px 35px 5px;
