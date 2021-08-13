@@ -606,6 +606,7 @@
         const ackeeInstance = ackeeTracker.create('https://analytics.raphaelbernhart.at', {
             detailed: true,
             ignoreLocalhost: false,
+            ignoreOwnVisits: false
         })
         .record('4973c0ba-7ace-45f0-8f55-26d39cc0ef4e')
 
@@ -620,6 +621,7 @@
             window.open(link, '_blank')
         }
     </script>
+    <!-- Analytics -->
 </body>
 
 </html>

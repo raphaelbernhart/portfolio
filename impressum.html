@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="https://assets.raphaelbernhart.at/images/favicon/favicon.png">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139955768-2"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139955768-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -18,7 +18,7 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-139955768-2');
-    </script>
+    </script> -->
 
     <title>Impressum - Raphael Bernhart</title>
 
@@ -790,6 +790,29 @@
         <p style="margin-top:15px;">Source: Created with the Datenschutz Generator by <a href="https://www.adsimple.at/" title="AdSimple® Online Marketing and Webdesign" rel="follow" target="_blank">AdSimple®</a> in cooperation with <a href="https://www.bauguide.at/" target="_blank" rel="follow">bauguide.at</a>
         </p>
     </div>
+
+    <!-- Analytics -->
+    <script src="/core/js/ackee-tracker.min.js"></script>
+    <script>
+        const ackeeInstance = ackeeTracker.create('https://analytics.raphaelbernhart.at', {
+            detailed: true,
+            ignoreLocalhost: false,
+            ignoreOwnVisits: false
+        })
+        .record('4973c0ba-7ace-45f0-8f55-26d39cc0ef4e')
+
+        const referring = (referrer, link) => {
+            if (ackeeInstance.hasOwnProperty('action')) {
+                ackeeInstance.action('f9810984-0e23-4fc6-8eaf-79dbb7f4d234', {
+                    key: referrer,
+                    value: 1
+                })
+            }
+
+            window.open(link, '_blank')
+        }
+    </script>
+    <!-- Analytics -->
 
 </body>
 </html>
