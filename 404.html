@@ -256,25 +256,7 @@
 
     <!-- Analytics -->
     <script src="/core/js/ackee-tracker.min.js"></script>
-    <script>
-        const ackeeInstance = ackeeTracker.create('https://analytics.raphaelbernhart.at', {
-            detailed: true,
-            ignoreLocalhost: false,
-            ignoreOwnVisits: false
-        })
-        .record('4973c0ba-7ace-45f0-8f55-26d39cc0ef4e')
-
-        const referring = (referrer, link) => {
-            if (ackeeInstance.hasOwnProperty('action')) {
-                ackeeInstance.action('f9810984-0e23-4fc6-8eaf-79dbb7f4d234', {
-                    key: referrer,
-                    value: 1
-                })
-            }
-
-            window.open(link, '_blank')
-        }
-    </script>
+    <script src="/core/js/analytics.js"></script>
     <!-- Analytics -->
 </body>
 
