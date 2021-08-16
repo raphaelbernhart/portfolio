@@ -7,7 +7,7 @@ const ackeeInstance = ackeeTracker.create('https://analytics.raphaelbernhart.at'
 
 const referring = (referrer, link) => {
     if (ackeeInstance.hasOwnProperty('action')) {
-        ackeeInstance.action('35fea6c7-383d-421d-a315-a1847d657e00', {
+        ackeeInstance.action('7290d650-248d-46a7-87f2-b7a5b61cef06', {
             key: referrer,
             value: 1
         })
