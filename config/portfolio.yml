@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: portfolio
-        image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.1.7
+        image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.1.8
         imagePullPolicy: Always
         ports:
         - containerPort: 80
