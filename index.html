@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="https://assets.raphaelbernhart.at/images/favicon/favicon.ico">
     <link rel="icon" type="image/png" href="https://assets.raphaelbernhart.at/images/favicon/favicon.png">
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139955768-2"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139955768-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -18,7 +18,8 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-139955768-2');
-    </script>
+    </script> -->
+    <!-- <script async src="https://analytics.raphaelbernhart.at/tracker.js" data-ackee-server="https://analytics.raphaelbernhart.at" data-ackee-domain-id="4973c0ba-7ace-45f0-8f55-26d39cc0ef4e"></script> -->
 
     <!-- Metadaten -->
     <meta name="keywords"
@@ -82,16 +83,19 @@
         <div name="Header Icons" class='container-fluid header-icon-container margin-top'>
             <div class='container'>
                 <div style="float: right;">
-                    <a href="https://www.behance.net/raphaelbernhart" target="_blank"><i
+                    <a onclick="referring('github', 'https://github.com/raphaelbernhart')" target="_blank"><i
+                        class="fab fa-github icon header-icon"></i></a>
+                    <a onclick="referring('behance', 'https://www.behance.net/raphaelbernhart')" target="_blank"><i
                             class="fab fa-behance icon header-icon"></i></a>
-                    <a href="mailto:mail@raphaelbernhart.at" target="_blank"><i
+                    <a onclick="referring('mail', 'mailto:mail@raphaelbernhart.at')"  target="_blank"><i
                             class="fas fa-envelope icon header-icon"></i></a>
-                    <a href="tel:+43 664 860 65 67" target="_blank"><i class="fas fa-phone icon header-icon"></i></a>
-                    <a href="https://unsplash.com/@raphy02" target="_blank"><svg version="1.1" viewBox="0 0 32 32"
+                    <a onclick="referring('unsplash', 'https://unsplash.com/@raphy02')" target="_blank">
+                        <svg version="1.1" viewBox="0 0 32 32"
                             id="unsplash-icon" class="header-icon">
                             <title id="unsplash-home">Unsplash</title>
                             <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                        </svg></a>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -126,11 +130,17 @@
                 <div class='col-lg-6 aboutme-txt'>
                     <h2>Über Mich</h2>
                     <br>
-                    <p>Ich bin ein Graphik Designer, Cinematograph und Fotgraf aus Tirol, Österreich.<br><br> Am Anfang
-                        war ich als Lerhling in einer Werbegantur in Saalfelden, Österreich tätig. Als nächsten Schritt
-                        besuche ich momentan die WDA in Innsbruck,
-                        Österreich, welche in meinen Augen eine der besten Möglichkeiten ist um in Tirol in diesem
-                        Bereich ausgebildet zu werden.</p>
+                    <p>
+                        <b>Ich bin Raphael, ein Mediendesigner, Filmemacher und Webentwickler.</b><br><br>
+
+                        Angfangen habe ich als Lehrling in einer Werbeagentur in Salzburg. Als nächsten Schritt in meiner Ausblidung
+                        besuchte ich die <a class="text-main-color" href="https://www.wda-innsbruck.at/">Werbe Design Akademie</a> in Innsbruck. 
+                        Diese habe ich mit ausgezeichnetem Erfolg abgeschlossen. In dieser Zeit habe ich auch ein Praktikum bei  
+                        <a class="text-main-color" href="https://www.factor.partners/hallo/innsbruck">Factor Innsbruck</a> abgeschlossen.<br><br>
+
+                        Dort entdeckte ich neben der Ausprägung meiner Film/Video Affinität auch eine Leidenschaft für das Web. Neben Musikvideos 
+                        und weiteren Shoots erstelle ich heute hauptsächlich Web Apps bzw. Websiten.
+                    </p>
                 </div>
                 <div class="col-lg-6">
                     <img class="aboutme-portrait" src="./content/images/aboutme/portrait_1.jpg"
@@ -156,7 +166,7 @@
                         <div class="choices-content">
                             <?xml version="1.0" encoding="utf-8"?>
                             <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0  -->
-                            <svg class="choice-icon" version="1.1" id="Capa_1 choice-web-icon"
+                            <svg class="choice-icon choice-icon-center" version="1.1" id="Capa_1 choice-web-icon"
                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                                 y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
                                 xml:space="preserve">
@@ -212,7 +222,7 @@
                         <div class="choices-content">
                             <?xml version="1.0" encoding="utf-8"?>
                             <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                            <svg class="choice-icon" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            <svg class="choice-icon choice-icon-center" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
                                 style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <g>
@@ -254,7 +264,7 @@
                         <div class="choices-content">
                             <?xml version="1.0" encoding="utf-8"?>
                             <!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-                            <svg class="choice-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            <svg class="choice-icon choice-icon-center" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
                                 style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <g>
@@ -328,8 +338,8 @@
                     <div class="d-flex align-items-center showroom-container-text">
                         <div class="showroom-wrapper">
                             <h2>The<br>Campers</h2>
-                            <h3>Webdesign Programmierung</h3>
-                            <a class="btn btn-primary" target="_blank" href="https://www.the-campers.at">Zur Website</a>
+                            <h3>UI/UX Design<br>Umsetzung</h3>
+                            <button onclick="referring('thecampers', 'https://www.the-campers.at')" class="btn btn-primary" target="_blank">Zur Website</button>
                         </div>
                     </div>
                 </div>
@@ -344,15 +354,15 @@
             <div class='row showroom-item'>
                 <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
-                        <img src="./content/images/showroom/web/franziska-noessing.jpg" alt="Mockup der Website von Franziska Nössing (nur der Pitch)">
+                        <img src="./content/images/showroom/web/rebound.jpg" alt="Rebound Product Site Demo">
                     </div>
                 </div>
                 <div class='col-xl-5'>
                     <div class="d-flex align-items-center showroom-container-text showroom-padding-right">
                         <div class="showroom-wrapper">
-                            <h2>Franziska Nössing</h2>
-                            <h3>UI / UX Design<br><br>Website Programmierung</h3>
-                            <a class="btn btn-primary" target="_blank" href="https://demo.raphaelbernhart.at/franziska-noessing/de/">Zur Website</a>
+                            <h2>Rebound Product Site</h2>
+                            <h3>UI/UX Design<br>Umsetzung</h3>
+                            <button class="btn btn-primary" onclick="referring('project_demo_rebound', 'https://demo.raphaelbernhart.at/rebound/')">Zur Website</butt>
                         </div>
                     </div>
                 </div>
@@ -362,15 +372,15 @@
                 <div class='col-xl-5'>
                     <div class="d-flex align-items-center showroom-container-text showroom-padding-right">
                         <div class="showroom-wrapper">
-                            <h2>Starbucks</h2>
-                            <h3>UI / UX Design</h3>
+                            <h2>Franziska Nössing</h2>
+                            <h3>UI/UX Design<br>Umsetzung</h3>
+                            <!-- <a class="btn btn-primary" href="https://demo.raphaelbernhart.at/franziska-noessing/de/">Zur Website</a> -->
                         </div>
                     </div>
                 </div>
                 <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
-                        <img src="./content/images/showroom/web/starbucks/starbucks1.jpg"
-                            alt="Mockup eines Redesigns der Starbucks App">
+                        <img src="./content/images/showroom/web/franziska-noessing.jpg" alt="Mockup der Website von Franziska Nössing (nur der Pitch)">
                     </div>
                 </div>
             </div>
@@ -443,17 +453,17 @@
             <div class='row showroom-item'>
                 <div class='col-xl-7 outer-wrapper-sr-img'>
                     <div class="showroom-container-image">
-                        <img src="./content/images/showroom/video/kdn-bfw/kdn01.jpg"
+                        <img src="./content/images/showroom/video/video02.jpg"
                             alt="Mockup eines Redesigns der Starbucks App">
                     </div>
                 </div>
                 <div class='col-xl-5'>
                     <div class="d-flex align-items-center showroom-container-text">
                         <div class="showroom-wrapper">
-                            <h2>BanditsfromWestside</h2>
-                            <h3>Kinder der Nacht - Musikvideo</h3>
+                            <h2>WDA Innsbruck</h2>
+                            <h3>"Rebound" - Semesterprojekt</h3>
                             <a class="btn btn-primary" target="_blank"
-                                href="https://www.youtube.com/watch?v=qciUvta1-Go">Zum Video</a>
+                                href="https://vimeo.com/523033458">Zum Video</a>
                         </div>
                     </div>
                 </div>
@@ -504,28 +514,31 @@
         <div class="background container-fluid contact-bg margin section-contact">
             <div class="container contact">
                 <h2 class="text-white">In Verbindung bleiben</h2><br>
-                <p class="text-white">Für geschäftliche Anfragen bitte eine E-Mail an <a class="text-white" href="mailto:mail@raphaelbernhart.at">mail@raphaelbernhart.at</a> <br>oder einfach auf den "Beauftrage Mich" Button klicken.</p>
-                <a style="font-size: 16px; margin-top: -5px;" target="_blank" class="btn btn-primary" href="https://www.fiverr.com/raphy02">Beauftrage Mich</a>
+                <p class="text-white">Für geschäftliche Anfragen bitte eine E-Mail an <a class="text-white" href="mailto:mail@raphaelbernhart.at">mail@raphaelbernhart.at</a></p>
+                <a style="font-size: 16px; margin-top: -5px;" target="_blank" class="btn btn-primary" href="mailto:mail@raphaelbernhart.at">Anfrage Senden</a>
                 <p style="margin-top: 3%;" class="text-light">
                     <a class="text-white" href="mailto:mail@raphaelbernhart.at">mail@raphaelbernhart.at</a><br>
                     <a class="text-white" href="tel:+43 664 860 65 67">+43 664 860 65 67</a class="text-white"><br>
-                    <a href="./impressum.html" class="text-underline text-white">Impressum</a><br><br>
+                    <a href="./impressum.html" class="text-underline text-white">Impressum</a><br>
+                    <a href="./agb.html" class="text-underline text-white">AGBs</a><br><br>
                     <span style="font-weight: 700;">Raphael Bernhart</span><br>
                     Achenweg 30<br>
                     6364 Brixen im Thale
                 </p>
                 <div style="margin-top: 60px;">
-                    <a href="https://www.behance.net/raphaelbernhart"><i
-                            class="fab fa-behance icon contact-icon"></i></a>
-                    <a class="text-white" href="mailto:mail@raphaelbernhart.at"><i
-                            class="fas fa-envelope icon contact-icon"></i></a>
-                    <a class="text-white" href="tel:+43 664 860 65 67"><i class="fas fa-phone icon contact-icon"></i></a
-                        class="text-white">
-                    <a class="text-white" href="https://unsplash.com/@raphy02" target="_blank"><svg version="1.1"
-                            viewBox="0 0 32 32" id="unsplash-icon" class="contact-icon">
+                    <a onclick="referring('github', 'https://github.com/raphaelbernhart')" target="_blank"><i
+                        class="fab fa-github icon header-icon"></i></a>
+                    <a onclick="referring('behance', 'https://www.behance.net/raphaelbernhart')" target="_blank"><i
+                            class="fab fa-behance icon header-icon"></i></a>
+                    <a onclick="referring('mail', 'mailto:mail@raphaelbernhart.at')"  target="_blank"><i
+                            class="fas fa-envelope icon header-icon"></i></a>
+                    <a onclick="referring('unsplash', 'https://unsplash.com/@raphy02')" target="_blank">
+                        <svg version="1.1" viewBox="0 0 32 32"
+                            id="unsplash-icon" class="header-icon">
                             <title id="unsplash-home">Unsplash</title>
                             <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
-                        </svg></a class="text-white">
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -564,11 +577,33 @@
         navContact.addEventListener('click', () => { jump('.section-contact',{ offset: -220, }) }),
         headerContactMe.addEventListener('click', () => { jump('.section-contact') }),
         headerScroll.addEventListener('click', () => { jump('.section-aboutme', { offset: -115, }) }),
+
         choiceWeb.addEventListener('click', () => { jump('.section-showroom', { offset: 300, }) }),
         choiceVideo.addEventListener('click', () => { jump('.section-showroom', { offset: 300, }) }),
-        choiceGraphic.addEventListener('click', () => { jump('.section-showroom', { offset: 300, }) })
+        choiceGraphic.addEventListener('click', () => { jump('.section-showroom', { offset: 300, }) });
+
+        $(document).ready(function() {
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+
+            const showroom = urlParams.get('showroom');
+
+            if (showroom === 'video') {
+                $("#showroom-video").removeClass("d-none");
+                $("#showroom-web").addClass("d-none");
+                $("#showroom-graphic").addClass("d-none");
+
+                jump('.section-showroom', { offset: 450, });
+            }
+        })
     </script>
-    <script src='core/js/global_js.js '></script>
+    <script defer src='core/js/global_js.js'></script>
+
+    <!-- Analytics -->
+    <script src="/core/js/ackee-tracker.min.js"></script>
+    <script src="/core/js/ackee.js"></script>
+    <!-- Analytics -->
 </body>
 
 </html>

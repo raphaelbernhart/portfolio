@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio
+  namespace: personal
+spec:
+  selector:
+    matchLabels:
+      app: portfolio
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: portfolio
+    spec:
+      containers:
+      - name: portfolio
+        image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.1.9
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "6M"
+            cpu: "20m"
+          limits:
+            memory: "12M"
+            cpu: "60m"
+      imagePullSecrets:
+      - name: regcred
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio
+  namespace: personal
+  annotations:
+    metallb.universe.tf/address-pool: production-public-ips
+spec:
+  selector:
+    app: portfolio
+  ports:
+  - port: 80
+    targetPort: 80
+
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: portfolio
+  namespace: personal
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+spec:
+  tls:
+  - hosts:
+    - raphaelbernhart.at
+    - www.raphaelbernhart.at
+    secretName: raphaelbernhart-at-tls
+  rules:
+  - host: raphaelbernhart.at
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: portfolio
+          servicePort: 80
