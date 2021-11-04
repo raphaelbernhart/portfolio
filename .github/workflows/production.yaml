@@ -7,6 +7,9 @@ on:
   # Allows to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+env:
+  DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -22,6 +25,12 @@ jobs:
       - name: Build Docker Image
         id: build-image
         run: docker build -t ${{ secrets.DOCKER_IMAGE }}:${{ steps.package-version.outputs.current-version}} .
+
+      - name: Install Datree
+        run: curl https://get.datree.io | /bin/bash
+          
+      - name: Run Datree's policy check
+        run: datree test ./manifest.yaml
   
   push:
     needs: test
@@ -62,6 +71,7 @@ jobs:
       
       - uses: Azure/k8s-deploy@v1.3
         with:
+          action: deploy
           namespace: ${{ secrets.KUBE_NAMESPACE }}
           manifests: |
               ./config/manifest.yml
