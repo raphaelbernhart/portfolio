@@ -30,7 +30,7 @@ jobs:
         run: curl https://get.datree.io | /bin/bash
           
       - name: Run Datree's policy check
-        run: datree test ./manifest.yaml
+        run: datree test ./config/manifest.yaml
   
   push:
     needs: test
