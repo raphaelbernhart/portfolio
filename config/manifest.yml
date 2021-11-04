@@ -3,11 +3,14 @@ kind: Deployment
 metadata:
   name: portfolio
   namespace: personal
+  labels:
+    owner: raphaelbernhart
+    env: prod
 spec:
   selector:
     matchLabels:
       app: portfolio
-  replicas: 1
+  replicas: 2
   strategy:
     type: RollingUpdate
   template:
@@ -19,6 +22,24 @@ spec:
       - name: portfolio
         image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.1.9
         imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 10
+          successThreshold: 2
+          timeoutSeconds: 5
         ports:
         - containerPort: 80
         resources:
