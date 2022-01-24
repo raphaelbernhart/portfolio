@@ -26,11 +26,25 @@ export default {
         }],
     },
 
+    server: {
+        port: 3000,
+        host: '0.0.0.0'
+    },
+
+    // Loading Bar
+    loading: false,
+
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: [],
+    css: [
+        '~/assets/css/base.css'
+    ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [],
+    plugins: [
+        { src: '~/plugins/both.ts' },
+        { src: '~/plugins/client.ts', mode: 'client' },
+        { src: '~/plugins/server.ts', mode: 'server' },
+    ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
