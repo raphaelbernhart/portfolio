@@ -1,3 +1,7 @@
 export default {
-    message: 'Das ist eine Testnachricht'
+    home: {
+        head: {
+            lead: 'Creative and dev from austria'
+        }
+    }
 }

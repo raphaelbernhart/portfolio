@@ -1,3 +1,7 @@
 export default {
-    message: 'This is a text message for testing purposes'
+    home: {
+        head: {
+            lead: 'Creative and Dev from Austria'
+        }
+    }
 }
