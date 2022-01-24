@@ -1,0 +1,11 @@
+/* Webfont Imports */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;1,200;1,400&display=swap');
+@import url('//hello.myfonts.net/count/41bc62');
+
+@font-face {
+    font-family: 'Eugusto';
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    src: url('~/static/fonts/Eugusto/normal_normal_normal.woff2') format('woff2'), url('~/static/fonts/Eugusto/normal_normal_normal.woff') format('woff');
+}

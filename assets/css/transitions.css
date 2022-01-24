@@ -1,0 +1,41 @@
+/* .page-enter-active,
+.page-leave-active {
+    transition: opacity .5s;
+}
+
+.page-enter,
+.page-leave-to {
+    opacity: 1;
+}
+
+
+.left-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: auto;
+    left: -100%;
+    bottom: auto;
+    right: auto;
+    background: #2d436f;
+    transition: all 0.7s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.left-layer.active {
+    left: 100%;
+}
+
+.left-layer--2 {
+    background: #5c7bba;
+    transition-delay: 0.2s;
+}
+
+.left-layer--3 {
+    background: #738ec4;
+    transition-delay: 0.12s;
+}
+
+.left-layer--4 {
+    background: #2e4470;
+    transition-delay: 0.08s;
+} */
