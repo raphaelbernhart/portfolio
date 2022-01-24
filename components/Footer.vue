@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-screen z-30 bg-primaryColor pt-14 pb-20 mt-36">
+    <div class="relative w-screen z-30 bg-primary pt-48 pb-4 mt-36">
         <div class="container">
             <img src="" alt="">
             <div class="flex justify-between flex-nowrap flex-col md:flex-row gap-6">
@@ -27,9 +27,15 @@
                     <a class="w-6 h-6 hover:text-gray-300 text-white transition-colors" href="tel:+4353348810"><svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>phone</title><g fill="none"><path d="M2 3a1 1 0 0 1 1-1h2.153a1 1 0 0 1 .986.836l.74 4.435a1 1 0 0 1-.54 1.06l-1.548.773a11.037 11.037 0 0 0 6.105 6.105l.774-1.548a1 1 0 0 1 1.059-.54l4.435.74a1 1 0 0 1 .836.986V17a1 1 0 0 1-1 1h-2C7.82 18 2 12.18 2 5V3z" class="fill-current"></path></g></svg></a>
                 </div>
             </div>
-        </div>
-        <div class="text-white absolute bottom-3 w-full text-center text-sm">
-            © Ulrich Schlechter | Design & Development by <a class="text-secondary hover:text-gray-400" href="https://raphaelbernhart.at/">Raphael Bernhart</a>
+            <div class="container relative mt-24">
+                <div class="absolute left-0 bottom-0 flex flex-row flex-wrap gap-x-16 gap-y-2 text-white text-sm">
+                    <div>© {{ new Date().getFullYear() }} Raphael Bernhart | All Rights Reserved</div>
+                    <div class="flex flex-nowrap gap-x-4">
+                        <a class="hover:text-gray-400 transition-colors underline" href="">Imprint</a>
+                        <a class="hover:text-gray-400 transition-colors underline" href="">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -38,6 +44,6 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-    name: 'FooterComponent'
+    name: 'FooterComponent',
 })
 </script>
