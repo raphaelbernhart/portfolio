@@ -2,7 +2,7 @@
     <div class="p-12 w-screen fixed z-30 pointer-events-none mix-blend-difference text-[#fffbef]">
         <div class="relative w-full flex justify-between items-center gap-x-4">
             <!-- LOGO -->
-            <div class="flex-initial w-14 h-14 cursor-pointer pointer-events-auto hover:text-gray-300 transition-colors" @click="$router.push({ path: '/' })">
+            <div class="flex-initial w-14 h-14 cursor-pointer pointer-events-auto hover:text-gray-400 transition-colors" @click="$router.push({ path: '/' })">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 68 68" style="enable-background:new 0 0 68 68;" xml:space="preserve">
                     <g class="fill-current">
                         <g>
@@ -16,11 +16,11 @@
             <!-- Links -->
             <div class="flex gap-x-10 font-thin pointer-events-auto items-center">
                 <div class="font-display text-xl pt-[3px]">
-                    <nuxt-link class="cursor-pointer hover:text-gray-300 transition-colors" :to="switchLocalePath($i18n.locales[1].code)">EN</nuxt-link>
+                    <nuxt-link class="cursor-pointer hover:text-gray-400 transition-colors" :to="switchLocalePath($i18n.locales[1].code)">EN</nuxt-link>
                     /
-                    <nuxt-link class="cursor-pointer hover:text-gray-300 transition-colors" :to="switchLocalePath($i18n.locales[0].code)">DE</nuxt-link>
+                    <nuxt-link class="cursor-pointer hover:text-gray-400 transition-colors" :to="switchLocalePath($i18n.locales[0].code)">DE</nuxt-link>
                 </div>
-                <div class="w-10 h-10 p-2 cursor-pointer hover:text-gray-300 transition-colors">
+                <div class="w-10 h-10 p-2 cursor-pointer hover:text-gray-400 transition-colors">
                     <svg class="w-full h-full" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18.9 18.9" xml:space="preserve">
                         <g transform="translate(-48 -48)" class="fill-current">
                             <g id="Gruppe_2" transform="translate(48 48)">
@@ -40,7 +40,7 @@
             </div>
             <!-- Social Media -->
             <div class="hidden md:flex absolute left-0 top-0 h-screen w-7 flex-col gap-y-5 justify-center pb-12">
-                <a href="https://www.behance.net/raphaelbernhart" target="_blank" class="w-full cursor-pointer pointer-events-auto hover:text-gray-300 transition-colors">
+                <a href="https://www.behance.net/raphaelbernhart" target="_blank" class="w-full cursor-pointer pointer-events-auto hover:text-gray-400 transition-colors">
                     <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                         <title>logo-behance</title>
                         <g class="fill-current">
@@ -51,7 +51,7 @@
                         </g>
                     </svg>
                 </a>
-                <a href="https://github.com/raphaelbernhart" target="_blank" class="w-full cursor-pointer pointer-events-auto hover:text-gray-300 transition-colors">
+                <a href="https://github.com/raphaelbernhart" target="_blank" class="w-full cursor-pointer pointer-events-auto hover:text-gray-400 transition-colors">
                     <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                         <title>logo-github</title>
                         <g class="fill-current">
@@ -59,7 +59,7 @@
                         </g>
                     </svg>
                 </a>
-                <a href="https://dribbble.com/raphaelbernhart" target="_blank" class="w-full cursor-pointer pointer-events-auto hover:text-gray-300 transition-colors">
+                <a href="https://dribbble.com/raphaelbernhart" target="_blank" class="w-full cursor-pointer pointer-events-auto hover:text-gray-400 transition-colors">
                     <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
                         <title>logo-dribbble</title>
                         <g class="fill-current">
