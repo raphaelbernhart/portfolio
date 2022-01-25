@@ -27,6 +27,11 @@
         name: 'IndexPage',
         components: {
             ServiceLink
+        },
+        head() {
+            return {
+                title: 'Home'
+            }
         }
     })
 </script>
