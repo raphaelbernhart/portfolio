@@ -2,7 +2,7 @@
     <div class="p-12 w-screen fixed z-30 pointer-events-none mix-blend-difference text-[#fffbef]">
         <div class="relative w-full flex justify-between items-center gap-x-4">
             <!-- LOGO -->
-            <div class="flex-initial w-12 h-12 cursor-pointer pointer-events-auto">
+            <div @click="$router.push({ path: '/' })" class="flex-initial w-12 h-12 cursor-pointer pointer-events-auto">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 68 68" style="enable-background:new 0 0 68 68;" xml:space="preserve">
                     <g class="fill-current">
                         <g>
