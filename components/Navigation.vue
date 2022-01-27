@@ -1,5 +1,5 @@
 <template>
-    <div class="p-12 w-screen fixed z-30 pointer-events-none mix-blend-difference text-[#fffbef]">
+    <div class="bg-primary md:bg-transparent p-12 w-screen fixed z-30 pointer-events-none md:mix-blend-difference text-[#fffbef]">
         <div class="relative w-full flex justify-between items-center gap-x-4">
             <!-- LOGO -->
             <div class="flex-initial w-14 h-14 cursor-pointer pointer-events-auto hover:text-gray-400 transition-colors" @click="$router.push({ path: '/' })">
