@@ -14,3 +14,8 @@ export const genID = (length: number) => {
 
     return finalID;
 }
+
+export const sanitize = (text: string) => {
+    const regex = /<script\b[^>]*>([\s\S]*?)<\/script>/gm;
+    return text.replace(regex, ' ');
+}
