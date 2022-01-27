@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
     mode: 'jit',
     darkMode: 'class',
@@ -42,11 +44,22 @@ module.exports = {
                 'shadow-xl': '0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.15) ',
                 'shadow-2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25) ',
                 'shadow-inner': ''
-            }
+            },
         },
         container: {
             center: true,
             padding: '2rem'
         }
     },
+    plugins: [
+        plugin(function({
+            addUtilities
+        }) {
+            addUtilities({
+                '.text-border-3': {
+                    textShadow: '-3px 3px 0 white, 3px 3px 0 white, 3px -3px 0 white, -3px -3px 0 white'
+                }
+            })
+        }),
+    ]
 }
