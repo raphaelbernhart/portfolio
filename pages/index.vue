@@ -1,19 +1,37 @@
 <template>
     <div>
         <div class="h-screen w-screen bg-primary dark:bg-primaryColor">
-            <div class="container">
-                <h1 class="font-display text-9xl uppercase max-w-4xl text-primary dark:text-text">{{ $t('home.head.lead') }}</h1>
-                <Button text="Testbutton" :light="true" />
+            <div class="container relative flex pb-6 items-end md:items-center h-full">
+                <h1 id="test-letterize" class="font-display text-7xl md:text-8xl lg:text-9xl uppercase max-w-4xl text-primary dark:text-text z-10 flex flex-col">
+                    <span class="flex gap-x-8 flex-wrap overflow-hidden">
+                        <span>Creative </span>
+                        <span>and</span>
+                    </span>
+                    <span class="flex gap-x-8 flex-wrap overflow-hidden">
+                        <span>dev </span>
+                        <span>from </span>
+                    </span>
+                    <span class="overflow-hidden">Austria</span>
+                </h1>
+                <img class="absolute left-16 bottom-24 md:left-32 md:bottom-60 h-[290px] brightness-50 pointer-events-none object-cover" src="@/assets/images/head.webp" alt="">
+                <!-- Mark -->
+                <MarkComponent class="hidden md:block absolute right-96 bottom-32" :text="$t('home.head.marking')" />
             </div>
         </div>
-        <section class="container flex gap-x-8 my-24">
-            <div class="max-w-lg">
-                <Button text="Testbutton" :light="false" />
-                <ParagraphComponent>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam suscipit obcaecati alias possimus quia dolorum dignissimos deleniti quaerat voluptas iusto vitae doloribus dicta neque sit, repellendus corporis est voluptatum delectus inventore aspernatur accusamus cupiditate soluta vero. Dignissimos natus nihil quaerat excepturi veniam, perspiciatis delectus facere accusamus voluptate! Adipisci ullam quas nemo hic. Corrupti, voluptate delectus. Nam culpa iste eos est, assumenda numquam dolorem nobis fugiat. Saepe non quam nam earum facere harum voluptatibus dolorum repudiandae iure recusandae eos modi delectus, ipsa fugit molestiae blanditiis similique libero omnis quibusdam ipsam obcaecati vel reiciendis quasi! Doloribus ea nam excepturi asperiores maiores assumenda necessitatibus deleniti, laudantium modi exercitationem tempore est cumque non magni porro quidem accusantium obcaecati culpa? Tempore enim dicta saepe reiciendis quasi sequi cumque labore vitae rerum earum maxime quidem aliquid blanditiis impedit laborum aspernatur ratione illo minus eveniet, dolorum, officia totam nihil. Molestias, sit perferendis! Illum perferendis sint ducimus quo, numquam quibusdam sit odit quia animi placeat eum eos fugiat libero aliquid fuga rem autem eveniet consequuntur ratione alias unde atque accusantium! Ipsam id, sapiente quas eveniet perspiciatis esse modi nostrum ipsum animi. Impedit aspernatur quidem cupiditate repellat omnis, nam dolorem delectus ullam nihil consectetur, dolore repudiandae, necessitatibus non eveniet laboriosam dolor magni est magnam dignissimos eum blanditiis voluptas quia modi! Ipsam at cumque enim aperiam consectetur repellat ex animi praesentium numquam libero. Sint corrupti recusandae similique vitae, ad repudiandae velit perspiciatis iure fugit voluptatibus temporibus facere explicabo aspernatur dolorem eum, voluptatum asperiores quasi! Nesciunt dolor non iure vitae velit maxime pariatur dolore accusantium molestias laudantium recusandae atque, facilis repellat, ipsam animi asperiores, eos totam rem ea nihil. Cumque aut neque facere eveniet qui atque tempora aspernatur voluptates adipisci, et consequuntur reprehenderit perferendis ipsum, maxime aperiam ratione, dolorem quia ipsa minus officia numquam id dicta. Perspiciatis nisi cupiditate, ut, eius quo alias, sit temporibus sint nemo veritatis et quos. Sunt libero dolor, asperiores, dolores eveniet accusamus, vero neque dolorum quasi velit quo praesentium quibusdam. Soluta quod veniam ipsam similique voluptatem assumenda provident voluptatibus expedita cum, earum quis quam praesentium, vero eos accusantium suscipit? Nesciunt fugiat neque soluta ad ab molestias adipisci rem accusamus distinctio harum? Molestiae vel assumenda dolor, praesentium voluptatum excepturi. Rem neque exercitationem quidem atque laudantium dolores obcaecati quo autem et iste, sapiente, aliquid expedita sit at. Dicta odit consequatur doloribus cupiditate exercitationem. Placeat reiciendis, voluptas quae sint, vero omnis totam eveniet asperiores officia blanditiis voluptatum nam officiis ipsam similique aperiam harum dolorum ipsum provident eos cupiditate. Aperiam nisi nesciunt itaque possimus corporis consequatur nostrum quod nulla? Explicabo rem sed alias omnis deleniti, iste error obcaecati illum aspernatur, aperiam rerum? Quidem fugiat veniam ducimus voluptatibus laudantium iure. Vel dolorum hic amet quos accusamus sed sunt perspiciatis harum illo, corrupti assumenda laborum illum odit alias provident magni nulla, dolorem modi, officia temporibus. Perferendis debitis minus rem at sit! Cupiditate ipsum deleniti sapiente delectus ipsa vel? Atque eos, rerum aperiam magnam in dolores eaque corporis harum, sunt est obcaecati officiis perferendis distinctio ut veniam saepe quod et labore. Ex, sit.</ParagraphComponent>
-            </div>
-            <div class="flex flex-col gap-y-4">
-                <h4 class="text-7xl font-thin italic">I focus on</h4>
-                <ServiceLink text="Development" />
+        <section class="container my-36 md:my-24">
+            <div class="space-y-28 lg:space-y-0 lg:grid grid-cols-5 gap-36">
+                <div class="col-span-2">
+                    <div class="relative">
+                        <ParagraphComponent class="max-w-[450px]" :text="$t('home.section-1.intro')"/>
+                        <div class="absolute h-[1px] w-screen right-3/4 lg:right-0 -bottom-8 bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-span-3 flex flex-col gap-y-3">
+                    <h4 class="text-5xl md:text-6xl font-thin italic">I focus on</h4>
+                    <ServiceLink text="Development" />
+                    <ServiceLink text="Video Production" />
+                    <ServiceLink text="Design" />
+                </div>
             </div>
         </section>
     </div>
@@ -32,6 +50,25 @@
             return {
                 title: 'Home'
             }
+        },
+        mounted() {
+            const letters: any = this.$letterize({ targets: '#test-letterize', className: 'inline-block' })
+
+            const anime: any = (this as any).$anime;
+
+            const animation = anime({
+                targets: letters.listAll,
+                easing: 'easeInOutQuad',
+                duration: 1500,
+                translateY: [125, 0],
+                opacity: [0, 1],
+                delay(_el: any, i: number) { return i * 35 },
+                autoplay: false
+            })
+
+            window.addEventListener('load', () => {
+                animation.play()
+            })
         }
     })
 </script>
