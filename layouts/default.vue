@@ -1,13 +1,13 @@
 <template>
     <div class="relative overflow-x-hidden">
-        <LocomotiveScroll
+        <!-- <LocomotiveScroll
             ref="scroller"
             :getted-options="{
                 smooth: true,
                 direction: 'vertical',
             }"
-        >
-            <div id="nuxt-startup-transition-container" class="bg-white w-screen min-h-screen opacity-0 transition-opacity duration-75" data-scroll-container>
+        > -->
+            <div id="nuxt-startup-transition-container" class="bg-white w-screen min-h-screen transition-opacity duration-75" data-scroll-container>
                 <Navigation />
                 <Nuxt class="pb-12" data-scroll-section />
                 <Footer data-scroll-section />
@@ -20,7 +20,7 @@
                 <div class="left-layer left-layer--3 pointer-events-auto"></div>
                 <div class="left-layer left-layer--4 pointer-events-auto"></div>
             </div>
-        </LocomotiveScroll>
+        <!-- </LocomotiveScroll> -->
     </div>
 </template>
 
@@ -77,5 +77,12 @@
         -moz-font-feature-settings: 'kern';
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+    .no-ligature {
+        -moz-font-feature-settings: "liga" off;
+        font-feature-settings: "liga" off;
+    }
+    .underline-offset-3 {
+        text-underline-offset: 3px;
     }
 </style>
