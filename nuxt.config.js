@@ -1,7 +1,9 @@
 export default {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
-        title: 'portfolio-v2',
+        title: 'Portfolio',
+        // all titles will be injected into this template
+        titleTemplate: '%s | Raphael Bernhart',
         meta: [{
                 charset: 'utf-8'
             },
@@ -44,6 +46,7 @@ export default {
         { src: '~/plugins/both.ts' },
         { src: '~/plugins/client.ts', mode: 'client' },
         { src: '~/plugins/server.ts', mode: 'server' },
+        '@/plugins/letterizejs/letterizejs.client.ts'
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,6 +58,7 @@ export default {
         '@nuxt/typescript-build',
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
+        'nuxt-animejs'
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
