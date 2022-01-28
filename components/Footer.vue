@@ -1,5 +1,5 @@
 <template>
-    <div class="relative w-screen z-10 bg-primary pt-40 pb-4 mt-36 min-h-screen md:min-h-0">
+    <div class="relative w-screen z-10 bg-primary pt-40 pb-4 min-h-screen md:min-h-0">
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-4">
                 <div class="hidden md:block"></div>
