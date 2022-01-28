@@ -18,5 +18,5 @@ export default Vue.extend({
 </script>
 
 <template>
-    <p class="leading-7" v-html="sanitize(text)" ></p>
+    <p class="leading-7 text-base" v-html="sanitize(text)" ></p>
 </template>

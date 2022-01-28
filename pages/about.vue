@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>{{ $t('about.test') }}</p>
+        <p class="text-base">{{ $t('about.test') }}</p>
     </div>
 </template>
 
