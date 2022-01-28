@@ -9,13 +9,13 @@
                         <div class="absolute h-[1px] w-screen left-0 top-0 bg-primaryColor"></div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-8 text-primary pt-12 text-lg">
-                        <div class="flex flex-col gap-y-2">
+                        <div class="flex flex-col gap-y-2 items-start">
                             <span class="font-bold">Say Hi!</span>
                             <a class="underline inline-block" href="mailto:mail@raphaelbernhart.at">mail@raphaelbernhart.at</a>
                         </div>
                         <div class="flex flex-col gap-y-2">
                             <span class="font-bold">Address</span>
-                            <div class="flex flex-col gap-y-1">
+                            <div class="flex flex-col gap-y-1 items-start">
                                 <span>Achenweg 30</span>
                                 <span>6364 Brixen im Thale</span>
                                 <span class="uppercase">Austria</span>
@@ -23,7 +23,7 @@
                         </div>
                         <div class="flex flex-col gap-y-2">
                             <span class="font-bold">Social Media</span>
-                            <div class="flex flex-col flex-grow-0 gap-y-1">
+                            <div class="flex flex-col flex-grow-0 gap-y-1 items-start">
                                 <a class="underline" href="">Behance</a>
                                 <a class="underline" href="">Github</a>
                                 <a class="underline" href="">Dribbble</a>
