@@ -9,7 +9,7 @@
         > -->
             <div id="nuxt-startup-transition-container" class="bg-white w-screen min-h-screen transition-opacity duration-75" data-scroll-container>
                 <Navigation />
-                <Nuxt class="pb-12" data-scroll-section />
+                <Nuxt data-scroll-section />
                 <Footer data-scroll-section />
             </div>
 
@@ -35,6 +35,8 @@
             window.addEventListener('load', () => {
                 this.$nuxt.$emit('update-locomotive')
             })
+
+            this.changeFaviconHostDarkMode()
         },
         methods: {
             transitionInit() {
@@ -66,6 +68,15 @@
 
                 // Whenever the user explicitly chooses to respect the OS preference
                 localStorage.removeItem('theme')
+            },
+            changeFaviconHostDarkMode() {
+                const faviconTag: any = document.getElementById("favicon-tag");
+                const darkModeEnabled = window.matchMedia("(prefers-color-scheme: dark)");
+
+                setInterval(() => {
+                    if (darkModeEnabled.matches) faviconTag.href = "./favicon-light.svg";
+                    else faviconTag.href = "./favicon-dark.svg";
+                }, 1000)
             }
         }
     })
