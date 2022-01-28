@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="relative inline-block overflow-hidden">
+        <div class="relative inline-block overflow-hidden text-text">
             <div class="cursor-pointer z-10 relative" @mouseenter="animate($event)">
                 <h3 class="text-6xl sm:text-7xl md:text-8xl font-display no-ligature underline underline-offset-3 md:no-underline md:text-border-3">{{ text }}</h3>
                 <h3 class="absolute bottom- text-6xl sm:text-7xl md:text-8xl font-display no-ligature underline underline-offset-3 md:no-underline md:text-border-3">{{ text }}</h3>
