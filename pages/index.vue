@@ -34,17 +34,36 @@
                 </div>
             </div>
         </section>
+        <section class="container my-36 md:my-24 relative">
+            <h3 class="absolute -left-24 top-0 text-7xl font-thin italic lowercase transform -rotate-90 text-featured">featured projects</h3>
+            <div class="flex flex-col -space-y-24">
+                <ProjectFeatured
+                    id="u87asdf" :index="0" name="Syndena" 
+                    text="I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I'm always looking to get my teeth stuck into new and exciting projects, so let's collaborate."
+                    image=""
+                    :categories="['Branding', 'Design']"
+                />
+                <ProjectFeatured
+                    id="ua4sdf" :index="1" name="The Campers" 
+                    text="I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I'm always looking to get my teeth stuck into new and exciting projects, so let's collaborate."
+                    image=""
+                    :categories="['Branding', 'Design']"
+                />
+            </div>
+        </section>
     </div>
 </template>
 
 <script lang="ts">
     import Vue from 'vue'
     import ServiceLink from '@/components/widgets/ServicesLink.vue'
+    import ProjectFeatured from '~/components/widgets/ProjectFeatured.vue'
 
     export default Vue.extend({
         name: 'IndexPage',
         components: {
-            ServiceLink
+            ServiceLink,
+            ProjectFeatured
         },
         head() {
             return {
@@ -72,3 +91,12 @@
         }
     })
 </script>
+
+<style class="scoped">
+    .featured-gap {
+        row-gap: -80px;
+    }
+    .text-featured {
+        transform-origin: 50% 418%;
+    }
+</style>
