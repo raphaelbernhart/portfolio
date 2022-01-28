@@ -30,7 +30,8 @@ module.exports = {
             },
             colors: {
                 primary: '#f5f1e6',
-                text: '#171716'
+                text: '#171716',
+                hover: '#293B2F'
             },
             height: {
                 lg: '320px',
