@@ -46,6 +46,9 @@ module.exports = {
                 'shadow-2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25) ',
                 'shadow-inner': ''
             },
+            fontSize: {
+                'base': '0.9rem'
+            }
         },
         container: {
             center: true,
