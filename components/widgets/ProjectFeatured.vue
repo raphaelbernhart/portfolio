@@ -81,7 +81,7 @@ export default Vue.extend({
             anime.remove(imageContainer)
             anime({
                 targets: imageContainer,
-                scale: (scale === 1.0) ? scale : 0.95,
+                scale: (scale === 1.0) ? scale : 0.97,
                 duration,
                 easing: 'easeInOutSine',
             })
@@ -96,7 +96,7 @@ export default Vue.extend({
             })
         },
         enterElement(e: Event) {
-            this.animate(1.2, 800, e)
+            this.animate(1.1, 800, e)
         },
         leaveElement(e: Event) {
             this.animate(1.0, 600, e)
