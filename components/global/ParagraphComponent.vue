@@ -1,22 +1,22 @@
 <script lang="ts">
 /* eslint-disable vue/no-v-html */
 
-import Vue from 'vue'
-import { sanitize } from '@/services/Helpers'
+import Vue from 'vue';
+import { sanitize } from '@/services/Helpers';
 
 export default Vue.extend({
     props: {
         text: {
             type: String,
-            required: true
-        }
+            required: true,
+        },
     },
     methods: {
-        sanitize
-    }
-})
+        sanitize,
+    },
+});
 </script>
 
 <template>
-    <p class="leading-7 text-base" v-html="sanitize(text)" ></p>
+    <p class="text-base leading-7" v-html="sanitize(text)"></p>
 </template>

@@ -4,50 +4,51 @@ export default {
         title: 'Portfolio',
         // all titles will be injected into this template
         titleTemplate: '%s | Raphael Bernhart',
-        meta: [{
-                charset: 'utf-8'
+        meta: [
+            {
+                charset: 'utf-8',
             },
             {
                 name: 'viewport',
-                content: 'width=device-width, initial-scale=1'
+                content: 'width=device-width, initial-scale=1',
             },
             {
                 hid: 'description',
                 name: 'description',
-                content: ''
+                content: '',
             },
             {
                 name: 'format-detection',
-                content: 'telephone=no'
+                content: 'telephone=no',
             },
         ],
-        link: [{
-            rel: 'shortcut icon',
-            type: 'image/x-icon',
-            href: '/favicon-dark.svg',
-            id: 'favicon-tag'
-        }],
+        link: [
+            {
+                rel: 'shortcut icon',
+                type: 'image/x-icon',
+                href: '/favicon-dark.svg',
+                id: 'favicon-tag',
+            },
+        ],
     },
 
     server: {
         port: 3000,
-        host: '0.0.0.0'
+        host: '0.0.0.0',
     },
 
     // Loading Bar
     loading: false,
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: [
-        '~/assets/css/base.css'
-    ],
+    css: ['~/assets/css/base.css'],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
         { src: '~/plugins/both.ts' },
         { src: '~/plugins/client.ts', mode: 'client' },
         { src: '~/plugins/server.ts', mode: 'server' },
-        '@/plugins/letterizejs/letterizejs.client.ts'
+        '@/plugins/letterizejs/letterizejs.client.ts',
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -59,7 +60,7 @@ export default {
         '@nuxt/typescript-build',
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
-        'nuxt-animejs'
+        'nuxt-animejs',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -70,6 +71,10 @@ export default {
         '@nuxtjs/pwa',
         '@nuxtjs/i18n',
     ],
+
+    router: {
+        middleware: 'NavigationMiddleware',
+    },
 
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
@@ -85,18 +90,19 @@ export default {
     },
 
     i18n: {
-        locales: [{
+        locales: [
+            {
                 code: 'de',
                 iso: 'de-DE',
                 file: 'de.ts',
-                name: 'Deutsch'
+                name: 'Deutsch',
             },
             {
                 code: 'en',
                 iso: 'en-US',
                 file: 'en.ts',
-                name: 'English'
-            }
+                name: 'English',
+            },
         ],
         baseUrl: 'http://localhost:3000',
         defaultLocale: 'de',
@@ -106,9 +112,9 @@ export default {
             useCookie: true,
             cookieKey: 'i18n_redirected',
             redirectOn: 'root', // recommended
-        }
+        },
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
-}
+};

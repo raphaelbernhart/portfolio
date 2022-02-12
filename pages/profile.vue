@@ -5,14 +5,14 @@
 </template>
 
 <script lang="ts">
-    import Vue from 'vue'
+import Vue from 'vue';
 
-    export default Vue.extend({
-        name: 'ProfilePage',
-        head() {
-            return {
-                title: 'About'
-            }
-        }
-    })
+export default Vue.extend({
+    name: 'ProfilePage',
+    head() {
+        return {
+            title: 'About',
+        };
+    },
+});
 </script>
