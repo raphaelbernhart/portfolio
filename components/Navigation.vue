@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-        <NavigationMenu v-if="$store.state.navigationOpened" />
+        <NavigationMenu v-if="$store.state.navigation.navigationOpened" />
     </div>
 </template>
 
@@ -141,9 +141,9 @@ export default Vue.extend({
     },
     methods: {
         toggleNavigation() {
-            if (this.$store.state.navigationOpened)
-                this.$store.commit('closeNavigation');
-            else this.$store.commit('openNavigation');
+            if (this.$store.state.navigation.navigationOpened)
+                this.$store.commit('navigation/closeNavigation');
+            else this.$store.commit('navigation/openNavigation');
         },
     },
 });

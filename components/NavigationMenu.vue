@@ -126,8 +126,6 @@ export default Vue.extend({
         this.animateNavLinks();
         this.animateSocialMedia();
         this.animateNavBg(false);
-
-        console.log(this.anime.running);
     },
     methods: {
         onLeave(_el: HTMLElement, done: Function) {
@@ -138,7 +136,7 @@ export default Vue.extend({
             this.animateNavLinksReverse();
         },
         closeNavigation() {
-            this.$store.commit('closeNavigation');
+            this.$store.commit('navigation/closeNavigation');
         },
         animateCloseButton() {
             const element = document.querySelector('#close-button');
