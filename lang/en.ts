@@ -25,6 +25,9 @@ export default {
                 },
             },
         },
+        'section-4': {
+            headline: 'Ready for take-off?',
+        },
     },
     about: {
         test: 'This is the about site',
