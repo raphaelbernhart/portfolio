@@ -148,7 +148,7 @@ export default Vue.extend({
         this.anime = (this as any).$anime;
 
         this.burgerMenuAnimation = this.anime.timeline({
-            duration: 500,
+            duration: 550,
             easing: 'easeInOutQuad',
         });
     },
