@@ -2,8 +2,10 @@
     <div class="h-screen flex items-center bg-primary">
         <div class="container">
             <h1 class="text-8xl font-display text-white">
-                <span v-if="error.statusCode === 404">Page not found</span>
-                <span v-else>An error occurred</span>
+                <span v-if="error.statusCode === 404">{{
+                    $t('error.404')
+                }}</span>
+                <span v-else>{{ $t('error.500') }}</span>
             </h1>
             <NuxtLink
                 to="/"

@@ -32,4 +32,8 @@ export default {
     about: {
         test: 'This is the about site',
     },
+    error: {
+        404: 'Page not found',
+        500: 'An error occured',
+    },
 };
