@@ -136,6 +136,8 @@ export default Vue.extend({
     },
     methods: {
         onLeave(_el: HTMLElement, done: Function) {
+            this.$emit('closeBurgerMenu');
+
             // Enable Scrolling
             window.onscroll = () => {};
 
@@ -144,9 +146,6 @@ export default Vue.extend({
                 done();
             });
             this.animateNavLinksReverse();
-        },
-        closeNavigation() {
-            this.$store.commit('navigation/closeNavigation');
         },
         animateCloseButton() {
             const element = document.querySelector('#close-button');

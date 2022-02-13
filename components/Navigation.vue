@@ -60,6 +60,7 @@
                         >
                     </div>
                     <div
+                        id="burgerMenu"
                         class="h-10 w-10 cursor-pointer p-2 transition-colors hover:text-gray-400"
                         @click="toggleNavigation()"
                     >
@@ -121,7 +122,10 @@
                 </div>
             </div>
         </div>
-        <NavigationMenu v-if="$store.state.navigation.navigationOpened" />
+        <NavigationMenu
+            v-if="$store.state.navigation.navigationOpened"
+            @closeBurgerMenu="closeBurgerMenu"
+        />
     </div>
 </template>
 
@@ -134,16 +138,90 @@ export default Vue.extend({
     components: {
         NavigationMenu,
     },
+    data() {
+        return {
+            anime: {} as Record<string, any>,
+            burgerMenuAnimation: '' as any,
+        };
+    },
     mounted() {
-        // setTimeout(() => {
-        //     this.$store.commit('openNavigation')
-        // }, 500)
+        this.anime = (this as any).$anime;
+
+        this.burgerMenuAnimation = this.anime.timeline({
+            duration: 500,
+            easing: 'easeInOutQuad',
+        });
     },
     methods: {
+        openBurgerMenu() {
+            const element = document.querySelector('#burgerMenu');
+
+            if (this.burgerMenuAnimation.reversed) {
+                this.burgerMenuAnimation.reverse();
+                this.burgerMenuAnimation.play();
+                return;
+            }
+
+            this.burgerMenuAnimation.add(
+                {
+                    targets: element,
+                    rotate: [0, 90],
+                },
+                '0',
+            );
+            this.burgerMenuAnimation.add(
+                {
+                    targets:
+                        element?.childNodes[0].childNodes[0].childNodes[0]
+                            .childNodes[2],
+                    translateY: [0, -35],
+                    opacity: [1, 0],
+                },
+                '0',
+            );
+            this.burgerMenuAnimation.add(
+                {
+                    targets:
+                        element?.childNodes[0].childNodes[0].childNodes[0]
+                            .childNodes[6],
+                    translateX: [0, -35],
+                    opacity: [1, 0],
+                },
+                '0',
+            );
+            this.burgerMenuAnimation.add(
+                {
+                    targets:
+                        element?.childNodes[0].childNodes[0].childNodes[0]
+                            .childNodes[10],
+                    translateX: [0, 35],
+                    opacity: [1, 0],
+                },
+                '0',
+            );
+            this.burgerMenuAnimation.add(
+                {
+                    targets:
+                        element?.childNodes[0].childNodes[0].childNodes[0]
+                            .childNodes[14],
+                    translateY: [0, 35],
+                    opacity: [1, 0],
+                },
+                '0',
+            );
+        },
+        closeBurgerMenu() {
+            this.burgerMenuAnimation.reverse();
+            this.burgerMenuAnimation.play();
+        },
         toggleNavigation() {
-            if (this.$store.state.navigation.navigationOpened)
+            if (this.$store.state.navigation.navigationOpened) {
                 this.$store.commit('navigation/closeNavigation');
-            else this.$store.commit('navigation/openNavigation');
+                // closeBurgerMenu wird automatisch durch child getriggert
+            } else {
+                this.$store.commit('navigation/openNavigation');
+                this.openBurgerMenu();
+            }
         },
     },
 });
