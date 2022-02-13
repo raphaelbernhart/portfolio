@@ -126,9 +126,19 @@ export default Vue.extend({
         this.animateNavLinks();
         this.animateSocialMedia();
         this.animateNavBg(false);
+
+        // Disable Scrolling
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+        window.onscroll = () => {
+            window.scroll(scrollX, scrollY);
+        };
     },
     methods: {
         onLeave(_el: HTMLElement, done: Function) {
+            // Enable Scrolling
+            window.onscroll = () => {};
+
             this.animateSocialMediaReverse();
             this.animateNavBg(true).finished.then(() => {
                 done();
