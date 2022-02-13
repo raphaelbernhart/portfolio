@@ -8,9 +8,9 @@
                 class="relative flex w-full items-center justify-between gap-x-4"
             >
                 <!-- LOGO -->
-                <div
+                <nuxt-link
                     class="pointer-events-auto relative z-40 h-14 w-14 flex-initial cursor-pointer transition-colors hover:text-gray-400"
-                    @click="$router.push({ path: '/' })"
+                    :to="localePath('/')"
                 >
                     <svg
                         version="1.1"
@@ -40,7 +40,7 @@
                             />
                         </g>
                     </svg>
-                </div>
+                </nuxt-link>
 
                 <!-- Links -->
                 <div
