@@ -54,6 +54,9 @@ export default {
         this.$nuxt.$on('update-locomotive', () => {
             this?.locomotive?.update();
         });
+        this.$nuxt.$on('scroll-top-locomotive', (options) => {
+            this?.locomotive?.scrollTo('top', options);
+        });
     },
     methods: {
         onScroll(e) {
