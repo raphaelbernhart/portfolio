@@ -1,33 +1,33 @@
 <template>
     <div class="relative overflow-x-hidden">
-        <!-- <LocomotiveScroll
+        <LocomotiveScroll
             ref="scroller"
             :getted-options="{
                 smooth: true,
                 direction: 'vertical',
             }"
-        > -->
-        <div
-            id="nuxt-startup-transition-container"
-            class="min-h-screen w-screen bg-white transition-opacity duration-75"
-            data-scroll-container
         >
-            <Navigation />
-            <SocialMediaFixed />
-            <Nuxt data-scroll-section />
-            <Footer data-scroll-section />
-        </div>
+            <div
+                id="nuxt-startup-transition-container"
+                class="min-h-screen w-screen bg-white transition-opacity duration-75"
+                data-scroll-container
+            >
+                <Navigation />
+                <SocialMediaFixed />
+                <Nuxt data-scroll-section />
+                <Footer data-scroll-section />
+            </div>
 
-        <!-- Transition -->
-        <div
-            class="pointer-events-none absolute top-0 left-0 z-40 h-screen w-screen overflow-hidden"
-        >
-            <div class="left-layer pointer-events-auto"></div>
-            <div class="left-layer left-layer--2 pointer-events-auto"></div>
-            <div class="left-layer left-layer--3 pointer-events-auto"></div>
-            <div class="left-layer left-layer--4 pointer-events-auto"></div>
-        </div>
-        <!-- </LocomotiveScroll> -->
+            <!-- Transition -->
+            <div
+                class="pointer-events-none absolute top-0 left-0 z-40 h-screen w-screen overflow-hidden"
+            >
+                <div class="left-layer pointer-events-auto"></div>
+                <div class="left-layer left-layer--2 pointer-events-auto"></div>
+                <div class="left-layer left-layer--3 pointer-events-auto"></div>
+                <div class="left-layer left-layer--4 pointer-events-auto"></div>
+            </div>
+        </LocomotiveScroll>
     </div>
 </template>
 
@@ -39,6 +39,23 @@ export default Vue.extend({
     name: 'HomePage',
     components: {
         SocialMediaFixed,
+    },
+    computed: {
+        isWorksRoute() {
+            const path = this.$route.path;
+            if (path !== '/works' && path !== '/en/works') return false;
+            else return true;
+        },
+    },
+    watch: {
+        $route(_to, _from) {
+            setTimeout(() => {
+                this.$nuxt.$emit('update-locomotive');
+                this.$nuxt.$emit('scroll-top-locomotive', {
+                    duration: 0,
+                });
+            }, 250);
+        },
     },
     mounted() {
         this.transitionInit();
