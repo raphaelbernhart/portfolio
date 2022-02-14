@@ -5,7 +5,7 @@
                 class="container relative flex h-full items-end pb-6 md:items-center"
             >
                 <h1
-                    id="test-letterize"
+                    id="head-letterize"
                     class="z-10 flex max-w-4xl flex-col font-display text-7xl uppercase text-primary dark:text-text md:text-8xl lg:text-9xl"
                 >
                     <span class="flex flex-wrap gap-x-8 overflow-hidden">
@@ -326,7 +326,7 @@ export default Vue.extend({
     },
     mounted() {
         const letters: any = this.$letterize({
-            targets: '#test-letterize',
+            targets: '#head-letterize',
             className: 'inline-block',
         });
 
