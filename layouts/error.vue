@@ -8,7 +8,7 @@
                 <span v-else>{{ $t('error.500') }}</span>
             </h1>
             <NuxtLink
-                to="/"
+                :to="localePath('/')"
                 class="text-white underline text-lg pt-12 relative block"
             >
                 Back to Home
