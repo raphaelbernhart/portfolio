@@ -1,7 +1,7 @@
 <template>
-    <div class="relative h-screen bg-primary">
-        <!-- <div class="pl-48">
-            <div class="flex justify-between">
+    <div class="relative bg-primary">
+        <div class="container">
+            <div class="flex justify-between pt-36">
                 <div class="flex items-center gap-x-4">
                     <span class="text-white text-xl font-light">01</span>
                     <div class="h-[1px] w-28 bg-white"></div>
@@ -28,69 +28,85 @@
                     >
                 </div>
             </div>
-            <div class="relative flex flex-nowrap">
-                <div class="relative inline-block max-h-[650px]">
-                    <div
-                        class="text-right inline-block absolute bottom-16 left-0"
-                    >
-                        <h2 class="text-9xl font-display text-white">
-                            Syndena
-                        </h2>
-                        <h3 class="text-xl uppercase text-white">
-                            Branding, Design
-                        </h3>
-                    </div>
-                    <img class="bg-gray-600 w-[1100px] h-[650px] ml-36" />
-                </div>
-                <div class="relative inline-block max-h-[650px]">
-                    <div
-                        class="text-right inline-block absolute bottom-16 left-0"
-                    >
-                        <h2 class="text-9xl font-display text-white">
-                            Syndena
-                        </h2>
-                        <h3 class="text-xl uppercase text-white">
-                            Branding, Design
-                        </h3>
-                    </div>
-                    <img class="bg-gray-600 w-[1100px] h-[650px] ml-36" />
-                </div>
-                <div class="relative inline-block max-h-[650px]">
-                    <div
-                        class="text-right inline-block absolute bottom-16 left-0"
-                    >
-                        <h2 class="text-9xl font-display text-white">
-                            Syndena
-                        </h2>
-                        <h3 class="text-xl uppercase text-white">
-                            Branding, Design
-                        </h3>
-                    </div>
-                    <img class="bg-gray-600 w-[1100px] h-[650px] ml-36" />
-                </div>
-                <div class="relative inline-block max-h-[650px]">
-                    <div
-                        class="text-right inline-block absolute bottom-16 left-0"
-                    >
-                        <h2 class="text-9xl font-display text-white">
-                            Syndena
-                        </h2>
-                        <h3 class="text-xl uppercase text-white">
-                            Branding, Design
-                        </h3>
-                    </div>
-                    <img class="bg-gray-600 w-[1100px] h-[650px] ml-36" />
-                </div>
+            <!-- Projects -->
+            <div
+                id="projects-container"
+                class="relative flex flex-col mt-14 pb-24 gap-y-24"
+            >
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
+                <Project
+                    id="90a8sdf"
+                    name="Syndena"
+                    :categories="['Branding', 'Design']"
+                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                />
             </div>
-        </div> -->
+        </div>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Project from '~/components/widgets/ProjectCard.vue';
 
 export default Vue.extend({
     name: 'WorksPage',
+    components: {
+        Project,
+    },
     layout: 'horizontal',
     head() {
         return {
