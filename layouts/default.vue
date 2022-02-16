@@ -65,6 +65,9 @@ export default Vue.extend({
         });
 
         this.changeFaviconHostDarkMode();
+
+        // Fade Up Animation Event
+        this.fadeUpAnimation();
     },
     methods: {
         transitionInit() {
@@ -114,6 +117,23 @@ export default Vue.extend({
                     faviconTag.href = './favicon-light.svg';
                 else faviconTag.href = './favicon-dark.svg';
             }, 1000);
+        },
+        fadeUpAnimation() {
+            // Fade Up Animation
+            const fadeUpAnimation = (this as any).$anime({
+                targets: '.fade-up',
+                easing: 'easeInOutQuad',
+                translateY: [50, 0],
+                opacity: [0, 1],
+                duration: 1000,
+                autoplay: false,
+            });
+
+            this.$locomotive.on('call', (e: any) => {
+                if (e === 'FADE_UP') {
+                    fadeUpAnimation.play();
+                }
+            });
         },
     },
 });
