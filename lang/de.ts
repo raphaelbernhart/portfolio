@@ -47,6 +47,29 @@ export default {
                 'In meiner Freizeit gehe ich gerne Skifahren, schaue Basketballspiele oder produziere Videos für mich und meine Freunde.',
         },
     },
+    contact: {
+        leading: 'Ich freue mich von Ihnen zu hören',
+        form: {
+            headline: 'Kontakt',
+            send: 'Absenden',
+            name: {
+                title: 'Name',
+                placeholder: 'Dein Name',
+            },
+            email: {
+                title: 'E-Mail',
+                placeholder: 'Deine E-Mail',
+            },
+            phone: {
+                title: 'Telefonnummer',
+                placeholder: 'Deine Telefonnummer',
+            },
+            message: {
+                title: 'Nachricht',
+                placeholder: 'Schreib mir eine Nachricht',
+            },
+        },
+    },
     error: {
         404: 'Seite nicht gefunden',
         500: 'Ein Fehler ist aufgetreten',

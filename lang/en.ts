@@ -47,6 +47,29 @@ export default {
                 'On my free time I am going backcountry skiing, watching basketball games or producing videos for me and my friends.',
         },
     },
+    contact: {
+        leading: "I'd love to hear from you",
+        form: {
+            headline: 'Contact',
+            send: 'Submit',
+            name: {
+                title: 'Name',
+                placeholder: 'Your Name',
+            },
+            email: {
+                title: 'Email',
+                placeholder: 'Your Email',
+            },
+            phone: {
+                title: 'Phone Number',
+                placeholder: 'Your Phone Number',
+            },
+            message: {
+                title: 'Message',
+                placeholder: 'Enter your message',
+            },
+        },
+    },
     error: {
         404: 'Page not found',
         500: 'An error occured',
