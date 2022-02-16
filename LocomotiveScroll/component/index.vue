@@ -5,15 +5,19 @@
 </template>
 
 <script>
+import Vue from 'vue';
+
 export default {
     name: 'LocomotiveScroll',
     directives: {
         locomotive: {
             inserted(el, binding, vnode) {
-                vnode.context.locomotive = new vnode.context.LocomotiveScroll({
+                const locomotive = new vnode.context.LocomotiveScroll({
                     el,
                     ...binding.value.options,
                 });
+                Vue.prototype.$locomotive = locomotive;
+                vnode.context.locomotive = locomotive;
                 vnode.context.locomotive.on('scroll', (e) => {
                     vnode.context.onScroll(e);
                     vnode.context.$emit('scroll');
