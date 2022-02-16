@@ -1,17 +1,28 @@
 <template>
-    <div class="flex flex-col">
+    <div class="relative flex flex-col">
         <div>
-            <label class="text-md" :for="id"
+            <label
+                ref="label"
+                class="text-sm uppercase absolute top-4 left-0 text-text pointer-events-none"
+                :for="id"
                 >{{ label }}<span v-if="required">*</span></label
             >
         </div>
         <textarea
             :id="id"
+            ref="input"
             v-model="inputValue"
             :name="id"
-            class="focus:outline-none mt-1 min-h-[150px] bg-gray-200 py-3 px-4"
-            :placeholder="placeholder"
+            class="focus:outline-none mt-1 bg-transparent py-3 min-h-[140px]"
+            @focus="onFocus()"
+            @blur="onBlur()"
         ></textarea>
+        <!-- Lines -->
+        <div class="h-[1px] w-full bg-gray-400 absolute bottom-0 left-0"></div>
+        <div
+            ref="line"
+            class="h-[1px] w-full bg-text absolute bottom-0 left-0"
+        ></div>
     </div>
 </template>
 
@@ -30,10 +41,6 @@ export default Vue.extend({
             type: Boolean,
             required: false,
             default: false,
-        },
-        placeholder: {
-            type: String,
-            required: true,
         },
         value: {
             type: String,
@@ -56,8 +63,44 @@ export default Vue.extend({
             },
         },
     },
-    created() {
+    mounted() {
         (this as any).id = genID(2);
+        (this as any).initInputAnimation();
+    },
+    methods: {
+        onFocus() {
+            if ((this as any).$refs.input.value) return;
+            if ((this as any).inputAnimation.reversed)
+                (this as any).inputAnimation.reverse();
+
+            (this as any).inputAnimation.play();
+        },
+        onBlur() {
+            if ((this as any).$refs.input.value) return;
+            (this as any).inputAnimation.reverse();
+            (this as any).inputAnimation.play();
+        },
+        initInputAnimation() {
+            (this as any).inputAnimation = (this as any).$anime.timeline({
+                duration: 300,
+                easing: 'easeInOutQuad',
+                autoplay: false,
+            });
+
+            (this as any).inputAnimation.add({
+                targets: this.$refs.label,
+                translateY: [0, -25],
+                // color: ['#767c89', '#171716'],
+            });
+
+            (this as any).inputAnimation.add(
+                {
+                    targets: this.$refs.line,
+                    scaleX: [0, 1],
+                },
+                '-=200',
+            );
+        },
     },
 });
 </script>
