@@ -29,8 +29,23 @@ export default {
             headline: 'Ready for take-off?',
         },
     },
-    about: {
-        test: 'This is the about site',
+    profile: {
+        head: {
+            lead: 'About me',
+            paragraph:
+                'I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I’m always looking to get my teeth stuck into new and exciting projects, so let’s collaborate﻿.',
+            marking:
+                'This is a sample text to show what could be here. This could be a product description or a project description.',
+        },
+        'section-1': {
+            headline: "Where I'm located",
+            paragraph:
+                'I live in the heart of the Alps, Austria. The country with the drunken Dutchman in winter and the yodeling Germans in summer. Furthermore, we have something like culture or so',
+        },
+        'section-2': {
+            paragraph:
+                'On my free time I am going backcountry skiing, watching basketball games or producing videos for me and my friends.',
+        },
     },
     error: {
         404: 'Page not found',

@@ -29,8 +29,23 @@ export default {
             headline: 'Ready for take-off?',
         },
     },
-    about: {
-        test: 'Das ist die about seite',
+    profile: {
+        head: {
+            lead: 'Über mich',
+            paragraph:
+                'I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I’m always looking to get my teeth stuck into new and exciting projects, so let’s collaborate﻿.',
+            marking:
+                'Das ist ein Beispiel Text, um zu zeigen, was hier stehen könnte. Das hier könnte eine Produktbeschreibung oder eine Projektbeschreibung sein.',
+        },
+        'section-1': {
+            headline: 'Woher ich komme',
+            paragraph:
+                'Ich wohne im Herzen der Alpen, Österreich. Das Land mit den betrunkenen Niederländern im Winter und den jodelnden Deutschen im Sommer. Zusätzlich gibt es bei uns so etwas wie Kultur oder so.',
+        },
+        'section-2': {
+            paragraph:
+                'In meiner Freizeit gehe ich gerne Skifahren, schaue Basketballspiele oder produziere Videos für mich und meine Freunde.',
+        },
     },
     error: {
         404: 'Seite nicht gefunden',
