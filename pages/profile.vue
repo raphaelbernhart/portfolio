@@ -154,7 +154,7 @@ export default Vue.extend({
     },
     head() {
         return {
-            title: 'About',
+            title: 'Profile',
         };
     },
     mounted() {
