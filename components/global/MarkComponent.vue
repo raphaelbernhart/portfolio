@@ -34,6 +34,7 @@
                         duration: 800,
                         translateY: [50, 0],
                         opacity: [0, 1],
+                        delay: delay,
                     }"
                     class="max-w-[280px] text-center text-sm"
                 >
@@ -53,21 +54,32 @@ export default Vue.extend({
             type: String,
             required: true,
         },
+        delay: {
+            type: Number,
+            required: false,
+            default: 0,
+        },
     },
     mounted() {
         const anime = (this as any).$anime;
 
-        anime({
-            targets: '#animation .stroke-animation',
-            strokeDashoffset: [(this as any).$anime.setDashoffset, 0],
+        const tl = anime.timeline({
             easing: 'easeInOutSine',
             duration: 1000,
             delay(_el: any, i: number) {
                 return i * 120;
             },
-            direction: 'alternate',
             loop: false,
         });
+
+        tl.add(
+            {
+                targets: '#animation .stroke-animation',
+                strokeDashoffset: [(this as any).$anime.setDashoffset, 0],
+                direction: 'alternate',
+            },
+            this.delay,
+        );
     },
 });
 </script>
