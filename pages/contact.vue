@@ -1,15 +1,23 @@
 <template>
     <div class="relative bg-primary min-h-screen text-primary">
-        <div class="container">
-            <div class="grid grid-cols-2 pt-36">
-                <div>
-                    <h1
-                        class="font-display text-6xl uppercase max-w-xl leading-tight"
+        <div class="container h-screen">
+            <div class="grid grid-cols-2 h-full">
+                <div class="pt-48">
+                    <div class="relative z-10">
+                        <h1
+                            class="font-display text-6xl uppercase max-w-xl leading-tight"
+                        >
+                            {{ $t('contact.leading') }}
+                        </h1>
+                    </div>
+                    <!-- Map -->
+                    <div
+                        class="absolute left-0 top-0 w-1/2 h-full z-0 pt-[360px]"
                     >
-                        {{ $t('contact.leading') }}
-                    </h1>
+                        <InteractiveMapComponent />
+                    </div>
                 </div>
-                <div>
+                <div class="flex items-center h-full">
                     <div class="text-text relative z-10 pl-24">
                         <h2
                             class="font-display text-3xl uppercase max-w-xl leading-tight"
@@ -54,8 +62,13 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import InteractiveMapComponent from '@/components/widgets/InteractiveMapComponent.vue';
+
 export default Vue.extend({
     name: 'ContactPage',
+    components: {
+        InteractiveMapComponent,
+    },
     data() {
         return {
             form: {
