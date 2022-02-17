@@ -78,21 +78,21 @@ export default Vue.extend({
                     <div
                         class="col-span-3 flex flex-wrap gap-x-6 mt-4 md:mt-0 gap-y-4 md:gap-y-0"
                     >
-                        <router-link
-                            :to="{ path: '/imprint' }"
+                        <nuxt-link
+                            :to="localePath('/imprint')"
                             class="underline transition-colors hover:text-gray-400"
                             >{{ $t('footer.imprint') }}
-                        </router-link>
-                        <router-link
-                            :to="{ path: '/privacy' }"
+                        </nuxt-link>
+                        <nuxt-link
+                            :to="localePath('/imprint')"
                             class="underline transition-colors hover:text-gray-400"
                             >{{ $t('footer.privacy') }}
-                        </router-link>
-                        <router-link
-                            :to="{ path: '/agb' }"
+                        </nuxt-link>
+                        <nuxt-link
+                            :to="localePath('/agb')"
                             class="underline transition-colors hover:text-gray-400"
                             >{{ $t('footer.agb') }}
-                        </router-link>
+                        </nuxt-link>
                     </div>
                 </div>
             </div>
