@@ -1,14 +1,29 @@
+<script lang="ts">
+/* eslint-disable vue/no-v-html */
+
+import Vue from 'vue';
+import { sanitize } from '@/services/Helpers';
+
+export default Vue.extend({
+    name: 'FooterComponent',
+    methods: {
+        sanitize,
+    },
+});
+</script>
+
 <template>
     <div
-        class="relative z-10 min-h-screen w-screen bg-primary pt-40 pb-4 md:min-h-0"
+        class="relative z-10 min-h-screen w-screen bg-primary pt-56 md:pt-40 pb-4 md:min-h-0"
     >
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-4">
                 <div class="hidden md:block"></div>
                 <div class="col-span-3">
-                    <h3 class="max-w-lg font-display text-8xl text-primary">
-                        Let's stay in touch
-                    </h3>
+                    <h3
+                        class="max-w-2xl font-display text-7xl md:text-8xl text-primary"
+                        v-html="sanitize($t('footer.leading'))"
+                    ></h3>
                     <div class="relative my-8">
                         <div
                             class="absolute left-0 top-0 h-[1px] w-screen bg-primaryColor"
@@ -60,28 +75,27 @@
                         © {{ new Date().getFullYear() }} Raphael Bernhart | All
                         Rights Reserved
                     </div>
-                    <div class="col-span-3 flex flex-nowrap gap-x-4">
+                    <div
+                        class="col-span-3 flex flex-wrap gap-x-6 mt-4 md:mt-0 gap-y-4 md:gap-y-0"
+                    >
                         <router-link
                             :to="{ path: '/imprint' }"
                             class="underline transition-colors hover:text-gray-400"
-                            >Imprint</router-link
-                        >
+                            >{{ $t('footer.imprint') }}
+                        </router-link>
                         <router-link
                             :to="{ path: '/privacy' }"
                             class="underline transition-colors hover:text-gray-400"
-                            >Privacy Policy</router-link
-                        >
+                            >{{ $t('footer.privacy') }}
+                        </router-link>
+                        <router-link
+                            :to="{ path: '/agb' }"
+                            class="underline transition-colors hover:text-gray-400"
+                            >{{ $t('footer.agb') }}
+                        </router-link>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-    name: 'FooterComponent',
-});
-</script>

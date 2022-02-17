@@ -70,6 +70,12 @@ export default {
             },
         },
     },
+    footer: {
+        leading: 'In Verbindung bleiben',
+        imprint: 'Impressum',
+        privacy: 'Datenschutzerklärung',
+        agb: 'Allgemeine Geschäftsbedingungen',
+    },
     error: {
         404: 'Seite nicht gefunden',
         500: 'Ein Fehler ist aufgetreten',

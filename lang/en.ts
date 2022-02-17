@@ -70,6 +70,12 @@ export default {
             },
         },
     },
+    footer: {
+        leading: "Let's stay <br>in touch",
+        imprint: 'Imprint',
+        privacy: 'Privacy Policy',
+        agb: 'Terms and Conditions',
+    },
     error: {
         404: 'Page not found',
         500: 'An error occured',
