@@ -2,7 +2,7 @@
     <!-- Navigation -->
     <div>
         <div
-            class="pointer-events-none fixed z-40 w-screen bg-primary p-12 text-[#fffbef] md:bg-transparent md:mix-blend-difference"
+            class="pointer-events-none fixed z-40 w-screen bg-primary p-12 py-8 md:py-12 text-[#fffbef] md:bg-transparent md:mix-blend-difference"
         >
             <div
                 class="relative flex w-full items-center justify-between gap-x-4"
