@@ -114,8 +114,8 @@ export default Vue.extend({
 
             setInterval(() => {
                 if (darkModeEnabled.matches)
-                    faviconTag.href = './favicon-light.svg';
-                else faviconTag.href = './favicon-dark.svg';
+                    faviconTag.href = '/favicon-light.svg';
+                else faviconTag.href = '/favicon-dark.svg';
             }, 1000);
         },
         fadeUpAnimation() {
