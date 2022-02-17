@@ -1,5 +1,6 @@
 <template>
-    <div
+    <nuxt-link
+        :to="localePath('/works/syndena')"
         class="relative inline-block max-h-[650px] cursor-pointer w-full"
         @mouseenter="enterElement($event)"
         @mouseleave="leaveElement($event)"
@@ -34,7 +35,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </nuxt-link>
 </template>
 
 <script lang="ts">
