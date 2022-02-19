@@ -1,13 +1,13 @@
 <template>
     <div :class="{ 'justify-end': isEven }" class="flex w-full">
         <div
-            class="duration-400 relative flex cursor-pointer flex-row items-end text-text transition-colors hover:text-hover"
+            class="duration-400 relative flex cursor-pointer flex-col sm:flex-row sm:items-end text-text transition-colors hover:text-hover"
             @mouseenter="enterElement($event)"
             @mouseleave="leaveElement($event)"
         >
             <div
-                :class="{ 'order-2': isEven, 'order-1': !isEven }"
-                class="h-52 w-full overflow-hidden md:h-[740px] md:w-[512px]"
+                :class="{ 'sm:order-2': isEven, 'sm:order-1': !isEven }"
+                class="h-80 sm:h-52 w-full overflow-hidden md:h-[740px] md:w-[512px]"
             >
                 <img
                     v-if="image"
@@ -23,8 +23,11 @@
                 />
             </div>
             <div
-                :class="{ 'order-1 -mr-48': isEven, 'order-2 -ml-48': !isEven }"
-                class="relative mb-24"
+                :class="{
+                    'sm:order-1 sm:-mr-48': isEven,
+                    'sm:order-2 sm:-ml-48': !isEven,
+                }"
+                class="relative mb-24 mt-10 sm:mt-0"
             >
                 <div class="relative z-10 flex max-w-lg flex-col gap-y-8">
                     <h3 class="max-w-md font-display text-7xl md:text-8xl">

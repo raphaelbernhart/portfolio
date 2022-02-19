@@ -1,7 +1,7 @@
 <template>
     <div class="relative bg-primary">
         <div class="container">
-            <div class="flex justify-between pt-36">
+            <div class="flex justify-between pt-32 xs:pt-36">
                 <div class="flex items-center gap-x-4">
                     <span class="text-white text-xl font-light">01</span>
                     <div class="h-[1px] w-28 bg-white"></div>
@@ -31,7 +31,7 @@
             <!-- Projects -->
             <div
                 id="projects-container"
-                class="relative flex flex-col mt-14 pb-24 gap-y-24"
+                class="relative flex flex-col mt-6 xs:mt-14 pb-24 gap-y-48 md:gap-y-24"
             >
                 <Project
                     id="90a8sdf"
@@ -41,13 +41,13 @@
                 />
                 <Project
                     id="90a8sdf"
-                    name="Syndena"
+                    name="The Fucking Campers"
                     :categories="['Branding', 'Design']"
                     image="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 />
                 <Project
                     id="90a8sdf"
-                    name="Syndena"
+                    name="Factor Innsbruck"
                     :categories="['Branding', 'Design']"
                     image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                 />

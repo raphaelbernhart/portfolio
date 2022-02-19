@@ -1,16 +1,21 @@
 <template>
     <nuxt-link
         :to="localePath('/works/syndena')"
-        class="relative inline-block max-h-[650px] cursor-pointer w-full"
+        class="relative inline-flex flex-col gap-y-6 md:gap-y-0 md:inline-block max-h-[650px] cursor-pointer w-full"
         @mouseenter="enterElement($event)"
         @mouseleave="leaveElement($event)"
     >
         <div
-            class="text-right inline-block absolute bottom-16 left-0 z-20 text-primary"
+            class="order-2 md:order-1 md:text-right inline-block md:absolute bottom-16 left-0 z-20 text-primary"
             data-scroll
             data-scroll-speed="4"
         >
-            <h2 ref="text" class="text-9xl font-display">{{ name }}</h2>
+            <h2
+                ref="text"
+                class="text-7xl md:text-9xl font-display break-words"
+            >
+                {{ name }}
+            </h2>
             <h3 ref="categories" class="text-xl uppercase">
                 <span v-for="(category, iCat) in categories" :key="category">
                     {{ category
@@ -19,11 +24,13 @@
             </h3>
         </div>
         <div
-            class="overflow-hidden relative w-full h-[650px] z-10 flex justify-end"
+            class="order-1 md:order-2 overflow-hidden relative w-full h-[350px] xs:h-[450px] md:h-[650px] z-10 flex justify-end"
             data-scroll
             data-scroll-speed="2"
         >
-            <div class="overflow-hidden inline-block h-full relative w-[88%]">
+            <div
+                class="overflow-hidden inline-block h-full relative w-full md:w-[88%]"
+            >
                 <div class="w-full h-full">
                     <img
                         data-scroll
@@ -114,13 +121,20 @@ export default Vue.extend({
             const textElement = this.$refs.text as HTMLElement;
             const categories = this.$refs.categories as HTMLElement;
 
-            const letters: any = this.$letterize({
-                targets: textElement,
-                className: 'inline-block',
-            });
+            let targets: any = textElement;
 
-            letters.listAll.push(categories);
-            const targets = letters.listAll;
+            if (window.innerWidth > 450) {
+                const letters: any = this.$letterize({
+                    targets: textElement,
+                    className: 'inline-block',
+                });
+
+                targets = letters.listAll;
+
+                letters.listAll.push(categories);
+            } else {
+                targets = [targets, categories];
+            }
 
             if (!this.isInViewport(textElement)) return;
 

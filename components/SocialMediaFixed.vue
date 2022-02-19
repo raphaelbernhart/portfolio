@@ -1,7 +1,7 @@
 <template>
     <!-- Social Media -->
     <div
-        class="fixed left-0 top-0 z-20 hidden h-screen w-32 flex-col justify-center gap-y-5 p-12 text-primary mix-blend-difference md:flex pointer-events-none"
+        class="hidden fixed left-0 top-0 z-20 h-screen w-32 flex-col justify-center gap-y-5 p-12 text-primary mix-blend-difference xl:flex pointer-events-none"
     >
         <a
             href="https://www.behance.net/raphaelbernhart"

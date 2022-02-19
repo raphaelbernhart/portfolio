@@ -1,5 +1,5 @@
 <template>
-    <div class="relative flex flex-col">
+    <div class="relative flex flex-col w-full sm:w-[45%]">
         <div>
             <label
                 ref="label"

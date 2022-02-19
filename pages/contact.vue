@@ -1,9 +1,11 @@
 <template>
     <div class="relative bg-primary min-h-screen text-primary">
-        <div class="container h-screen">
+        <div class="container sm:h-screen">
             <div class="grid grid-cols-2 h-full">
-                <div class="pt-48">
-                    <div class="relative z-10">
+                <div
+                    class="relative sm:static pt-36 sm:pt-48 col-span-2 h-screen sm:min-h-0 sm:col-span-1"
+                >
+                    <div class="relative">
                         <h1
                             class="font-display text-6xl uppercase max-w-xl leading-tight"
                         >
@@ -12,19 +14,21 @@
                     </div>
                     <!-- Map -->
                     <div
-                        class="absolute left-0 top-0 w-1/2 h-full z-0 pt-[360px]"
+                        class="absolute left-0 bottom-0 h-[40%] xs:h-1/2 xl:h-[60%] w-[120%] sm:w-1/2 -ml-10 sm:ml-0 z-0"
                     >
                         <InteractiveMapComponent />
                     </div>
                 </div>
-                <div class="flex items-center h-full">
-                    <div class="text-text relative z-10 pl-24">
+                <div
+                    class="relative sm:static sm:bg-transparent py-28 sm:py-0 sm:min-h-screen w-full sm:flex items-center h-full col-span-2 sm:col-span-1"
+                >
+                    <div class="text-text relative z-10 sm:pl-24">
                         <h2
                             class="font-display text-3xl uppercase max-w-xl leading-tight"
                         >
                             {{ $t('contact.form.headline') }}
                         </h2>
-                        <div class="mt-12 flex flex-wrap gap-8">
+                        <div class="mt-12 flex flex-wrap justify-between gap-8">
                             <InputText
                                 :label="$t('contact.form.name.title')"
                                 :required="true"
@@ -52,7 +56,7 @@
                     </div>
                     <!-- Background -->
                     <div
-                        class="absolute right-0 top-0 bg-white h-screen w-1/2"
+                        class="absolute -right-10 sm:right-0 top-0 bg-white h-screen w-screen sm:w-1/2"
                     ></div>
                 </div>
             </div>

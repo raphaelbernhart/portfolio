@@ -26,7 +26,7 @@
                 <!-- Mark -->
                 <MarkComponent
                     v-if="initAnimationFinished"
-                    class="absolute right-96 bottom-32 hidden md:block"
+                    class="absolute md:-right-20 xl:right-96 md:bottom-10 xl:bottom-32 hidden md:block"
                     :text="$t('home.head.marking')"
                 />
             </div>
@@ -58,11 +58,13 @@
 
         <section class="container relative my-56">
             <h3
-                class="text-featured absolute -left-24 top-0 -rotate-90 transform text-7xl font-thin lowercase italic"
+                class="text-featured hidden xl:absolute -left-24 top-0 -rotate-90 transform text-7xl font-thin lowercase italic"
             >
                 featured projects
             </h3>
-            <div class="flex flex-col -space-y-24">
+            <div
+                class="flex flex-col gap-y-16 sm:gap-y-0 md:gap-y-24 xl:-space-y-24"
+            >
                 <ProjectFeatured
                     id="u87asdf"
                     :index="0"
@@ -84,15 +86,15 @@
 
         <section class="relative mt-36 w-screen bg-primary py-24 text-primary">
             <div class="container">
-                <div class="grid grid-cols-12">
-                    <div class="col-span-5">
+                <div class="grid grid-cols-12 gap-y-16">
+                    <div class="col-span-12 md:col-span-5">
                         <h3
                             class="no-ligature pr-28 font-display text-7xl"
                             v-html="sanitize($t('home.section-3.headline'))"
                         ></h3>
                     </div>
                     <div
-                        class="col-span-7 flex h-full flex-row items-center justify-between gap-x-12"
+                        class="col-span-12 md:col-span-7 flex h-full flex-row flex-wrap sm:flex-nowrap items-center justify-between gap-12"
                     >
                         <div class="flex flex-col gap-y-4">
                             <svg
@@ -172,11 +174,13 @@
                             <h4 class="text-2xl italic">
                                 {{ $t('home.section-3.services.1.title') }}
                             </h4>
-                            <p class="text-base">
+                            <p class="text-base max-w-[250px] sm:max-w-none">
                                 {{ $t('home.section-3.services.1.text') }}
                             </p>
                         </div>
-                        <div class="flex flex-col gap-y-4">
+                        <div
+                            class="flex flex-col gap-y-4 max-w-[250px] sm:max-w-none"
+                        >
                             <svg
                                 class="h-12 w-12"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -217,7 +221,9 @@
                                 {{ $t('home.section-3.services.2.text') }}
                             </p>
                         </div>
-                        <div class="flex flex-col gap-y-4">
+                        <div
+                            class="flex flex-col gap-y-4 max-w-[250px] sm:max-w-none"
+                        >
                             <svg
                                 class="h-12 w-12"
                                 xmlns="http://www.w3.org/2000/svg"

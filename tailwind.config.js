@@ -1,9 +1,14 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
 const plugin = require('tailwindcss/plugin');
 
 module.exports = {
     mode: 'jit',
     darkMode: 'class',
     theme: {
+        screens: {
+            xs: '400px',
+            ...defaultTheme.screens,
+        },
         fontFamily: {
             display: ['Eugusto', 'serif'],
             sans: ['Poppins'],

@@ -87,7 +87,7 @@
                         data-scroll
                         data-scroll-speed="2"
                         data-scroll-delay="0.2"
-                        class="absolute -top-40 left-0 w-[830px] h-[440px]"
+                        class="absolute -top-28 sm:-top-40 md:-top-20 left-12 md:left-0 md:w-full w-[622px] h-[330px] sm:w-[830px] sm:h-[440px]"
                     />
                 </div>
             </div>
@@ -104,13 +104,13 @@
                 ref="section2txt"
                 data-scroll
                 data-scroll-call="PROFILE_SECTION2_ANIMATE_PARAGRAPH"
-                class="font-display text-6xl md:text-7xl max-w-5xl leading-tight"
+                class="font-display text-5xl sm:text-6xl md:text-7xl max-w-5xl leading-tight break-words"
             >
                 {{ $t('profile.section-2.paragraph') }}
             </h2>
         </section>
 
-        <section class="container my-48 -space-y-24">
+        <section class="container relative my-56 space-y-20 sm:-space-y-24">
             <ProfileCareerComponent
                 :index="0"
                 title="Lehre Grafik/Mediendesign"
@@ -143,6 +143,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import { sanitize } from '@/services/Helpers';
+
 import MapComponent from '@/components/widgets/MapComponent.vue';
 import ProfileCareerComponent from '@/components/widgets/ProfileCareerComponent.vue';
 
@@ -162,6 +164,7 @@ export default Vue.extend({
         this.animateSection2Txt();
     },
     methods: {
+        sanitize,
         animateHead() {
             const anime = (this as any).$anime;
             const ref: HTMLElement = this.$refs.headText as HTMLElement;

@@ -6,21 +6,21 @@
                 @mouseenter="animate($event)"
             >
                 <h3
-                    class="no-ligature underline-offset-3 font-display text-6xl underline sm:text-7xl md:text-8xl md:no-underline md:text-border-3"
+                    class="no-ligature underline-offset-3 font-display text-6xl underline sm:text-7xl md:text-8xl xl:no-underline md:text-border-3"
                 >
                     {{ text }}
                 </h3>
                 <h3
-                    class="bottom- no-ligature underline-offset-3 absolute font-display text-6xl underline sm:text-7xl md:text-8xl md:no-underline md:text-border-3"
+                    class="bottom- no-ligature underline-offset-3 absolute font-display text-6xl underline sm:text-7xl md:text-8xl xl:no-underline md:text-border-3"
                 >
                     {{ text }}
                 </h3>
             </div>
             <div
-                class="absolute bottom-2 -z-10 hidden h-1.5 w-full bg-primary md:block"
+                class="absolute bottom-2 -z-10 hidden h-1.5 w-full bg-primary xl:block"
             ></div>
             <div
-                class="absolute bottom-2 -z-10 hidden h-1.5 w-full -translate-x-full transform bg-primary md:block"
+                class="absolute bottom-2 -z-10 hidden h-1.5 w-full -translate-x-full transform bg-primary xl:block"
             ></div>
         </div>
     </div>

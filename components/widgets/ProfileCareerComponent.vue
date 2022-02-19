@@ -2,13 +2,16 @@
     <div
         data-scroll
         :data-scroll-call="`PROFILE_SECTION3_ANIMATE_${index}`"
-        data-scroll-offset="500"
+        :data-scroll-offset="scrollOffset"
         class="grid grid-cols-5"
     >
         <div class="col-span-3 flex items-center">
             <div>
                 <div data-scroll data-scroll-speed="3" data-scroll-delay="0.6">
-                    <h2 ref="title" class="font-display text-6xl max-w-xl">
+                    <h2
+                        ref="title"
+                        class="font-display text-4xl sm:text-6xl max-w-xl"
+                    >
                         {{ title }}
                     </h2>
                 </div>
@@ -24,7 +27,10 @@
                 </div>
             </div>
         </div>
-        <div ref="imagesWrapper" class="col-span-2 flex flex-row flex-wrap">
+        <div
+            ref="imagesWrapper"
+            class="hidden sm:flex col-span-2 flex-row flex-wrap"
+        >
             <div
                 v-for="(image, index) in images.slice(0, 4)"
                 :key="image"
@@ -77,8 +83,16 @@ export default Vue.extend({
             required: true,
         },
     },
+    data() {
+        return {
+            scrollOffset: null as any,
+        };
+    },
     mounted() {
         this.animateTxt();
+
+        if (window.innerWidth < 450) this.scrollOffset = '150';
+        else this.scrollOffset = '500';
     },
     methods: {
         animateTxt() {

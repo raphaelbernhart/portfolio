@@ -30,11 +30,15 @@
                     </div>
                 </div>
 
-                <div class="container relative z-10 flex h-full items-center">
-                    <div class="grid w-full grid-cols-6">
+                <div
+                    class="container px-0 sm:px-2 relative z-10 flex h-full items-center"
+                >
+                    <div
+                        class="grid w-full grid-cols-6 gap-y-16 pt-12 sm:pt-0 sm:gap-y-0"
+                    >
                         <div
                             id="navigationLinkContainer"
-                            class="col-span-4 flex flex-col items-start gap-y-8"
+                            class="col-span-6 md:col-span-4 flex flex-col items-start gap-y-6 md:gap-y-8"
                         >
                             <NavigationLink text="Home" route="/" :index="0" />
                             <NavigationLink
@@ -53,12 +57,14 @@
                                 :index="3"
                             />
                         </div>
-                        <div class="col-span-2">
+                        <div class="hidden xs:block col-span-6 md:col-span-2">
                             <div
                                 id="sm-container"
-                                class="flex h-full flex-col justify-center gap-y-16 text-lg text-primary"
+                                class="flex h-full flex-row md:flex-col justify-center gap-x-16 gap-y-16 text-lg text-primary"
                             >
-                                <div class="flex flex-col items-start gap-y-2">
+                                <div
+                                    class="hidden md:flex flex-col items-start gap-y-2"
+                                >
                                     <span class="font-bold">Say Hi!</span>
                                     <a
                                         class="inline-block underline"
