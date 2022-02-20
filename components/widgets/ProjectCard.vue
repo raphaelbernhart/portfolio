@@ -25,17 +25,18 @@
         </div>
         <div
             class="order-1 md:order-2 overflow-hidden relative w-full h-[350px] xs:h-[450px] md:h-[650px] z-10 flex justify-end"
-            data-scroll
-            data-scroll-speed="2"
         >
             <div
                 class="overflow-hidden inline-block h-full relative w-full md:w-[88%]"
             >
-                <div class="w-full h-full">
+                <div
+                    data-scroll
+                    data-scroll-class="FADE_UP_IMAGE"
+                    data-scroll-speed="1.3"
+                    data-scroll-animation-delay="300"
+                    class="w-full h-full"
+                >
                     <img
-                        data-scroll
-                        data-scroll-speed="1.3"
-                        data-scroll-offset="-150%"
                         :src="image"
                         class="absolute -top-36 bg-gray-600 h-[135%] w-full object-cover brightness-75"
                     />

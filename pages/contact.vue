@@ -5,7 +5,11 @@
                 <div
                     class="relative sm:static pt-36 sm:pt-48 col-span-2 h-screen sm:min-h-0 sm:col-span-1"
                 >
-                    <div class="relative">
+                    <div
+                        data-scroll
+                        data-scroll-class="FADE_UP"
+                        class="relative"
+                    >
                         <h1
                             class="font-display text-6xl uppercase max-w-xl leading-tight"
                         >
@@ -22,7 +26,12 @@
                 <div
                     class="relative sm:static sm:bg-transparent py-28 sm:py-0 sm:min-h-screen w-full sm:flex items-center h-full col-span-2 sm:col-span-1"
                 >
-                    <div class="text-text relative z-10 sm:pl-24">
+                    <div
+                        data-scroll
+                        data-scroll-class="FADE_UP"
+                        data-scroll-animation-delay="300"
+                        class="text-text relative z-10 sm:pl-24"
+                    >
                         <h2
                             class="font-display text-3xl uppercase max-w-xl leading-tight"
                         >

@@ -30,11 +30,26 @@
                 class="relative mb-24 mt-10 sm:mt-0"
             >
                 <div class="relative z-10 flex max-w-lg flex-col gap-y-8">
-                    <h3 class="max-w-md font-display text-7xl md:text-8xl">
+                    <h3
+                        data-scroll
+                        data-scroll-speed="1.2"
+                        data-scroll-delay="1.6"
+                        class="max-w-md font-display text-7xl md:text-8xl"
+                    >
                         {{ name }}
                     </h3>
-                    <ParagraphComponent :text="text" />
-                    <div class="flex gap-x-1">
+                    <ParagraphComponent
+                        data-scroll
+                        data-scroll-speed="1.2"
+                        data-scroll-delay="0.8"
+                        :text="text"
+                    />
+                    <div
+                        data-scroll
+                        data-scroll-speed="1.2"
+                        data-scroll-delay="0.2"
+                        class="flex gap-x-1"
+                    >
                         <span
                             v-for="(category, iCat) in categories"
                             :key="category"

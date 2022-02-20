@@ -31,7 +31,7 @@
             <!-- Projects -->
             <div
                 id="projects-container"
-                class="relative flex flex-col mt-6 xs:mt-14 pb-24 gap-y-48 md:gap-y-24"
+                class="relative flex flex-col mt-6 xs:mt-14 pb-24 gap-y-48 md:gap-y-64"
             >
                 <Project
                     id="90a8sdf"

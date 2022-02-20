@@ -68,6 +68,8 @@ export default Vue.extend({
 
         // Fade Up Animation Event
         this.fadeUpAnimation();
+        this.fadeLeftAnimation();
+        this.fadeUpImageAnimation();
     },
     methods: {
         transitionInit() {
@@ -119,20 +121,86 @@ export default Vue.extend({
             }, 1000);
         },
         fadeUpAnimation() {
-            // Fade Up Animation
-            const fadeUpAnimation = (this as any).$anime({
-                targets: '.fade-up',
-                easing: 'easeInOutQuad',
-                translateY: [50, 0],
-                opacity: [0, 1],
-                duration: 1000,
-                autoplay: false,
-            });
+            const alreadyAnimated: Array<any> = [];
+            this.$locomotive.on('scroll', (elements: Record<string, any>) => {
+                Object.values(elements.currentElements).forEach((e: any) => {
+                    if (e.class === 'FADE_UP') {
+                        const htmlElement: HTMLElement = e.el;
+                        if (alreadyAnimated.includes(htmlElement)) return;
+                        alreadyAnimated.push(htmlElement);
 
-            this.$locomotive.on('call', (e: any) => {
-                if (e === 'FADE_UP') {
-                    fadeUpAnimation.play();
-                }
+                        let animationDelay = 0;
+
+                        if (htmlElement.dataset.scrollAnimationDelay) {
+                            animationDelay = parseInt(
+                                htmlElement.dataset.scrollAnimationDelay,
+                            );
+                        }
+
+                        // Fade Up Animation
+                        (this as any).$anime({
+                            targets: htmlElement,
+                            easing: 'easeInOutQuad',
+                            translateY: [50, 0],
+                            opacity: [0, 1],
+                            duration: 1000,
+                            delay: animationDelay,
+                        });
+                    }
+                });
+            });
+        },
+        fadeLeftAnimation() {
+            const alreadyAnimated: Array<any> = [];
+            this.$locomotive.on('scroll', (elements: Record<string, any>) => {
+                Object.values(elements.currentElements).forEach((e: any) => {
+                    if (e.class === 'FADE_LEFT') {
+                        if (alreadyAnimated.includes(e.el)) return;
+                        alreadyAnimated.push(e.el);
+
+                        // Fade Up Animation
+                        (this as any).$anime({
+                            targets: e.el,
+                            easing: 'easeInOutQuad',
+                            translateX: [50, 0],
+                            opacity: [0, 1],
+                            duration: 1000,
+                        });
+                    }
+                });
+            });
+        },
+        fadeUpImageAnimation() {
+            const alreadyAnimated: Array<any> = [];
+            this.$locomotive.on('scroll', (elements: Record<string, any>) => {
+                Object.values(elements.currentElements).forEach((e: any) => {
+                    if (e.class === 'FADE_UP_IMAGE') {
+                        const htmlElement: HTMLElement = e.el;
+                        if (alreadyAnimated.includes(htmlElement)) return;
+                        alreadyAnimated.push(htmlElement);
+
+                        // Add overflow-hidden class to parent
+                        htmlElement.classList.add('overflow-hidden');
+
+                        let animationDelay = 0;
+
+                        if (htmlElement.dataset.scrollAnimationDelay) {
+                            animationDelay = parseInt(
+                                htmlElement.dataset.scrollAnimationDelay,
+                            );
+                        }
+
+                        // Fade Up Animation
+                        (this as any).$anime({
+                            targets: htmlElement.childNodes[0],
+                            easing: 'easeInOutQuad',
+                            translateY: [125, 0],
+                            opacity: [0, 1],
+                            duration: 1000,
+                            delay: animationDelay,
+                        });
+                    }
+                });
             });
         },
     },
@@ -153,5 +221,14 @@ export default Vue.extend({
 }
 .underline-offset-3 {
     text-underline-offset: 3px;
+}
+.FADE_UP {
+    opacity: 0;
+}
+.FADE_LEFT {
+    opacity: 0;
+}
+.FADE_UP_IMAGE img {
+    opacity: 0;
 }
 </style>

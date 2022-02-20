@@ -64,6 +64,7 @@
                         <h3
                             data-scroll
                             data-scroll-speed="1.3"
+                            data-scroll-class="FADE_UP"
                             class="italic font-bold text-xl text-text mb-4"
                         >
                             {{ $t('profile.section-1.headline') }}
@@ -71,13 +72,14 @@
                         <ParagraphComponent
                             data-scroll
                             data-scroll-speed="1.6"
-                            data-scroll-delay="0.6"
+                            data-scroll-class="FADE_UP"
                             class="max-w-[450px]"
                             :text="$t('profile.section-1.paragraph')"
                         />
                         <div
                             data-scroll
                             data-scroll-speed="1"
+                            data-scroll-class="FADE_UP"
                             class="absolute right-3/4 -bottom-8 h-[1px] w-screen bg-primary lg:right-0"
                         ></div>
                     </div>
@@ -87,7 +89,7 @@
                         data-scroll
                         data-scroll-speed="2"
                         data-scroll-delay="0.2"
-                        class="absolute -top-28 sm:-top-40 md:-top-20 left-12 md:left-0 md:w-full w-[622px] h-[330px] sm:w-[830px] sm:h-[440px]"
+                        class="absolute -top-28 sm:-top-40 left-12 md:left-0 md:w-full w-[622px] h-[330px] sm:w-[830px] sm:h-[440px]"
                     />
                 </div>
             </div>

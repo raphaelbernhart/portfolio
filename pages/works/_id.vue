@@ -35,10 +35,14 @@
             </div>
         </div>
 
-        <section class="relative my-48 mt-96 container px-80">
-            <div class="grid grid-cols-7 gap-x-48">
+        <section class="relative my-48 mt-56 md:mt-96 container md:px-80">
+            <div class="md:grid grid-cols-7 gap-x-48">
                 <div class="col-span-4">
-                    <div class="relative inline-block">
+                    <div
+                        data-scroll
+                        data-scroll-class="FADE_UP"
+                        class="relative inline-block"
+                    >
                         <ParagraphComponent
                             class="max-w-[450px]"
                             :text="$t('home.section-1.intro')"
@@ -48,7 +52,11 @@
                         ></div>
                     </div>
                 </div>
-                <div class="col-span-3 relative inline-block">
+                <div
+                    data-scroll
+                    data-scroll-class="FADE_UP"
+                    class="col-span-3 relative inline-block mt-36 md:mt-0"
+                >
                     <div class="flex flex-col gap-y-6">
                         <div class="flex flex-col gap-y-2">
                             <h3 class="font-bold">Services</h3>
@@ -90,7 +98,7 @@
                 </div>
             </div>
             <div class="container">
-                <div class="grid grid-cols-12 gap-x-14">
+                <div class="md:grid grid-cols-12 gap-x-14">
                     <div data-scroll data-scroll-speed="1.3" class="col-span-8">
                         <div class="w-full h-full inline-block">
                             <img
@@ -100,7 +108,11 @@
                             />
                         </div>
                     </div>
-                    <div data-scroll data-scroll-speed="1.3" class="col-span-4">
+                    <div
+                        data-scroll
+                        data-scroll-speed="1.3"
+                        class="col-span-4 mt-14 md:mt-0"
+                    >
                         <div class="w-full inline-block">
                             <img
                                 class="w-full h-full object-cover max-h-[350px]"
@@ -110,7 +122,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 my-44">
+                <div
+                    data-scroll
+                    data-scroll-class="FADE_UP"
+                    class="md:grid grid-cols-2 my-24 md:my-44"
+                >
                     <div></div>
                     <div>
                         <ParagraphComponent
@@ -133,8 +149,8 @@
                         title="Rebound University Project"
                     ></iframe>
                 </div>
-                <div class="grid grid-cols-2 px-28 my-44">
-                    <div>
+                <div class="md:grid grid-cols-2 md:px-28 my-24 md:my-44">
+                    <div data-scroll data-scroll-class="FADE_UP">
                         <ParagraphComponent
                             class="max-w-[550px]"
                             :text="
@@ -143,7 +159,11 @@
                             "
                         />
                     </div>
-                    <div>
+                    <div
+                        data-scroll
+                        data-scroll-class="FADE_UP"
+                        class="mt-14 md:mt-0"
+                    >
                         <ParagraphComponent
                             class="max-w-[550px]"
                             :text="

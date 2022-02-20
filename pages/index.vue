@@ -18,11 +18,18 @@
                     </span>
                     <span class="overflow-hidden">Austria</span>
                 </h1>
-                <img
-                    class="pointer-events-none absolute left-16 bottom-24 h-[290px] object-cover brightness-50 md:left-32 md:bottom-60"
-                    src="@/assets/images/head.webp"
-                    alt=""
-                />
+                <div
+                    data-scroll
+                    data-scroll-class="FADE_UP_IMAGE"
+                    data-scroll-animation-delay="750"
+                    class="absolute left-16 bottom-24 inline-block md:left-32 md:bottom-60"
+                >
+                    <img
+                        class="pointer-events-none object-cover brightness-50"
+                        src="@/assets/images/head.webp"
+                        alt=""
+                    />
+                </div>
                 <!-- Mark -->
                 <MarkComponent
                     v-if="initAnimationFinished"
@@ -37,15 +44,23 @@
                 <div class="col-span-2">
                     <div class="relative">
                         <ParagraphComponent
+                            data-scroll
+                            data-scroll-class="FADE_UP"
                             class="max-w-[450px]"
                             :text="$t('home.section-1.intro')"
                         />
                         <div
+                            data-scroll
+                            data-scroll-class="FADE_UP"
                             class="absolute right-3/4 -bottom-8 h-[1px] w-screen bg-primary lg:right-0"
                         ></div>
                     </div>
                 </div>
-                <div class="col-span-3 flex flex-col gap-y-3">
+                <div
+                    data-scroll
+                    data-scroll-class="FADE_UP"
+                    class="col-span-3 flex flex-col gap-y-3"
+                >
                     <h4 class="text-5xl font-thin italic md:text-6xl">
                         I focus on
                     </h4>
@@ -67,6 +82,8 @@
             >
                 <ProjectFeatured
                     id="u87asdf"
+                    data-scroll
+                    data-scroll-class="FADE_UP"
                     :index="0"
                     name="Syndena"
                     text="I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I'm always looking to get my teeth stuck into new and exciting projects, so let's collaborate."
@@ -75,6 +92,8 @@
                 />
                 <ProjectFeatured
                     id="ua4sdf"
+                    data-scroll
+                    data-scroll-class="FADE_UP"
                     :index="1"
                     name="The Campers"
                     text="I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I'm always looking to get my teeth stuck into new and exciting projects, so let's collaborate."
@@ -294,7 +313,12 @@
         </section>
 
         <section class="relative h-[460px] w-screen text-primary">
-            <div class="container relative z-10 flex h-full items-center">
+            <div
+                data-scroll
+                data-scroll-class="FADE_UP"
+                data-scroll-animation-delay="250"
+                class="container relative z-10 flex h-full items-center"
+            >
                 <h3 class="font-display text-7xl">
                     {{ $t('home.section-4.headline') }}
                 </h3>
