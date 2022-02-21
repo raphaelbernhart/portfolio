@@ -30,7 +30,7 @@
                         data-scroll
                         data-scroll-class="FADE_UP"
                         data-scroll-animation-delay="300"
-                        class="text-text relative z-10 sm:pl-24"
+                        class="text-text relative z-10 sm:pl-24 sm:width-full"
                     >
                         <h2
                             class="font-display text-3xl uppercase max-w-xl leading-tight"

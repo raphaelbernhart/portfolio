@@ -10,7 +10,7 @@
                 <div data-scroll data-scroll-speed="3" data-scroll-delay="0.6">
                     <h2
                         ref="title"
-                        class="font-display text-4xl sm:text-6xl max-w-xl"
+                        class="font-display text-4xl sm:text-6xl max-w-xl no-ligature"
                     >
                         {{ title }}
                     </h2>

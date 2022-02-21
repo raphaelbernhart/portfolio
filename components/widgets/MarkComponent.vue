@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-[380px] rotate-6 transform text-primary">
+    <div class="w-[380px] rotate-6 transform text-primary">
         <div class="relative h-full w-full">
             <svg
                 id="animation"

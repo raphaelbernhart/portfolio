@@ -147,6 +147,7 @@
 import Vue from 'vue';
 import { sanitize } from '@/services/Helpers';
 
+import MarkComponent from '@/components/widgets/MarkComponent.vue';
 import MapComponent from '@/components/widgets/MapComponent.vue';
 import ProfileCareerComponent from '@/components/widgets/ProfileCareerComponent.vue';
 
@@ -155,6 +156,7 @@ export default Vue.extend({
     components: {
         MapComponent,
         ProfileCareerComponent,
+        MarkComponent,
     },
     head() {
         return {

@@ -333,6 +333,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import MarkComponent from '@/components/widgets/MarkComponent.vue';
 import ServiceLink from '@/components/widgets/ServicesLink.vue';
 import ProjectFeatured from '~/components/widgets/ProjectFeatured.vue';
 import { sanitize } from '~/services/Helpers';
@@ -342,6 +343,7 @@ export default Vue.extend({
     components: {
         ServiceLink,
         ProjectFeatured,
+        MarkComponent,
     },
     data() {
         return {

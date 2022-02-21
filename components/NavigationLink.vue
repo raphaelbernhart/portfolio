@@ -3,16 +3,16 @@
         <div id="text-container" class="relative">
             <span
                 id="text-stroke-sibling"
-                class="relative z-30 inline-block font-display text-7xl text-primary duration-500 hover:text-transparent xs:text-8xl xl:text-9xl"
+                class="relative z-30 inline-block font-display text-7xl text-primary duration-500 hover:text-transparent xs:text-8xl xl:text-9xl no-ligature"
                 >{{ text }}</span
             >
             <span
-                class="text-stroke pointer-events-none absolute left-0 top-0 z-40 inline-block font-display text-7xl text-transparent transition-colors xs:text-8xl xl:text-9xl"
+                class="text-stroke pointer-events-none absolute left-0 top-0 z-40 inline-block font-display text-7xl text-transparent transition-colors xs:text-8xl xl:text-9xl no-ligature"
                 >{{ text }}</span
             >
             <span
                 id="animation-text"
-                class="pointer-events-none absolute left-0 top-0 z-20 block bg-gradient-to-br from-green-800 to-indigo-900 bg-cover bg-clip-text font-display text-7xl xs:text-8xl text-transparent xl:text-9xl"
+                class="pointer-events-none absolute left-0 top-0 z-20 block bg-gradient-to-br from-green-800 to-indigo-900 bg-cover bg-clip-text font-display text-7xl xs:text-8xl text-transparent xl:text-9xl no-ligature"
                 >{{ text }}</span
             >
         </div>
