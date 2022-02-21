@@ -37,6 +37,10 @@ export default {
         host: '0.0.0.0',
     },
 
+    env: {
+        CONTENT_API_URL: 'https://content.raphaelbernhart.at/',
+    },
+
     // Loading Bar
     loading: false,
 

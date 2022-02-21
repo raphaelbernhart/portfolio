@@ -9,14 +9,22 @@
                     ref="headTitle"
                     class="relative font-display text-9xl md:text-[12rem] uppercase break-all"
                 >
-                    Syndena
+                    {{ title }}
                 </h1>
             </div>
             <div
                 class="absolute left-0 top-0 w-screen h-screen pt-12 flex items-start justify-center text-white md:mix-blend-difference z-10"
             >
                 <h4 ref="headCategories" class="text-lg uppercase">
-                    Branding, Design
+                    <span
+                        v-for="(category, iCat) in project.categories"
+                        :key="category"
+                    >
+                        {{ category
+                        }}<span v-if="project.categories.length !== iCat + 1"
+                            >,
+                        </span>
+                    </span>
                 </h4>
             </div>
             <!-- Background -->
@@ -25,12 +33,12 @@
                 class="absolute h-screen w-[550px] left-1/2 top-0 transform -translate-x-1/2 z-0"
             >
                 <div class="relative bg-primary w-full h-[115%]">
-                    <img
+                    <!-- <img
                         v-if="image"
                         class="w-full h-full object-cover brightness-50 md:brightness-100"
                         :src="image"
                         alt=""
-                    />
+                    /> -->
                 </div>
             </div>
         </div>
@@ -45,7 +53,7 @@
                     >
                         <ParagraphComponent
                             class="max-w-[450px]"
-                            :text="$t('home.section-1.intro')"
+                            :text="project.introTxt"
                         />
                         <div
                             class="absolute right-0 -bottom-8 h-[1px] w-screen bg-primary lg:right-0"
@@ -60,17 +68,38 @@
                     <div class="flex flex-col gap-y-6">
                         <div class="flex flex-col gap-y-2">
                             <h3 class="font-bold">Services</h3>
-                            <span>Conception, Branding, Design</span>
+                            <span
+                                ><span
+                                    v-for="(
+                                        category, iCat
+                                    ) in project.categories"
+                                    :key="category"
+                                >
+                                    {{ category
+                                    }}<span
+                                        v-if="
+                                            project.categories.length !==
+                                            iCat + 1
+                                        "
+                                        >,
+                                    </span>
+                                </span>
+                            </span>
                         </div>
                         <div class="h-[1px] w-full bg-primary"></div>
                         <div class="flex flex-col gap-y-2">
                             <h3 class="font-bold">Client</h3>
-                            <span>Factor Innsbruck</span>
+                            <span>{{ project.client[0] }}</span>
                         </div>
                         <div class="h-[1px] w-full bg-primary"></div>
-                        <div class="flex flex-col gap-y-2">
+                        <div
+                            v-if="project.liveSite"
+                            class="flex flex-col gap-y-2"
+                        >
                             <h3 class="font-bold">Live Website</h3>
-                            <span>syndena.com</span>
+                            <a :href="project.liveSite" target="_blank">{{
+                                project.liveSite.replace(/(^\w+:|^)\/\//, '')
+                            }}</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +120,7 @@
                             data-scroll
                             data-scroll-speed="1.3"
                             data-scroll-offset="-150%"
-                            src="https://images.unsplash.com/photo-1556943418-0e5712249b9d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"
+                            :src="image"
                             class="md:absolute -top-36 bg-gray-600 h-full w-full object-cover brightness-75"
                         />
                     </div>
@@ -103,7 +132,7 @@
                         <div class="w-full h-full inline-block">
                             <img
                                 class="w-full object-cover max-h-[650px]"
-                                src="https://images.unsplash.com/photo-1592972819197-7adf482e77d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                                :src="project.image[0]"
                                 alt=""
                             />
                         </div>
@@ -116,13 +145,14 @@
                         <div class="w-full inline-block">
                             <img
                                 class="w-full h-full object-cover max-h-[350px]"
-                                src="https://images.unsplash.com/photo-1574281583557-6cd118037a4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+                                :src="project.image[1]"
                                 alt=""
                             />
                         </div>
                     </div>
                 </div>
                 <div
+                    v-if="project.text1"
                     data-scroll
                     data-scroll-class="FADE_UP"
                     class="md:grid grid-cols-2 my-24 md:my-44"
@@ -131,14 +161,12 @@
                     <div>
                         <ParagraphComponent
                             class="max-w-[550px]"
-                            :text="
-                                $t('home.section-1.intro') +
-                                $t('home.section-1.intro')
-                            "
+                            :text="project.text1"
                         />
                     </div>
                 </div>
-                <div v-if="video">
+                <!-- TODO VIDEO -->
+                <!-- <div v-if="video">
                     <iframe
                         :src="video"
                         width="100%"
@@ -148,28 +176,27 @@
                         allowfullscreen
                         title="Rebound University Project"
                     ></iframe>
-                </div>
+                </div> -->
                 <div class="md:grid grid-cols-2 md:px-28 my-24 md:my-44">
-                    <div data-scroll data-scroll-class="FADE_UP">
+                    <div
+                        v-if="project.text2"
+                        data-scroll
+                        data-scroll-class="FADE_UP"
+                    >
                         <ParagraphComponent
                             class="max-w-[550px]"
-                            :text="
-                                $t('home.section-1.intro') +
-                                $t('home.section-1.intro')
-                            "
+                            :text="project.text2"
                         />
                     </div>
                     <div
+                        v-if="project.text3"
                         data-scroll
                         data-scroll-class="FADE_UP"
                         class="mt-14 md:mt-0"
                     >
                         <ParagraphComponent
                             class="max-w-[550px]"
-                            :text="
-                                $t('home.section-1.intro') +
-                                $t('home.section-1.intro')
-                            "
+                            :text="project.text3"
                         />
                     </div>
                 </div>
@@ -182,19 +209,41 @@
 import Vue from 'vue';
 export default Vue.extend({
     name: 'ProjectPage',
-    asyncData({ params }) {
-        return { id: params.id };
+    async asyncData({ $axios, params }) {
+        const id = params.id;
+
+        // Get Project
+        const res = await $axios.get(
+            `${process.env.CONTENT_API_URL}items/rb_portfolio_projects/${id}`,
+        );
+
+        const project = res.data.data;
+
+        return { id, project };
     },
     data() {
         return {
+            id: '',
             anime: {} as any,
-            image: 'https://images.unsplash.com/photo-1578393098337-5594cce112da?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=617&q=80',
+            image: '',
             video: 'https://player.vimeo.com/video/523033458?h=d0a4e781e4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
         };
+    },
+    computed: {
+        title() {
+            const id = (this as any).id;
+            if (id) return id.replace('-', ' ');
+            return '';
+        },
     },
     mounted() {
         this.anime = (this as any).$anime;
         this.animateHead();
+
+        // Set Image
+        this.image = `https://content.raphaelbernhart.at/assets/${
+            (this as any).project.image
+        }`;
     },
     methods: {
         animateHead() {
@@ -237,6 +286,11 @@ export default Vue.extend({
 
                 let lastLerp = 0;
 
+                const initialLerpDelay: number = 1.6;
+                const lerpDelayAdditionPerLetter: number = parseFloat(
+                    (initialLerpDelay / letters.listAll.length).toFixed(1),
+                );
+
                 // Add Lerp Effect
                 letters.listAll.forEach((e: HTMLElement) => {
                     const html = e.innerHTML;
@@ -251,7 +305,7 @@ export default Vue.extend({
                         (1.6 - lastLerp).toFixed(1).toString(),
                     );
 
-                    lastLerp += 0.2;
+                    lastLerp += lerpDelayAdditionPerLetter;
                 });
 
                 animation.add(

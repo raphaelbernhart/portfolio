@@ -5,7 +5,11 @@
                 <div class="flex items-center gap-x-4">
                     <span class="text-white text-xl font-light">01</span>
                     <div class="h-[1px] w-28 bg-white"></div>
-                    <span class="text-white text-xl font-light">14</span>
+                    <span class="text-white text-xl font-light">{{
+                        projects.length > 10
+                            ? projects.length
+                            : '0' + projects.length
+                    }}</span>
                 </div>
                 <div
                     class="flex items-center gap-x-2 text-white cursor-pointer"
@@ -28,70 +32,19 @@
                     >
                 </div>
             </div>
+
             <!-- Projects -->
             <div
                 id="projects-container"
                 class="relative flex flex-col mt-6 xs:mt-14 pb-24 gap-y-48 md:gap-y-64"
             >
                 <Project
-                    id="90a8sdf"
-                    name="Syndena"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="The Fucking Campers"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="Factor Innsbruck"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="Syndena"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="Syndena"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="Syndena"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="Syndena"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="Syndena"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="Syndena"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
-                <Project
-                    id="90a8sdf"
-                    name="Syndena"
-                    :categories="['Branding', 'Design']"
-                    image="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                    v-for="project in projects"
+                    :id="project.title"
+                    :key="project.title"
+                    :name="project.title"
+                    :categories="project.categories"
+                    :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=1400&quality=100`"
                 />
             </div>
         </div>
@@ -108,10 +61,32 @@ export default Vue.extend({
         Project,
     },
     layout: 'horizontal',
+    data() {
+        return {
+            apiQuery: '',
+            projects: [] as Array<Record<string, any>>,
+        };
+    },
     head() {
         return {
             title: 'Works',
         };
+    },
+    mounted() {
+        this.fetchProjects();
+    },
+    methods: {
+        async fetchProjects() {
+            try {
+                const res = await this.$axios.get(
+                    `${process.env.CONTENT_API_URL}items/rb_portfolio_projects`,
+                );
+
+                this.projects = res.data.data;
+            } catch (err: any) {
+                console.log(err);
+            }
+        },
     },
 });
 </script>

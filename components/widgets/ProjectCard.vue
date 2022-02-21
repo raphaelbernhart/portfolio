@@ -1,6 +1,6 @@
 <template>
     <nuxt-link
-        :to="localePath('/works/syndena')"
+        :to="localePath(`/works/${id}`)"
         class="relative inline-flex flex-col gap-y-6 md:gap-y-0 md:inline-block max-h-[650px] cursor-pointer w-full"
         @mouseenter="enterElement($event)"
         @mouseleave="leaveElement($event)"
@@ -12,9 +12,9 @@
         >
             <h2
                 ref="text"
-                class="text-7xl md:text-9xl font-display break-words"
+                class="text-7xl md:text-9xl font-display break-words uppercase"
             >
-                {{ name }}
+                {{ title }}
             </h2>
             <h3 ref="categories" class="text-xl uppercase">
                 <span v-for="(category, iCat) in categories" :key="category">
@@ -79,6 +79,11 @@ export default Vue.extend({
             // isEven: false,
             // animationTarget: '' as any,
         };
+    },
+    computed: {
+        title() {
+            return this.name.replaceAll('-', ' ');
+        },
     },
     mounted() {
         // this.isEven = this.isEvenFunc(this.index + 1);
