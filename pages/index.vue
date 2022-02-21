@@ -19,10 +19,9 @@
                     <span class="overflow-hidden">Austria</span>
                 </h1>
                 <div
+                    ref="headImage"
                     data-scroll
-                    data-scroll-class="FADE_UP_IMAGE"
-                    data-scroll-animation-delay="750"
-                    class="absolute left-16 bottom-24 inline-block md:left-32 md:bottom-60"
+                    class="absolute left-16 bottom-24 inline-block md:left-32 md:bottom-60 headImage"
                 >
                     <img
                         class="pointer-events-none object-cover brightness-50"
@@ -347,12 +346,21 @@ export default Vue.extend({
     data() {
         return {
             initAnimationFinished: false,
+            initAnimation: {} as any,
         };
     },
     head() {
         return {
             title: 'Home',
         };
+    },
+    watch: {
+        '$store.state.transitions.initTransitionFinished'(newValue: boolean) {
+            if (newValue === true) {
+                this.initAnimation.play();
+                this.animateHeadImage();
+            }
+        },
     },
     mounted() {
         const letters: any = this.$letterize({
@@ -362,7 +370,7 @@ export default Vue.extend({
 
         const anime: any = (this as any).$anime;
 
-        const animation = anime({
+        this.initAnimation = anime({
             targets: letters.listAll,
             easing: 'easeInOutQuad',
             duration: 1500,
@@ -379,12 +387,28 @@ export default Vue.extend({
             },
         });
 
-        // window.addEventListener('load', () => {
-        animation.play();
-        // });
+        if (this.$store.state.transitions.initTransitionFinished) {
+            this.initAnimation.play();
+            this.animateHeadImage();
+        }
     },
     methods: {
         sanitize,
+        animateHeadImage() {
+            const htmlElement: HTMLElement = this.$refs.headImage;
+
+            // Add overflow-hidden class to parent
+            htmlElement.classList.add('overflow-hidden');
+
+            // Fade Up Animation
+            (this as any).$anime({
+                targets: htmlElement.childNodes[0],
+                easing: 'easeInOutQuad',
+                translateY: [125, 0],
+                opacity: [0, 1],
+                duration: 1000,
+            });
+        },
     },
 });
 </script>
@@ -396,5 +420,8 @@ export default Vue.extend({
 
 .text-featured {
     transform-origin: 50% 418%;
+}
+.headImage img {
+    opacity: 0;
 }
 </style>

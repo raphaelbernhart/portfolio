@@ -8,7 +8,7 @@
             }"
         >
             <div
-                id="nuxt-startup-transition-container"
+                ref="nuxtStartupTransitionContainer"
                 class="min-h-screen w-screen bg-white transition-opacity duration-75"
                 data-scroll-container
             >
@@ -17,27 +17,20 @@
                 <Nuxt data-scroll-section />
                 <Footer data-scroll-section />
             </div>
-
-            <!-- Transition -->
-            <div
-                class="pointer-events-none absolute top-0 left-0 z-40 h-screen w-screen overflow-hidden"
-            >
-                <div class="left-layer pointer-events-auto"></div>
-                <div class="left-layer left-layer--2 pointer-events-auto"></div>
-                <div class="left-layer left-layer--3 pointer-events-auto"></div>
-                <div class="left-layer left-layer--4 pointer-events-auto"></div>
-            </div>
         </LocomotiveScroll>
+        <Transition />
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Transition from '@/components/TransitionComponent.vue';
 import SocialMediaFixed from '~/components/SocialMediaFixed.vue';
 
 export default Vue.extend({
     name: 'HomePage',
     components: {
+        Transition,
         SocialMediaFixed,
     },
     computed: {
@@ -58,8 +51,6 @@ export default Vue.extend({
         },
     },
     mounted() {
-        this.transitionInit();
-
         window.addEventListener('load', () => {
             this.$nuxt.$emit('update-locomotive');
         });
@@ -72,21 +63,6 @@ export default Vue.extend({
         this.fadeUpImageAnimation();
     },
     methods: {
-        transitionInit() {
-            // eslint-disable-next-line nuxt/no-globals-in-created
-            const layer = document.querySelectorAll('.left-layer');
-
-            layer.forEach((item) => {
-                item.classList.toggle('active');
-            });
-
-            const app = document.querySelector(
-                '#nuxt-startup-transition-container',
-            );
-            setTimeout(() => {
-                app?.classList.add('opacity-100');
-            }, 450);
-        },
         toggleDarkMode() {
             // On page load or when changing themes, best to add inline in `head` to avoid FOUC
             if (

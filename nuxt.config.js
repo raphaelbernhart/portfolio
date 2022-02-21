@@ -40,8 +40,17 @@ export default {
     // Loading Bar
     loading: false,
 
+    transition: {
+        // beforeLeave() {
+        //     const layer = document.querySelectorAll('.left-layer');
+        //     layer.forEach((item) => {
+        //         item.classList.toggle('active');
+        //     });
+        // },
+    },
+
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: ['~/assets/css/base.css'],
+    css: ['~/assets/css/base.css', '~/assets/css/transitions.css'],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
