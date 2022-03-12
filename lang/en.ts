@@ -69,6 +69,7 @@ export default {
                 placeholder: 'Enter your message',
             },
         },
+        mailSent: 'The mail was sent!',
     },
     footer: {
         leading: "Let's stay <br>in touch",

@@ -61,7 +61,17 @@
                                 @value="form.message = $event"
                             />
                         </div>
-                        <Button class="mt-8" :text="$t('contact.form.send')" />
+                        <div v-if="error" class="text-red-500 mt-8">
+                            {{ error }}
+                        </div>
+                        <div v-if="mailSent" class="text-green-500 mt-8">
+                            {{ $t('contact.mailSent') }}
+                        </div>
+                        <Button
+                            @click.native="handleContactForm"
+                            class="mt-8"
+                            :text="$t('contact.form.send')"
+                        />
                     </div>
                     <!-- Background -->
                     <div
@@ -90,12 +100,58 @@ export default Vue.extend({
                 phone: '',
                 message: '',
             },
+            error: '',
+            mailSent: false,
         };
     },
     head() {
         return {
             title: 'Contact',
         };
+    },
+    methods: {
+        handleContactForm() {
+            // Return if required field is null
+            let emptyField = false;
+            const entries = Object.entries(this.form);
+
+            entries.forEach((e: Array<string>) => {
+                const reqEntries = ['name', 'email'];
+
+                if (reqEntries.includes(e[0])) {
+                    if (e[1] === '') emptyField = true;
+                }
+            });
+
+            if (emptyField) {
+                this.error = 'Bitte füllen Sie alle erforderlichen Felder aus.';
+                setTimeout(() => {
+                    this.error = '';
+                }, 5000);
+                return;
+            }
+
+            // Create Mail Message
+            const message = `
+                <h1>Anfrage über <b>raphaelbernhart.at</b></h1>
+                <h3>Von: ${this.form.name}</h3>
+                <h3>TelNr.: ${this.form.phone}</h3>
+                <h3>E-Mail: ${this.form.email}</h3>
+                <p><b>Nachricht:</b> <br/>${this.form.message}</p>
+                <div style="margin-top: 20px;">
+                    <a href="mailto:${this.form.email}?subject=Ihre%20Anfrage%20von%20raphaelbernhart.at">Antworten</a>
+                </div>
+            `;
+
+            // Send Mail
+            (this as any).$mail.send({
+                from: 'noreply@raphaelbernhart.at',
+                subject: 'Anfrage raphaelbernhart.at',
+                html: message,
+            });
+
+            this.mailSent = true;
+        },
     },
 });
 </script>
