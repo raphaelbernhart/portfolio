@@ -84,7 +84,22 @@ export default {
         '@nuxtjs/pwa',
         '@nuxtjs/i18n',
         'nuxt-leaflet',
+        'nuxt-mail',
     ],
+
+    mail: {
+        message: {
+            to: 'mail@raphaelbernhart.at',
+        },
+        smtp: {
+            host: 'mail.raphaelbernhart.at',
+            port: 465,
+            auth: {
+                user: process.env.MAIL_USER,
+                pass: process.env.MAIL_PASS,
+            },
+        },
+    },
 
     router: {
         middleware: 'NavigationMiddleware',
