@@ -1,5 +1,6 @@
 <template>
-    <div class="flex gap-x-6">
+    <div class="flex gap-x-6 items-center">
+        <span class="text-primary mr-6">Filter:</span>
         <div
             v-for="(prop, index) in filterProps"
             :key="prop"

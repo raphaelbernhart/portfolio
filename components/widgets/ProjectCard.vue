@@ -35,11 +35,11 @@
                     data-scroll-class="FADE_UP_IMAGE"
                     data-scroll-speed="1.3"
                     data-scroll-animation-delay="300"
-                    class="w-full h-full"
+                    class="absolute w-full h-[135%] -top-36"
                 >
                     <img
                         :src="image"
-                        class="absolute -top-36 bg-gray-600 h-[135%] w-full object-cover brightness-75"
+                        class="absolute bg-gray-600 h-full w-full object-cover brightness-75"
                     />
                 </div>
             </div>

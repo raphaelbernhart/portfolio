@@ -6,9 +6,7 @@
                     <span class="text-white text-xl font-light">01</span>
                     <div class="h-[1px] w-28 bg-white"></div>
                     <span class="text-white text-xl font-light">{{
-                        projects.length > 10
-                            ? projects.length
-                            : '0' + projects.length
+                        getProjectCount()
                     }}</span>
                 </div>
                 <!-- Filter -->
@@ -51,12 +49,18 @@ export default Vue.extend({
             projectsFilter: [] as Array<string>,
             projects: [] as Array<Record<string, any>>,
             hiddenProjects: [] as Array<Record<string, any>>,
+            projectCount: 0,
         };
     },
     head() {
         return {
             title: 'Works',
         };
+    },
+    watch: {
+        projects() {
+            this.getProjectCount();
+        },
     },
     mounted() {
         this.fetchProjects();
@@ -101,6 +105,14 @@ export default Vue.extend({
             setTimeout(() => {
                 this.$nuxt.$emit('update-locomotive');
             }, 100);
+        },
+        getProjectCount() {
+            let count = 0;
+            this.projects.forEach((project: Record<string, any>) => {
+                if (!project.hidden) count++;
+            });
+
+            return count > 10 ? count : '0' + count;
         },
     },
 });
