@@ -1,7 +1,7 @@
 <template>
     <div class="relative bg-primary">
         <div class="container">
-            <div class="flex justify-between pt-32 xs:pt-36">
+            <div class="relative flex justify-between pt-44 xs:pt-28">
                 <div class="flex items-center gap-x-4">
                     <span class="text-white text-xl font-light">01</span>
                     <div class="h-[1px] w-28 bg-white"></div>
@@ -11,37 +11,21 @@
                             : '0' + projects.length
                     }}</span>
                 </div>
-                <div
-                    class="flex items-center gap-x-2 text-white cursor-pointer"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                    >
-                        <title>Filter Icon</title>
-                        <g class="fill-current">
-                            <path
-                                d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"
-                            ></path>
-                        </g>
-                    </svg>
-                    <span class="text-white text-xl font-light uppercase"
-                        >Filter</span
-                    >
-                </div>
+                <!-- Filter -->
+                <ProjectsFilter @updateFilter="updateFilter" />
             </div>
 
             <!-- Projects -->
             <div
                 id="projects-container"
-                class="relative flex flex-col mt-6 xs:mt-14 pb-24 gap-y-48 md:gap-y-64"
+                class="relative flex flex-col mt-6 xs:mt-14 md:mt-28 pb-24 gap-y-48 md:gap-y-52"
             >
                 <Project
                     v-for="project in projects"
                     :id="project.title"
                     :key="project.title"
+                    :class="{ hidden: project.hidden }"
+                    :hidden="project.hidden"
                     :name="project.title"
                     :categories="project.categories"
                     :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=1400&quality=100`"
@@ -54,17 +38,19 @@
 <script lang="ts">
 import Vue from 'vue';
 import Project from '~/components/widgets/ProjectCard.vue';
+import ProjectsFilter from '~/components/widgets/ProjectsFilter.vue';
 
 export default Vue.extend({
     name: 'WorksPage',
     components: {
         Project,
+        ProjectsFilter,
     },
-    layout: 'horizontal',
     data() {
         return {
-            apiQuery: '',
+            projectsFilter: [] as Array<string>,
             projects: [] as Array<Record<string, any>>,
+            hiddenProjects: [] as Array<Record<string, any>>,
         };
     },
     head() {
@@ -83,9 +69,38 @@ export default Vue.extend({
                 );
 
                 this.projects = res.data.data;
+                this.projects.forEach((project: Record<string, any>) => {
+                    project.hidden = false;
+                });
             } catch (err: any) {
                 console.log(err);
             }
+        },
+        updateFilter(newFilter: Array<string>) {
+            this.projectsFilter = newFilter;
+
+            this.filterProjects();
+        },
+        filterProjects() {
+            this.projects.forEach((project: Record<string, any>) => {
+                let categoryContained = false;
+                for (let i = 0; project.categories.length >= i; i++) {
+                    if (this.projectsFilter.includes(project.categories[i])) {
+                        categoryContained = true;
+                    }
+                }
+
+                const projectIndex = this.projects.indexOf(project);
+                if (categoryContained) {
+                    this.projects[projectIndex].hidden = false;
+                } else {
+                    this.projects[projectIndex].hidden = true;
+                }
+            });
+            this.$forceUpdate();
+            setTimeout(() => {
+                this.$nuxt.$emit('update-locomotive');
+            }, 100);
         },
     },
 });

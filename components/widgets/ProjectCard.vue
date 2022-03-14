@@ -1,7 +1,8 @@
 <template>
     <nuxt-link
         :to="localePath(`/works/${id}`)"
-        class="relative inline-flex flex-col gap-y-6 md:gap-y-0 md:inline-block max-h-[650px] cursor-pointer w-full"
+        :class="{ hidden: hidden, 'inline-flex md:inline-block': !hidden }"
+        class="relative flex-col gap-y-6 md:gap-y-0 max-h-[650px] cursor-pointer w-full"
         @mouseenter="enterElement($event)"
         @mouseleave="leaveElement($event)"
     >
@@ -70,6 +71,10 @@ export default Vue.extend({
             default() {
                 return [];
             },
+        },
+        hidden: {
+            type: Boolean,
+            required: true,
         },
     },
     data() {
