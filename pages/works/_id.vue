@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="project">
         <div class="relative h-screen w-full bg-white">
             <!-- Title -->
             <div
@@ -9,7 +9,7 @@
                     ref="headTitle"
                     class="relative font-display text-9xl md:text-[12rem] uppercase break-all"
                 >
-                    {{ title }}
+                    {{ title() }}
                 </h1>
             </div>
             <div
@@ -91,7 +91,10 @@
                             <h3 class="font-bold">Client</h3>
                             <span>{{ project.client[0] }}</span>
                         </div>
-                        <div class="h-[1px] w-full bg-primary"></div>
+                        <div
+                            v-if="project.liveSite"
+                            class="h-[1px] w-full bg-primary"
+                        ></div>
                         <div
                             v-if="project.liveSite"
                             class="flex flex-col gap-y-2"
@@ -203,6 +206,7 @@
             </div>
         </section>
     </div>
+    <div v-else>TEST</div>
 </template>
 
 <script lang="ts">
@@ -211,6 +215,8 @@ export default Vue.extend({
     name: 'ProjectPage',
     async asyncData({ $axios, params }) {
         const id = params.id;
+
+        if (id.length <= 1) return;
 
         // Get Project
         const res = await $axios.get(
@@ -226,15 +232,8 @@ export default Vue.extend({
             id: '',
             anime: {} as any,
             image: '',
-            video: 'https://player.vimeo.com/video/523033458?h=d0a4e781e4&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+            video: '',
         };
-    },
-    computed: {
-        title() {
-            const id = (this as any).id;
-            if (id) return id.replace('-', ' ');
-            return '';
-        },
     },
     mounted() {
         this.anime = (this as any).$anime;
@@ -332,6 +331,11 @@ export default Vue.extend({
             //     },
             //     900,
             // );
+        },
+        title() {
+            const id = (this as any).id;
+            if (id) return id.replace('-', ' ');
+            return '';
         },
     },
 });
