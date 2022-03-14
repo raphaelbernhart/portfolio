@@ -53,10 +53,24 @@ export default Vue.extend({
                             <div
                                 class="flex flex-grow-0 flex-col items-start gap-y-1"
                             >
-                                <a class="underline" href="">Behance</a>
-                                <a class="underline" href="">Github</a>
-                                <a class="underline" href="">Dribbble</a>
-                                <a class="underline" href="">Unsplash</a>
+                                <a
+                                    class="underline"
+                                    href="https://www.behance.net/raphaelbernhart"
+                                    target="_blank"
+                                    >Behance</a
+                                >
+                                <a
+                                    class="underline"
+                                    href="https://github.com/raphaelbernhart"
+                                    target="_blank"
+                                    >Github</a
+                                >
+                                <a
+                                    class="underline"
+                                    href="https://dribbble.com/raphaelbernhart"
+                                    target="_blank"
+                                    >Dribbble</a
+                                >
                             </div>
                         </div>
                     </div>
