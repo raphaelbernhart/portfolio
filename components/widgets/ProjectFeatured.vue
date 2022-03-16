@@ -1,5 +1,10 @@
 <template>
-    <div :class="{ 'justify-end': isEven }" class="flex w-full">
+    <div
+        :class="{ 'justify-end': isEven }"
+        class="flex w-full"
+        data-scroll
+        data-scroll-class="FADE_UP"
+    >
         <div
             class="duration-400 relative flex cursor-pointer flex-col sm:flex-row sm:items-end text-text transition-colors hover:text-hover"
             @mouseenter="enterElement($event)"
@@ -34,9 +39,9 @@
                         data-scroll
                         data-scroll-speed="1.2"
                         data-scroll-delay="1.6"
-                        class="max-w-md font-display text-7xl md:text-8xl"
+                        class="max-w-md font-display text-7xl md:text-8xl uppercase"
                     >
-                        {{ name }}
+                        {{ title }}
                     </h3>
                     <ParagraphComponent
                         data-scroll
@@ -106,6 +111,11 @@ export default Vue.extend({
             isEven: false,
             animationTarget: '' as any,
         };
+    },
+    computed: {
+        title() {
+            return this.name.replaceAll('-', ' ');
+        },
     },
     created() {
         this.isEven = this.isEvenFunc(this.index + 1);

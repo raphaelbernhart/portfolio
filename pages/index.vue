@@ -84,24 +84,14 @@
                 class="flex flex-col gap-y-16 sm:gap-y-0 md:gap-y-24 xl:-space-y-24"
             >
                 <ProjectFeatured
-                    id="u87asdf"
-                    data-scroll
-                    data-scroll-class="FADE_UP"
-                    :index="0"
-                    name="Syndena"
-                    text="I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I'm always looking to get my teeth stuck into new and exciting projects, so let's collaborate."
-                    image=""
-                    :categories="['Branding', 'Design']"
-                />
-                <ProjectFeatured
-                    id="ua4sdf"
-                    data-scroll
-                    data-scroll-class="FADE_UP"
-                    :index="1"
-                    name="The Campers"
-                    text="I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I'm always looking to get my teeth stuck into new and exciting projects, so let's collaborate."
-                    image=""
-                    :categories="['Branding', 'Design']"
+                    v-for="(project, index) in projects"
+                    :id="project.title"
+                    :key="project.title"
+                    :index="index"
+                    :name="project.title"
+                    :categories="project.categories"
+                    :text="project.introTxt"
+                    :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=1400&quality=90`"
                 />
             </div>
         </section>
@@ -353,6 +343,7 @@ export default Vue.extend({
         return {
             initAnimationFinished: false,
             initAnimation: {} as any,
+            projects: [] as any,
         };
     },
     head() {
@@ -397,6 +388,8 @@ export default Vue.extend({
             this.initAnimation.play();
             this.animateHeadImage();
         }
+
+        this.fetchFeaturedProjects();
     },
     methods: {
         sanitize,
@@ -414,6 +407,20 @@ export default Vue.extend({
                 opacity: [0, 1],
                 duration: 1000,
             });
+        },
+        async fetchFeaturedProjects() {
+            try {
+                const res = await this.$axios.get(
+                    `${process.env.CONTENT_API_URL}items/rb_portfolio_projects?limit=2`,
+                );
+
+                this.projects = res.data.data;
+                this.projects.forEach((project: Record<string, any>) => {
+                    project.hidden = false;
+                });
+            } catch (err: any) {
+                console.log(err);
+            }
         },
     },
 });
