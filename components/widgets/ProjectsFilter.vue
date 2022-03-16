@@ -56,6 +56,11 @@ export default Vue.extend({
             for (let i = 0; queryFilters.length >= i; i++) {
                 if (this.filterProps.includes(queryFilters[i]))
                     this.activeFilters.push(queryFilters[i] as never);
+                else if (queryFilters[i] !== undefined) {
+                    this.filterProps.forEach((p: string) =>
+                        this.activeFilters.push(p as never),
+                    );
+                }
             }
         } else {
             this.filterProps.forEach((p: string) =>
