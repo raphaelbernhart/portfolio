@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <nuxt-link :to="localePath(`/works?filter=${filter}`)">
         <div class="relative inline-block overflow-hidden text-text">
             <div
                 class="relative z-10 cursor-pointer"
@@ -23,7 +23,7 @@
                 class="absolute bottom-2 -z-10 hidden h-1.5 w-full -translate-x-full transform bg-primary xl:block"
             ></div>
         </div>
-    </div>
+    </nuxt-link>
 </template>
 
 <script lang="ts">
@@ -33,6 +33,10 @@ export default Vue.extend({
     name: 'ServiceLinkWidget',
     props: {
         text: {
+            type: String,
+            required: true,
+        },
+        filter: {
             type: String,
             required: true,
         },

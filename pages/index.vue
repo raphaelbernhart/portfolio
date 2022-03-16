@@ -63,9 +63,13 @@
                     <h4 class="text-5xl font-thin italic md:text-6xl">
                         I focus on
                     </h4>
-                    <ServiceLink text="Development" />
-                    <ServiceLink text="Video Production" />
-                    <ServiceLink text="Design" />
+
+                    <ServiceLink text="Development" filter="Web Development" />
+                    <ServiceLink
+                        text="Video Production"
+                        filter="Video Production"
+                    />
+                    <ServiceLink text="Design" filter="Design,Branding" />
                 </div>
             </div>
         </section>

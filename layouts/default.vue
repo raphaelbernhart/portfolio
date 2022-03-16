@@ -46,8 +46,9 @@ export default Vue.extend({
                 this.$nuxt.$emit('update-locomotive');
                 this.$nuxt.$emit('scroll-top-locomotive', {
                     duration: 0,
+                    disableLerp: true,
                 });
-            }, 250);
+            }, 150);
         },
     },
     mounted() {
