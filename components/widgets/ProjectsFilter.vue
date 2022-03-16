@@ -20,6 +20,12 @@
 import Vue from 'vue';
 export default Vue.extend({
     name: 'ProjectsFilterComponent',
+    props: {
+        projects: {
+            type: Array,
+            required: true,
+        },
+    },
     data() {
         return {
             filterProps: [
@@ -32,10 +38,31 @@ export default Vue.extend({
             activeFilters: [],
         };
     },
+    watch: {
+        // Wait on projects to load to update the filter
+        projects() {
+            this.$emit('updateFilter', this.activeFilters);
+        },
+    },
     mounted() {
-        this.filterProps.forEach((p: string) =>
-            this.activeFilters.push(p as never),
-        );
+        const filterQuery = this.$route.query.filter;
+        if (filterQuery) {
+            const queryFilters: string[] = [];
+            filterQuery
+                .toString()
+                .split(',')
+                .forEach((filter: string) => queryFilters.push(filter));
+
+            for (let i = 0; queryFilters.length >= i; i++) {
+                if (this.filterProps.includes(queryFilters[i]))
+                    this.activeFilters.push(queryFilters[i] as never);
+            }
+        } else {
+            this.filterProps.forEach((p: string) =>
+                this.activeFilters.push(p as never),
+            );
+        }
+
         this.$emit('updateFilter', this.activeFilters);
     },
     methods: {

@@ -9,8 +9,14 @@
                         getProjectCount()
                     }}</span>
                 </div>
-                <!-- Filter -->
-                <ProjectsFilter @updateFilter="updateFilter" />
+                <!--
+                    Filter
+                    Pass projects to watch in child component on project load
+                -->
+                <ProjectsFilter
+                    :projects="projects"
+                    @updateFilter="updateFilter"
+                />
             </div>
 
             <!-- Projects -->
@@ -26,7 +32,7 @@
                     :hidden="project.hidden"
                     :name="project.title"
                     :categories="project.categories"
-                    :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=1400&quality=100`"
+                    :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=1400&quality=90`"
                 />
             </div>
         </div>
@@ -63,7 +69,6 @@ export default Vue.extend({
         },
     },
     mounted() {
-        console.log('Works Page');
         this.fetchProjects();
     },
     methods: {
