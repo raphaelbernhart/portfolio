@@ -81,4 +81,90 @@ export default {
         404: 'Seite nicht gefunden',
         500: 'Ein Fehler ist aufgetreten',
     },
+    cookieconsent: {
+        consent_modal: {
+            title: 'Es werden Cookies verwendet!',
+            description:
+                'Hallo, diese Website verwendet notwendige Cookies um den ordnungsgemäßen Betrieb der Website zu gewährleisten, und Tracking-Cookies, um zu verstehen, wie Sie mit der Website interagieren. Letztere werden nur nach Zustimmung gesetzt. <button type="button" data-cc="c-settings" class="cc-link">Lass mich entscheiden</button>',
+            primary_btn: {
+                text: 'Alles akzeptieren',
+                role: 'accept_all', // 'accept_selected' or 'accept_all'
+            },
+            secondary_btn: {
+                text: 'Alle ablehnen',
+                role: 'accept_necessary', // 'settings' or 'accept_necessary'
+            },
+        },
+        settings_modal: {
+            title: 'Cookie Einstellungen',
+            save_settings_btn: 'Speichern',
+            accept_all_btn: 'Alle akzeptieren',
+            reject_all_btn: 'Alle ablehnen',
+            close_btn_label: 'Schließen',
+            cookie_table_headers: [
+                { col1: 'Name' },
+                { col2: 'Domain' },
+                { col3: 'Ablauf' },
+                { col4: 'Beschreibung' },
+            ],
+            blocks: [
+                {
+                    title: 'Verwendung von Cookies 📢',
+                    description:
+                        'Es werden Cookies verwendet, um die grundlegenden Funktionen der Website zu gewährleisten und um Ihr Online-Erlebnis zu verbessern. Sie können für jede Kategorie wählen, ob Sie sich annehmen oder ablehnen möchten. Für weitere Einzelheiten zu Cookies und anderen sensiblen Daten lesen Sie bitte die vollständige <a href="https://raphaelbernhart.at/imprint" class="cc-link">Datenschutzerklärung</a>.',
+                },
+                {
+                    title: 'Notwendige Cookies',
+                    description:
+                        'Diese Cookies sind für das ordnungsgemäße Funktionieren meiner Website unerlässlich. Ohne diese Cookies würde die Website nicht richtig funktionieren',
+                    toggle: {
+                        value: 'necessary',
+                        enabled: true,
+                        readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
+                    },
+                },
+                {
+                    title: 'Performance and Analytics Cookies',
+                    description:
+                        'Diese Cookies ermöglichen es der Website, sich an die von Ihnen in der Vergangenheit getroffenen Auswahlen zu erinnern',
+                    toggle: {
+                        value: 'analytics', // your cookie category
+                        enabled: false,
+                        readonly: false,
+                    },
+                    cookie_table: [
+                        // list of all expected cookies
+                        {
+                            col1: '^_ga', // match all cookies starting with "_ga"
+                            col2: 'google.com',
+                            col3: '2 years',
+                            col4: 'description ...',
+                            is_regex: true,
+                        },
+                        {
+                            col1: '_gid',
+                            col2: 'google.com',
+                            col3: '1 day',
+                            col4: 'description ...',
+                        },
+                    ],
+                },
+                {
+                    title: 'Advertisement and Targeting cookies',
+                    description:
+                        'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
+                    toggle: {
+                        value: 'targeting',
+                        enabled: false,
+                        readonly: false,
+                    },
+                },
+                {
+                    title: 'More information',
+                    description:
+                        'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                },
+            ],
+        },
+    },
 };

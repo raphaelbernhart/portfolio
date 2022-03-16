@@ -62,6 +62,7 @@ export default {
         { src: '~/plugins/client.ts', mode: 'client' },
         { src: '~/plugins/server.ts', mode: 'server' },
         '@/plugins/letterizejs/letterizejs.client.ts',
+        '@/plugins/cookieconsent/cookieconsent.client.ts',
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -74,6 +75,7 @@ export default {
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
         'nuxt-animejs',
+        '@nuxtjs/ackee',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -86,6 +88,13 @@ export default {
         'nuxt-leaflet',
         'nuxt-mail',
     ],
+
+    ackee: {
+        server: 'https://analytics.raphaelbernhart.at',
+        domainId: '35e91438-e98e-4177-9bf5-c482df5e12df',
+        detailed: 'opt-out',
+        ignoreLocalhost: false,
+    },
 
     mail: {
         message: {

@@ -63,6 +63,7 @@ export default Vue.extend({
         },
     },
     mounted() {
+        console.log('Works Page');
         this.fetchProjects();
     },
     methods: {
