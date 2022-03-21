@@ -3128,6 +3128,18 @@
 import Vue from 'vue';
 export default Vue.extend({
     name: 'ImprintPage',
+    head() {
+        return {
+            title: 'Impressum',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Impressum/Imprint of Raphael Bernhart',
+                },
+            ],
+        };
+    },
     mounted() {
         if (this.$route.path.slice(0, 3) === '/en') {
             setTimeout(() => {

@@ -1,5 +1,9 @@
 export default {
     home: {
+        meta: {
+            description:
+                'Professional web development and video production. Acquire new customers with a promotional video or creative landing page.',
+        },
         head: {
             lead: 'Creative and Dev from Austria',
             marking:
@@ -29,7 +33,17 @@ export default {
             headline: 'Ready for take-off?',
         },
     },
+    works: {
+        meta: {
+            description:
+                'My previous work from education and freelance work. Here are listed my projects.',
+        },
+    },
     profile: {
+        meta: {
+            description:
+                'Learn more and get to know me as a person. Get a picture of me and have a look at my company philosophy. Also my previous apprenticeships and jobs are listed here.',
+        },
         head: {
             lead: 'About me',
             paragraph:
@@ -48,6 +62,10 @@ export default {
         },
     },
     contact: {
+        meta: {
+            description:
+                'Contact me to be able to realize a collaboration. If you have any questions, please feel free to contact me.',
+        },
         leading: "I'd love to hear from you",
         form: {
             headline: 'Contact',

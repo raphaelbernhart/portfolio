@@ -161,6 +161,13 @@ export default Vue.extend({
     head() {
         return {
             title: 'Profile',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: (this as any).$t('profile.meta.description'),
+                },
+            ],
         };
     },
     mounted() {

@@ -61,6 +61,13 @@ export default Vue.extend({
     head() {
         return {
             title: 'Works',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: (this as any).$t('works.meta.description'),
+                },
+            ],
         };
     },
     watch: {

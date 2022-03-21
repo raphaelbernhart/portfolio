@@ -1,5 +1,9 @@
 export default {
     home: {
+        meta: {
+            description:
+                'Professionelle Webentwicklung und Videoproduktion. Aquirieren Sie neue Kunden mit einem Werbevideo oder einer kreativen Landingpage.',
+        },
         head: {
             lead: 'Creative and Dev from austria',
             marking:
@@ -29,7 +33,17 @@ export default {
             headline: 'Ready for take-off?',
         },
     },
+    works: {
+        meta: {
+            description:
+                'Meine bisherigen Arbeiten aus Ausbildung und Freelance Arbeit. Hier werden meine Projekte aufgelistet.',
+        },
+    },
     profile: {
+        meta: {
+            description:
+                'Erfahre mehr und lerne mich als Person kennen. Mach dir ein Bild von mir zu machen und zu schaue dir meine Firmenphilosophie an. Auch meine bisherigen Ausbildungen und Arbeitsstellen werden hier aufgelistet.',
+        },
         head: {
             lead: 'Über mich',
             paragraph:
@@ -48,6 +62,10 @@ export default {
         },
     },
     contact: {
+        meta: {
+            description:
+                'Kontaktiere mich um eine Zusammenarbeit realisieren zu können. Solltest du Fragen noch Fragen haben kannst du dich gerne melden.',
+        },
         leading: 'Ich freue mich von Ihnen zu hören',
         form: {
             headline: 'Kontakt',

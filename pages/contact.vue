@@ -107,6 +107,13 @@ export default Vue.extend({
     head() {
         return {
             title: 'Contact',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: (this as any).$t('contact.meta.description'),
+                },
+            ],
         };
     },
     methods: {

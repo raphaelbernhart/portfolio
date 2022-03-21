@@ -888,6 +888,19 @@
 import Vue from 'vue';
 export default Vue.extend({
     name: 'AGBPage',
+    head() {
+        return {
+            title: 'GTC',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content:
+                        'AGBs | General Terms & Conditions of Raphael Bernhart',
+                },
+            ],
+        };
+    },
 });
 </script>
 

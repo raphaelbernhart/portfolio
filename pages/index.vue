@@ -349,6 +349,13 @@ export default Vue.extend({
     head() {
         return {
             title: 'Home',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: (this as any).$t('home.meta.description'),
+                },
+            ],
         };
     },
     watch: {

@@ -243,6 +243,18 @@ export default Vue.extend({
             video: '',
         };
     },
+    head() {
+        return {
+            title: (this as any).project.title,
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: (this as any).project.introTxt,
+                },
+            ],
+        };
+    },
     mounted() {
         this.anime = (this as any).$anime;
         this.animateHead();
