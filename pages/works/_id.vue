@@ -7,7 +7,12 @@
             >
                 <h1
                     ref="headTitle"
-                    class="relative font-display text-9xl md:text-[12rem] uppercase break-all"
+                    class="relative font-display text-8xl xs:text-9xl md:text-[12rem] uppercase"
+                    style="
+                        -webkit-hyphens: auto;
+                        -ms-hyphens: auto;
+                        hyphens: auto;
+                    "
                 >
                     {{ title() }}
                 </h1>
