@@ -5,7 +5,8 @@
         data-scroll
         data-scroll-class="FADE_UP"
     >
-        <div
+        <nuxt-link
+            :to="localePath(`/works/${id}`)"
             class="duration-400 relative flex cursor-pointer flex-col sm:flex-row sm:items-end text-text transition-colors hover:text-hover"
             @mouseenter="enterElement($event)"
             @mouseleave="leaveElement($event)"
@@ -16,13 +17,13 @@
             >
                 <img
                     v-if="image"
-                    class="h-full w-full object-cover"
+                    class="h-full w-full object-cover opacity-70"
                     :src="image"
                     alt=""
                 />
                 <img
                     v-else
-                    class="h-full w-full object-cover"
+                    class="h-full w-full object-cover opacity-70"
                     src="~/assets/images/placeholder.jpg"
                     alt=""
                 />
@@ -68,7 +69,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </nuxt-link>
     </div>
 </template>
 
