@@ -70,6 +70,11 @@ export default Vue.extend({
     },
     mounted() {
         this.fetchProjects();
+
+        // Scroll a little bit down to activate image scrolling animation
+        setTimeout(() => {
+            this.$nuxt.$emit('scroll-locomotive', 5);
+        }, 75);
     },
     methods: {
         async fetchProjects() {

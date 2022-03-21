@@ -61,6 +61,9 @@ export default {
         this.$nuxt.$on('scroll-top-locomotive', (options) => {
             this?.locomotive?.scrollTo('top', options);
         });
+        this.$nuxt.$on('scroll-locomotive', (number) => {
+            this?.locomotive?.scrollTo(number);
+        });
     },
     methods: {
         onScroll(e) {
