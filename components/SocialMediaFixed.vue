@@ -6,6 +6,7 @@
         <a
             href="https://www.behance.net/raphaelbernhart"
             target="_blank"
+            rel="noopener noreferrer"
             class="pointer-events-auto w-full cursor-pointer transition-colors hover:text-gray-400"
         >
             <svg
@@ -39,6 +40,7 @@
         <a
             href="https://github.com/raphaelbernhart"
             target="_blank"
+            rel="noopener noreferrer"
             class="pointer-events-auto w-full cursor-pointer transition-colors hover:text-gray-400"
         >
             <svg
@@ -59,6 +61,7 @@
         <a
             href="https://dribbble.com/raphaelbernhart"
             target="_blank"
+            rel="noopener noreferrer"
             class="pointer-events-auto w-full cursor-pointer transition-colors hover:text-gray-400"
         >
             <svg

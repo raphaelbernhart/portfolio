@@ -7,6 +7,7 @@
         class="transition-color hover-trigger inline-block text-lg font-semibold italic"
         :href="link"
         :target="openInNewWindow"
+        rel="noopener noreferrer"
     >
         <div class="flex items-center">
             {{ text }}

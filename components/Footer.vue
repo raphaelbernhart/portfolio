@@ -57,18 +57,21 @@ export default Vue.extend({
                                     class="underline"
                                     href="https://www.behance.net/raphaelbernhart"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     >Behance</a
                                 >
                                 <a
                                     class="underline"
                                     href="https://github.com/raphaelbernhart"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     >Github</a
                                 >
                                 <a
                                     class="underline"
                                     href="https://dribbble.com/raphaelbernhart"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     >Dribbble</a
                                 >
                             </div>

@@ -105,9 +105,17 @@
                             class="flex flex-col gap-y-2"
                         >
                             <h3 class="font-bold">Live Website</h3>
-                            <a :href="project.liveSite" target="_blank">{{
-                                project.liveSite.replace(/(^\w+:|^)\/\//, '')
-                            }}</a>
+                            <a
+                                :href="project.liveSite"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >{{
+                                    project.liveSite.replace(
+                                        /(^\w+:|^)\/\//,
+                                        '',
+                                    )
+                                }}</a
+                            >
                         </div>
                     </div>
                 </div>

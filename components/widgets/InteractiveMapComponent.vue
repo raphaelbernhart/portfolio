@@ -20,7 +20,7 @@
                                 6364 Brixen im Thale<br>
                                 AUSTRIA<br>
                                 <br>
-                                <a class="text-primary font-bold underline" target="_blank" href="https://www.google.com/maps/place/Raphael+Bernhart/@47.4364677,12.3900398,13z/data=!3m1!4b1!4m5!3m4!1s0x62513e07c65a625f:0x9630f5393a0bdcf!8m2!3d47.436415!4d12.4251449">Zu Google</a>
+                                <a class="text-primary font-bold underline" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/place/Raphael+Bernhart/@47.4364677,12.3900398,13z/data=!3m1!4b1!4m5!3m4!1s0x62513e07c65a625f:0x9630f5393a0bdcf!8m2!3d47.436415!4d12.4251449">Zu Google</a>
                             </p>
                         </div>
                     '
