@@ -2,7 +2,7 @@
     <div class="relative bg-primary">
         <div class="container">
             <div class="relative flex justify-between pt-44 xs:pt-28">
-                <div class="flex items-center gap-x-4">
+                <div class="hidden sm:flex items-center gap-x-4">
                     <span class="text-white text-xl font-light">01</span>
                     <div class="h-[1px] w-28 bg-white"></div>
                     <span class="text-white text-xl font-light">{{
