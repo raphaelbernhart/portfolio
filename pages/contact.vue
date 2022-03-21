@@ -68,9 +68,9 @@
                             {{ $t('contact.mailSent') }}
                         </div>
                         <Button
-                            @click.native="handleContactForm"
-                            class="mt-8"
                             :text="$t('contact.form.send')"
+                            class="mt-8"
+                            @click.native="handleContactForm"
                         />
                     </div>
                     <!-- Background -->

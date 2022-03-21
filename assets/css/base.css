@@ -7,5 +7,7 @@
     font-style: normal;
     font-weight: normal;
     font-stretch: normal;
-    src: url('~/static/fonts/Eugusto/normal_normal_normal.woff2') format('woff2'), url('~/static/fonts/Eugusto/normal_normal_normal.woff') format('woff');
+    src: url('~/static/fonts/Eugusto/normal_normal_normal.woff2')
+            format('woff2'),
+        url('~/static/fonts/Eugusto/normal_normal_normal.woff') format('woff');
 }
