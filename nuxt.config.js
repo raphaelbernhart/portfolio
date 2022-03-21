@@ -88,6 +88,7 @@ export default {
         'nuxt-leaflet',
         'nuxt-mail',
         '@nuxtjs/sitemap',
+        '@nuxtjs/robots',
     ],
 
     ackee: {
@@ -111,8 +112,9 @@ export default {
         },
     },
 
-    sitemap: {
-        // options
+    robots: {
+        UserAgent: '*',
+        Allow: '/',
     },
 
     router: {
