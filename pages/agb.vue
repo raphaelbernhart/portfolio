@@ -2,7 +2,14 @@
     <div class="py-44">
         <div class="container">
             <div class="mb-24">
-                <h1 class="font-display no-ligature">
+                <h1
+                    class="font-display no-ligature break-words"
+                    style="
+                        -webkit-hyphens: auto;
+                        -ms-hyphens: auto;
+                        hyphens: auto;
+                    "
+                >
                     ALLGEMEINE GESCH&Auml;FTSBEDINGUNGEN der
                 </h1>
                 <p class="m-0">
