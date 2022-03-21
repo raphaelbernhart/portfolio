@@ -94,9 +94,7 @@ export default Vue.extend({
                 this.projects.forEach((project: Record<string, any>) => {
                     project.hidden = false;
                 });
-            } catch (err: any) {
-                console.log(err);
-            }
+            } catch (err: any) {}
         },
         updateFilter(newFilter: Array<string>) {
             this.projectsFilter = newFilter;

@@ -18,7 +18,7 @@
                 <Footer data-scroll-section />
             </div>
         </LocomotiveScroll>
-        <!-- <Transition /> -->
+        <Transition />
     </div>
 </template>
 

@@ -1,3 +1,111 @@
+<script lang="ts">
+/* eslint-disable vue/no-v-html */
+
+import Vue from 'vue';
+import MarkComponent from '@/components/widgets/MarkComponent.vue';
+import ServiceLink from '@/components/widgets/ServicesLink.vue';
+import ProjectFeatured from '~/components/widgets/ProjectFeatured.vue';
+import { sanitize } from '~/services/Helpers';
+
+export default Vue.extend({
+    name: 'IndexPage',
+    components: {
+        ServiceLink,
+        ProjectFeatured,
+        MarkComponent,
+    },
+    data() {
+        return {
+            initAnimationFinished: false,
+            initAnimation: {} as any,
+            projects: [] as any,
+        };
+    },
+    head() {
+        return {
+            title: 'Home',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: (this as any).$t('home.meta.description'),
+                },
+            ],
+        };
+    },
+    watch: {
+        '$store.state.transitions.initTransitionFinished'(newValue: boolean) {
+            if (newValue === true) {
+                this.initAnimation.play();
+                this.animateHeadImage();
+            }
+        },
+    },
+    mounted() {
+        const letters: any = this.$letterize({
+            targets: '#head-letterize',
+            className: 'inline-block',
+        });
+
+        const anime: any = (this as any).$anime;
+
+        this.initAnimation = anime({
+            targets: letters.listAll,
+            easing: 'easeInOutQuad',
+            duration: 1500,
+            translateY: [125, 0],
+            opacity: [0, 1],
+            delay(_el: any, i: number) {
+                return i * 35;
+            },
+            autoplay: false,
+            begin: () => {
+                setTimeout(() => {
+                    this.initAnimationFinished = true;
+                }, 1000);
+            },
+        });
+
+        if (this.$store.state.transitions.initTransitionFinished) {
+            this.initAnimation.play();
+            this.animateHeadImage();
+        }
+
+        this.fetchFeaturedProjects();
+    },
+    methods: {
+        sanitize,
+        animateHeadImage() {
+            const htmlElement: HTMLElement = this.$refs.headImage;
+
+            // Add overflow-hidden class to parent
+            htmlElement.classList.add('overflow-hidden');
+
+            // Fade Up Animation
+            (this as any).$anime({
+                targets: htmlElement.childNodes[0],
+                easing: 'easeInOutQuad',
+                translateY: [125, 0],
+                opacity: [0, 1],
+                duration: 1000,
+            });
+        },
+        async fetchFeaturedProjects() {
+            try {
+                const res = await this.$axios.get(
+                    `${process.env.CONTENT_API_URL}items/rb_portfolio_projects?limit=2`,
+                );
+
+                this.projects = res.data.data;
+                this.projects.forEach((project: Record<string, any>) => {
+                    project.hidden = false;
+                });
+            } catch (err: any) {}
+        },
+    },
+});
+</script>
+
 <template>
     <div>
         <div class="h-screen w-screen bg-primary dark:bg-primaryColor">
@@ -324,114 +432,6 @@
         </section>
     </div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue';
-import MarkComponent from '@/components/widgets/MarkComponent.vue';
-import ServiceLink from '@/components/widgets/ServicesLink.vue';
-import ProjectFeatured from '~/components/widgets/ProjectFeatured.vue';
-import { sanitize } from '~/services/Helpers';
-
-export default Vue.extend({
-    name: 'IndexPage',
-    components: {
-        ServiceLink,
-        ProjectFeatured,
-        MarkComponent,
-    },
-    data() {
-        return {
-            initAnimationFinished: false,
-            initAnimation: {} as any,
-            projects: [] as any,
-        };
-    },
-    head() {
-        return {
-            title: 'Home',
-            meta: [
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: (this as any).$t('home.meta.description'),
-                },
-            ],
-        };
-    },
-    watch: {
-        '$store.state.transitions.initTransitionFinished'(newValue: boolean) {
-            if (newValue === true) {
-                this.initAnimation.play();
-                this.animateHeadImage();
-            }
-        },
-    },
-    mounted() {
-        const letters: any = this.$letterize({
-            targets: '#head-letterize',
-            className: 'inline-block',
-        });
-
-        const anime: any = (this as any).$anime;
-
-        this.initAnimation = anime({
-            targets: letters.listAll,
-            easing: 'easeInOutQuad',
-            duration: 1500,
-            translateY: [125, 0],
-            opacity: [0, 1],
-            delay(_el: any, i: number) {
-                return i * 35;
-            },
-            autoplay: false,
-            begin: () => {
-                setTimeout(() => {
-                    this.initAnimationFinished = true;
-                }, 1000);
-            },
-        });
-
-        if (this.$store.state.transitions.initTransitionFinished) {
-            this.initAnimation.play();
-            this.animateHeadImage();
-        }
-
-        this.fetchFeaturedProjects();
-    },
-    methods: {
-        sanitize,
-        animateHeadImage() {
-            const htmlElement: HTMLElement = this.$refs.headImage;
-
-            // Add overflow-hidden class to parent
-            htmlElement.classList.add('overflow-hidden');
-
-            // Fade Up Animation
-            (this as any).$anime({
-                targets: htmlElement.childNodes[0],
-                easing: 'easeInOutQuad',
-                translateY: [125, 0],
-                opacity: [0, 1],
-                duration: 1000,
-            });
-        },
-        async fetchFeaturedProjects() {
-            try {
-                const res = await this.$axios.get(
-                    `${process.env.CONTENT_API_URL}items/rb_portfolio_projects?limit=2`,
-                );
-
-                this.projects = res.data.data;
-                this.projects.forEach((project: Record<string, any>) => {
-                    project.hidden = false;
-                });
-            } catch (err: any) {
-                console.log(err);
-            }
-        },
-    },
-});
-</script>
 
 <style class="scoped">
 .featured-gap {

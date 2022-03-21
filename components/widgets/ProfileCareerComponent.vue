@@ -32,12 +32,15 @@
             class="hidden sm:flex col-span-2 flex-row flex-wrap"
         >
             <div
-                v-for="(image, index) in images.slice(0, 4)"
+                v-for="(image, imageIndex) in images.slice(0, 4)"
                 :key="image"
                 :class="{
-                    'mt-24': index === 0,
-                    'mt-0': index === 1,
-                    '-mt-24': index !== 0 && index !== 1 && index % 2 === 1,
+                    'mt-24': imageIndex === 0,
+                    'mt-0': imageIndex === 1,
+                    '-mt-24':
+                        imageIndex !== 0 &&
+                        imageIndex !== 1 &&
+                        imageIndex % 2 === 1,
                 }"
                 class="w-1/2 overflow-hidden"
             >
