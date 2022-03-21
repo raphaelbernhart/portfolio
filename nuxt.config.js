@@ -87,6 +87,7 @@ export default {
         '@nuxtjs/i18n',
         'nuxt-leaflet',
         'nuxt-mail',
+        '@nuxtjs/sitemap',
     ],
 
     ackee: {
@@ -108,6 +109,10 @@ export default {
                 pass: process.env.MAIL_PASS,
             },
         },
+    },
+
+    sitemap: {
+        // options
     },
 
     router: {
