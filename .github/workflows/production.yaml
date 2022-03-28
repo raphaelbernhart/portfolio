@@ -64,7 +64,7 @@ jobs:
         id: package-version
         uses: martinbeentjes/npm-get-version-action@v1.1.0
         
-      - uses: azure/k8s-set-context@v1
+      - uses: azure/k8s-set-context@v2
         with:
           method: kubeconfig
           kubeconfig: ${{secrets.KUBECONFIG}}
