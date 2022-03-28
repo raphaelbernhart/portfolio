@@ -1,24 +1,49 @@
-FROM node:14.17.0-alpine3.12 as frontend-build
+# Dockerfile
+FROM node:16.14.2-alpine as build
 
-WORKDIR /src
-
-ADD ./yarn.lock ./package.json ./
-RUN yarn install
-
-ADD ./ ./
-RUN yarn build --standalone
-
-FROM node:14.17.0-alpine3.12
-
-ENV NUXT_VERSION=2.15.8
-
+# create destination directory
+RUN mkdir -p /app
 WORKDIR /app
 
-RUN yarn add "nuxt-start@${NUXT_VERSION}"
+# copy the app, note .dockerignore
+COPY ./ /app/
+RUN npm install
+RUN npm run build
 
-COPY --from=frontend-build /src/.nuxt /app/.nuxt
-COPY --from=frontend-build /src/nuxt.config.js /app/
-COPY --from=frontend-build /src/static /app/
+FROM node:16.14.2-alpine as production
 
-ENTRYPOINT ["npx", "nuxt-start"]
+# Install git
+RUN apk add git
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY --from=build /app/package.json /app/
+COPY --from=build /app/.nuxt /app/.nuxt
+
+RUN npm install --production
+
 EXPOSE 3000
+ENV NUXT_HOST=0.0.0.0
+ENV NUXT_PORT=3000
+
+CMD [ "npm", "start" ]
+
+# FROM node:16.14.2-alpine3.15
+
+# ENV NUXT_VERSION=2.15.6
+
+# WORKDIR /app
+
+# ADD ./ ./
+# RUN : \
+#     && yarn install \
+#     && yarn build --standalone \
+#     && rm -rf node_modules \
+#     && rm package.json \
+#     && yarn add "nuxt-start@${NUXT_VERSION}" \
+#     && yarn cache clean \
+#     && :
+
+# ENTRYPOINT ["npx", "nuxt-start"]
+# EXPOSE 3000
