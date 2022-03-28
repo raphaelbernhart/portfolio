@@ -1,9 +1,0 @@
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www.raphaelbernhart.ddns.net [NC]
-RewriteRule ^(.*)$ http://raphaelbernhart.ddns.net/$1 [R=301,L]
-
-<FilesMatch "\.(jpg|png|js|css|html)$">
-Header set Cache-Control "max-age=3200"
-</FilesMatch>
-
-ErrorDocument 404 /404.html

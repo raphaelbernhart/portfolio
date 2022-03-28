@@ -1,0 +1,97 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio
+  namespace: personal
+  labels:
+    owner: raphaelbernhart
+    env: prod
+spec:
+  selector:
+    matchLabels:
+      app: portfolio
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: portfolio
+    spec:
+      containers:
+      - name: portfolio
+        image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:2.0.0
+        imagePullPolicy: Always
+        livenessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 5
+        readinessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /
+            port: 3000
+            scheme: HTTP
+          initialDelaySeconds: 35
+          successThreshold: 2
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "120M"
+            cpu: "120m"
+          limits:
+            memory: "180M"
+            cpu: "200m"
+      imagePullSecrets:
+      - name: regcred
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolio
+  namespace: personal
+  annotations:
+    metallb.universe.tf/address-pool: production-public-ips
+spec:
+  selector:
+    app: portfolio
+  ports:
+  - port: 80
+    targetPort: 3000
+
+---
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: portfolio
+  namespace: personal
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
+    nginx.ingress.kubernetes.io/limit-rps: "10"
+    external-dns.alpha.kubernetes.io/hostname: 'raphaelbernhart.at, www.raphaelbernhart.at'
+spec:
+  tls:
+  - hosts:
+    - raphaelbernhart.at
+    - www.raphaelbernhart.at
+    secretName: raphaelbernhart-at-tls
+  rules:
+  - host: raphaelbernhart.at
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: portfolio
+          servicePort: 80

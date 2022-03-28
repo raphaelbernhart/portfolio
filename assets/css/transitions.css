@@ -1,0 +1,41 @@
+/* .page-enter-active,
+.page-leave-active {
+    transition: opacity .5s;
+}
+
+.page-enter,
+.page-leave-to {
+    opacity: 1;
+} */
+
+.left-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: auto;
+    left: -100%;
+    bottom: auto;
+    right: auto;
+    transition: all 1.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    z-index: 45;
+}
+
+.left-layer.active {
+    left: 100%;
+    z-index: 45;
+}
+
+.left-layer--2 {
+    transition-delay: 0.3s;
+    z-index: 45;
+}
+
+.left-layer--3 {
+    transition-delay: 0.2s;
+    z-index: 45;
+}
+
+.left-layer--4 {
+    transition-delay: 0.1s;
+    z-index: 45;
+}
