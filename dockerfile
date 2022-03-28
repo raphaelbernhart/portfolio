@@ -20,6 +20,7 @@ WORKDIR /app
 
 COPY --from=build /app/package.json /app/
 COPY --from=build /app/.nuxt /app/.nuxt
+COPY --from=build /app/public /app/public
 
 RUN npm install --production
 
