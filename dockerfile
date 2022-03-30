@@ -1,6 +1,8 @@
 # Dockerfile
 FROM node:16.14.2-alpine as build
 
+RUN apk add git
+
 # create destination directory
 RUN mkdir -p /app
 WORKDIR /app
