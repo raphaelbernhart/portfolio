@@ -74,5 +74,5 @@ jobs:
           action: deploy
           namespace: ${{ secrets.KUBE_NAMESPACE }}
           manifests: |
-              ./config/manifest.yml
+              ./config/manifest.yaml
           images: '${{ secrets.DOCKER_IMAGE }}:${{ steps.package-version.outputs.current-version}} '
