@@ -1,5 +1,5 @@
 # Dockerfile
-FROM node:16.14.2-alpine as build
+FROM node:14.17.0-alpine as build
 
 RUN apk add git
 
@@ -12,7 +12,7 @@ COPY ./ /app/
 RUN npm install
 RUN npm run build
 
-FROM node:16.14.2-alpine as production
+FROM node:14.17.0-alpine as production
 
 # Install git
 RUN apk add git
