@@ -1,4 +1,4 @@
-name: Build, Test & Deploy for Production
+name: K8s_Deployment
 
 on:
   push:
