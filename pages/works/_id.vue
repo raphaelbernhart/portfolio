@@ -137,7 +137,7 @@
                             data-scroll-speed="1.3"
                             data-scroll-offset="-150%"
                             :src="image"
-                            class="md:absolute -top-36 bg-gray-600 h-full w-full object-cover brightness-75"
+                            class="md:absolute -top-36 bg-gray-600 h-full w-full object-cover"
                         />
                     </div>
                 </div>

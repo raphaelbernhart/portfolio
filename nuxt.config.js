@@ -1,3 +1,5 @@
+import pkg from './package.json';
+
 export default {
     // Global page headers: https://go.nuxtjs.dev/config-head
     head: {
@@ -37,7 +39,8 @@ export default {
         host: '0.0.0.0',
     },
 
-    env: {
+    publicRuntimeConfig: {
+        PROJECT_VERSION: pkg.version,
         CONTENT_API_URL: 'https://content.raphaelbernhart.at/',
     },
 
