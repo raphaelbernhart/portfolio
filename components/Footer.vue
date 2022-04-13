@@ -111,6 +111,23 @@ export default Vue.extend({
                             >{{ $t('footer.agb') }}
                         </nuxt-link>
                     </div>
+                    <div
+                        class="relative mt-16 sm:mt-0 sm:absolute bottom-0 md:bottom-auto right-0 text-sm"
+                    >
+                        <a
+                            href="https://github.com/raphaelbernhart/portfolio"
+                            target="_blank"
+                            class="font-bold"
+                            >v{{ $config.PROJECT_VERSION }}</a
+                        >
+                        made with ♥️ by
+                        <a
+                            href="https://github.com/raphaelbernhart"
+                            target="_blank"
+                            class="font-bold"
+                            >@raphaelbernhart</a
+                        >
+                    </div>
                 </div>
             </div>
         </div>
