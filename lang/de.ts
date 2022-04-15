@@ -60,6 +60,9 @@ export default {
             paragraph:
                 'In meiner Freizeit gehe ich gerne Skifahren, schaue Basketballspiele oder produziere Videos für mich und meine Freunde.',
         },
+        'section-3': {
+            headline: 'Meine bisherige Laufbahn',
+        },
     },
     contact: {
         meta: {

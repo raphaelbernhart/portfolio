@@ -22,7 +22,9 @@ WORKDIR /app
 
 COPY --from=build /app/package.json /app/
 COPY --from=build /app/.nuxt /app/.nuxt
+COPY --from=build /app/package.json /app/.nuxt
 COPY --from=build /app/static /app/static
+COPY --from=build /app/assets /app/assets
 
 RUN npm install --production
 
