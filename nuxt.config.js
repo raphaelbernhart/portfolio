@@ -61,7 +61,7 @@ export default {
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
-    css: ['~/assets/css/base.css', '~/assets/css/transitions.css'],
+    css: ['@/assets/css/base.css', '@/assets/css/transitions.css'],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
@@ -81,6 +81,7 @@ export default {
         '@nuxt/typescript-build',
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
+        '@nuxtjs/google-fonts',
         'nuxt-animejs',
         '@nuxtjs/ackee',
     ],
@@ -97,6 +98,23 @@ export default {
         '@nuxtjs/sitemap',
         '@nuxtjs/robots',
     ],
+
+    googleFonts: {
+        families: {
+            Poppins: {
+                wght: [200, 400, 600],
+                ital: [300, 400, 600],
+            },
+        },
+        subsets: ['latin'],
+        display: 'swap',
+        prefetch: true,
+        preconnect: false,
+        preload: true,
+        download: true,
+        base64: false,
+        useStylesheet: false,
+    },
 
     ackee: {
         server: 'https://analytics.raphaelbernhart.at',
