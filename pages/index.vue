@@ -189,7 +189,7 @@ export default Vue.extend({
                 featured projects
             </h3>
             <div
-                class="flex flex-col gap-y-16 sm:gap-y-0 md:gap-y-24 xl:-space-y-24"
+                class="flex flex-col gap-y-32 sm:gap-y-0 md:gap-y-24 xl:-space-y-24"
             >
                 <ProjectFeatured
                     v-for="(project, index) in projects"
@@ -413,7 +413,7 @@ export default Vue.extend({
             </div>
         </section>
 
-        <section class="relative h-[460px] w-screen text-primary">
+        <section class="relative h-[360px] sm:h-[460px] w-screen text-primary">
             <div
                 data-scroll
                 data-scroll-class="FADE_UP"

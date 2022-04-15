@@ -5,13 +5,9 @@
                 <div
                     class="relative sm:static pt-36 sm:pt-48 col-span-2 h-screen sm:min-h-0 sm:col-span-1"
                 >
-                    <div
-                        data-scroll
-                        data-scroll-class="FADE_UP"
-                        class="relative"
-                    >
+                    <div class="relative">
                         <h1
-                            class="font-display text-6xl uppercase max-w-xl leading-tight"
+                            class="font-display text-5xl sm:text-6xl uppercase max-w-xl leading-tight"
                         >
                             {{ $t('contact.leading') }}
                         </h1>

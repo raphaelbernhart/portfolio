@@ -34,7 +34,7 @@
                     class="container px-0 sm:px-2 relative z-10 flex h-full items-center"
                 >
                     <div
-                        class="grid w-full grid-cols-6 gap-y-16 pt-12 sm:pt-0 sm:gap-y-0"
+                        class="grid w-full grid-cols-6 gap-y-16 pt-24 sm:pt-0 sm:gap-y-0"
                     >
                         <div
                             id="navigationLinkContainer"

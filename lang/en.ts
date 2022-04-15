@@ -60,6 +60,9 @@ export default {
             paragraph:
                 'On my free time I am going backcountry skiing, watching basketball games or producing videos for me and my friends.',
         },
+        'section-3': {
+            headline: 'My career',
+        },
     },
     contact: {
         meta: {

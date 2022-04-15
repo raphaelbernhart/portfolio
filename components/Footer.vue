@@ -14,14 +14,14 @@ export default Vue.extend({
 
 <template>
     <div
-        class="relative z-10 min-h-screen w-screen bg-primary pt-56 md:pt-40 pb-4 md:min-h-0"
+        class="relative z-10 min-h-screen w-screen bg-primary pt-16 sm:pt-56 md:pt-40 pb-4 md:min-h-0"
     >
         <div class="container">
             <div class="grid grid-cols-1 md:grid-cols-4">
                 <div class="hidden md:block"></div>
                 <div class="col-span-3">
                     <h3
-                        class="max-w-2xl font-display text-7xl md:text-8xl text-primary"
+                        class="max-w-2xl font-display text-6xl sm:text-7xl md:text-8xl text-primary"
                         v-html="sanitize($t('footer.leading'))"
                     ></h3>
                     <div class="relative my-8">

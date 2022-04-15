@@ -33,7 +33,7 @@
                     'sm:order-1 sm:-mr-48': isEven,
                     'sm:order-2 sm:-ml-48': !isEven,
                 }"
-                class="relative mb-24 mt-10 sm:mt-0"
+                class="relative sm:mb-24 mt-10 sm:mt-0"
             >
                 <div class="relative z-10 flex max-w-lg flex-col gap-y-8">
                     <h3
