@@ -41,6 +41,9 @@ export default {
 
     publicRuntimeConfig: {
         PROJECT_VERSION: pkg.version,
+    },
+
+    env: {
         CONTENT_API_URL: 'https://content.raphaelbernhart.at/',
     },
 
