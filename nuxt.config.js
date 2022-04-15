@@ -45,6 +45,7 @@ export default {
 
     env: {
         CONTENT_API_URL: 'https://content.raphaelbernhart.at/',
+        PROJECT_VERSION: pkg.version,
     },
 
     // Loading Bar
