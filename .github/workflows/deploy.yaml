@@ -9,6 +9,8 @@ on:
 
 env:
     DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
+    MAIL_USER: ${{ secrets.MAIL_USER }}
+    MAIL_PASS: ${{ secrets.MAIL_PASS }}
 
 jobs:
     test:
