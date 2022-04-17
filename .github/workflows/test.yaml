@@ -1,30 +1,57 @@
-name: Testing
+name: Linting&Testing
 
 on:
-    #     push:
-    #         branches: [master]
+    push:
+        branches: [master]
 
-    #     # Allows to run this workflow manually from the Actions tab
+    # Allows to run this workflow manually from the Actions tab
     workflow_dispatch:
 
 env:
     DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
 
 jobs:
-    test:
+    linting:
         runs-on: ubuntu-latest
 
         steps:
             - uses: actions/checkout@v2
 
-            # Get current package.json Version
-            - name: Get current package version
-              id: package-version
-              uses: martinbeentjes/npm-get-version-action@v1.1.0
+            - name: Set up NodeJS
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14.17.0
 
-            - name: Build Docker Image
-              id: build-image
-              run: docker build -t ${{ secrets.DOCKER_IMAGE }}:${{ steps.package-version.outputs.current-version}} .
+            - name: Install Node dependencies
+              run: npm ci
+
+            - name: Lint Project
+              uses: wearerequired/lint-action@v1
+              with:
+                  eslint: true
+                  prettier: true
+
+    check-nuxt-env:
+        needs: linting
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+
+            - name: Install Node dependencies
+              run: npm ci
+
+            - name: Build project
+              run: npm run build
+
+            - name: Run Project
+              run: npm run start
+
+    k8s-manifest-testing:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
 
             - name: Install Datree
               run: curl https://get.datree.io | /bin/bash

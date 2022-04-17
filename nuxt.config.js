@@ -39,9 +39,12 @@ export default {
         host: '0.0.0.0',
     },
 
+    publicRuntimeConfig: {
+        PROJECT_VERSION: pkg.version,
+    },
+
     env: {
         CONTENT_API_URL: 'https://content.raphaelbernhart.at/',
-        PROJECT_VERSION: pkg.version,
     },
 
     // Loading Bar
@@ -185,5 +188,8 @@ export default {
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
-    build: {},
+    build: {
+        analyze: false,
+        devtools: false,
+    },
 };
