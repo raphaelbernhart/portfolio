@@ -41,6 +41,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
+            - name: Gen Package-lock
+              run: npm install --package-lock-only
+
             - name: Install Node dependencies
               run: npm ci
 
