@@ -48,7 +48,7 @@
                         data-scroll
                         data-scroll-speed="1.2"
                         data-scroll-delay="0.8"
-                        :text="text"
+                        :text="getText"
                     />
                     <div
                         data-scroll
@@ -116,6 +116,12 @@ export default Vue.extend({
     computed: {
         title() {
             return this.name.replaceAll('-', ' ');
+        },
+        getText() {
+            const limit = 165;
+            if (this.text.length > limit)
+                return this.text.substring(0, limit) + '...';
+            else return this.text;
         },
     },
     created() {
