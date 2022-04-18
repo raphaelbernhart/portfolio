@@ -20,10 +20,11 @@ RUN apk add git
 RUN mkdir -p /app
 WORKDIR /app
 
-COPY --from=build /app/package.json /app/
 COPY --from=build /app/.nuxt /app/.nuxt
-COPY --from=build /app/static /app/static
-COPY --from=build /app/assets /app/assets
+
+COPY ./package.json /app/
+COPY ./nuxt.config.js /app/
+COPY ./static /app/static
 
 RUN npm install --production
 
