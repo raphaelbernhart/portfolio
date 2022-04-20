@@ -52,6 +52,7 @@ jobs:
 
             - name: Run Project
               run: npm run start
+              timeout-minutes: 1
 
     k8s-manifest-testing:
         runs-on: ubuntu-latest
