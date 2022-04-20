@@ -10,6 +10,16 @@ export default Vue.extend({
             type: String,
             required: true,
         },
+        size: {
+            type: String,
+            required: false,
+            default: 'base',
+            validator: (type: string) => {
+                const types = ['base', 'large', 'small'];
+                if (types.includes(type)) return true;
+                else return false;
+            },
+        },
     },
     methods: {
         sanitize,
@@ -18,5 +28,13 @@ export default Vue.extend({
 </script>
 
 <template>
-    <p class="text-base leading-7" v-html="sanitize(text)"></p>
+    <p
+        :class="{
+            'text-base': size === 'base',
+            'text-lg leading-loose': size === 'large',
+            'text-sm': size === 'small',
+        }"
+        class="leading-7"
+        v-html="sanitize(text)"
+    ></p>
 </template>
