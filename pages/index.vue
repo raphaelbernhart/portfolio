@@ -199,7 +199,7 @@ export default Vue.extend({
                     :name="project.title"
                     :categories="project.categories"
                     :text="project.introTxt"
-                    :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=1400&quality=90`"
+                    :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=512&height=740&quality=90&format=webp`"
                 />
             </div>
         </section>

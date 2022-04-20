@@ -32,7 +32,7 @@
                     :hidden="project.hidden"
                     :name="project.title"
                     :categories="project.categories"
-                    :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=1300&height=650&quality=90`"
+                    :image="`https://content.raphaelbernhart.at/assets/${project.image}?width=1300&height=650&quality=90&format=webp`"
                 />
             </div>
         </div>
