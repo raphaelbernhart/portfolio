@@ -87,12 +87,32 @@
                                     <div
                                         class="flex flex-grow-0 flex-col items-start gap-y-1"
                                     >
-                                        <a class="underline" href="">Behance</a>
-                                        <a class="underline" href="">Github</a>
-                                        <a class="underline" href=""
+                                        <a
+                                            class="underline"
+                                            href="https://www.behance.net/raphaelbernhart"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Behance</a
+                                        >
+                                        <a
+                                            class="underline"
+                                            href="https://github.com/raphaelbernhart"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Github</a
+                                        >
+                                        <a
+                                            class="underline"
+                                            href="https://dribbble.com/raphaelbernhart"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             >Dribbble</a
                                         >
-                                        <a class="underline" href=""
+                                        <a
+                                            class="underline"
+                                            href="https://unsplash.com/@raphaelbernhart"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             >Unsplash</a
                                         >
                                         <a

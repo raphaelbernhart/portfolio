@@ -76,6 +76,13 @@ export default Vue.extend({
                                 >
                                 <a
                                     class="underline"
+                                    href="https://unsplash.com/@raphaelbernhart"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Unsplash</a
+                                >
+                                <a
+                                    class="underline"
                                     href="https://vimeo.com/raphaelbernhart"
                                     target="_blank"
                                     rel="noopener noreferrer"
