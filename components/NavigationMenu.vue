@@ -95,6 +95,13 @@
                                         <a class="underline" href=""
                                             >Unsplash</a
                                         >
+                                        <a
+                                            class="underline"
+                                            href="https://vimeo.com/raphaelbernhart"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            >Vimeo</a
+                                        >
                                     </div>
                                 </div>
                             </div>

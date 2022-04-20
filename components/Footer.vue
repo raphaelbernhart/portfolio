@@ -74,6 +74,13 @@ export default Vue.extend({
                                     rel="noopener noreferrer"
                                     >Dribbble</a
                                 >
+                                <a
+                                    class="underline"
+                                    href="https://vimeo.com/raphaelbernhart"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Vimeo</a
+                                >
                             </div>
                         </div>
                     </div>
