@@ -7,7 +7,7 @@ export default {
         head: {
             lead: 'Creative and Dev from austria',
             marking:
-                'Das ist ein Beispiel Text, um zu zeigen, was hier stehen könnte. Das hier könnte eine Produktbeschreibung oder eine Projektbeschreibung sein.',
+                'Hi, das ist die Portfolio Seite von mir...Raphael. Ich bin Web-Entwickler (Front- und Backend), Videoproduzent und Grafikdesigner. Scrollen Sie nach unten und erfahren Sie mehr :)',
         },
         'section-1': {
             intro: 'Ich arbeite mit Unternehmen und Agenturen unterschiedlichster Form und Größe zusammen, um <b>Webdesigns & Filmarbeiten</b> zu erstellen, die einen bleibenden Eindruck hinterlassen. Ich bin immer auf der Suche nach neuen und spannenden Projekten, also <b>lassen Sie uns zusammenarbeiten.</b>',
@@ -46,10 +46,9 @@ export default {
         },
         head: {
             lead: 'Über mich',
-            paragraph:
-                'I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I’m always looking to get my teeth stuck into new and exciting projects, so let’s collaborate﻿.',
+            paragraph: `Hier erfährst du woher ich komme, welche Ausbildung ich genossen habe, was ich in meiner Freizeit so mache und wo ich schon gearbeitet habe. Solltest du noch weitere Fragen haben oder willst dich einfach mit mir in Verbindung setzten, schreibe mir gerne <nuxt-link class="font-bold text-primary cursor-pointer underline" :to="{ path: '/contact' }">hier.</nuxt-link>`,
             marking:
-                'Das ist ein Beispiel Text, um zu zeigen, was hier stehen könnte. Das hier könnte eine Produktbeschreibung oder eine Projektbeschreibung sein.',
+                'Das bin ich :) Weiter unten erfährst du mehr über mich und was ich bis jetzt so gemacht habe!',
         },
         'section-1': {
             headline: 'Woher ich komme',

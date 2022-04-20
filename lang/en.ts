@@ -6,8 +6,7 @@ export default {
         },
         head: {
             lead: 'Creative and Dev from Austria',
-            marking:
-                'This is a sample text to show what could be here. This could be a product description or a project description.',
+            marking: `Hi, this is the portfolio of me...Raphael. I'm a web developer (front- and backend), video producer and graphic designer. Scroll down to find out more :)`,
         },
         'section-1': {
             intro: "I work with brands and agencies of all different shapes and sizes to create web designs and films that leave a lasting impression. I'm always looking to get my teeth stuck into new and exciting projects, so let's collaborate!.",
@@ -46,10 +45,8 @@ export default {
         },
         head: {
             lead: 'About me',
-            paragraph:
-                'I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I’m always looking to get my teeth stuck into new and exciting projects, so let’s collaborate﻿.',
-            marking:
-                'This is a sample text to show what could be here. This could be a product description or a project description.',
+            paragraph: `Here you can find out where I come from, what education I have enjoyed, what I do in my spare time and where I have already worked. If you have any further questions or just want to contact me, feel free to write me <nuxt-link class="font-bold text-primary cursor-pointer underline" :to="{ path: '/contact' }">here.</nuxt-link>`,
+            marking: `That's me :) Further down you can learn more about me and what I've done so far!`,
         },
         'section-1': {
             headline: "Where I'm located",
