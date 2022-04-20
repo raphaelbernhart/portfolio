@@ -41,14 +41,22 @@
                                     {{ $t('profile.head.lead') }}
                                 </h1>
                                 <div>
-                                    <p
+                                    <!-- <p
                                         data-scroll
                                         data-scroll-speed="1.4"
                                         data-scroll-delay="0.6"
                                         class="text-lg leading-loose max-w-2xl mt-6"
                                     >
                                         {{ $t('profile.head.paragraph') }}
-                                    </p>
+                                    </p> -->
+                                    <ParagraphComponent
+                                        data-scroll
+                                        data-scroll-speed="1.4"
+                                        data-scroll-delay="0.6"
+                                        size="large"
+                                        class="max-w-2xl mt-6"
+                                        :text="$t('profile.head.paragraph')"
+                                    />
                                 </div>
                             </div>
                         </div>

@@ -6,8 +6,7 @@ export default {
         },
         head: {
             lead: 'Creative and Dev from Austria',
-            marking:
-                'This is a sample text to show what could be here. This could be a product description or a project description.',
+            marking: `Hi, this is the portfolio of me...Raphael. I'm a web developer (front- and backend), video producer and graphic designer. Scroll down to find out more :)`,
         },
         'section-1': {
             intro: "I work with brands and agencies of all different shapes and sizes to create web designs and films that leave a lasting impression. I'm always looking to get my teeth stuck into new and exciting projects, so let's collaborate!.",
@@ -46,10 +45,8 @@ export default {
         },
         head: {
             lead: 'About me',
-            paragraph:
-                'I work with brands, businesses, and agencies of all different shapes and sizes from all around the world to create web designs that leave a lasting impression. I’m always looking to get my teeth stuck into new and exciting projects, so let’s collaborate﻿.',
-            marking:
-                'This is a sample text to show what could be here. This could be a product description or a project description.',
+            paragraph: `Here you can find out where I come from, what education I have enjoyed, what I do in my spare time and where I have already worked. If you have any further questions or just want to contact me, feel free to write me <nuxt-link class="font-bold text-primary cursor-pointer underline" :to="{ path: '/contact' }">here.</nuxt-link>`,
+            marking: `That's me :) Further down you can learn more about me and what I've done so far!`,
         },
         'section-1': {
             headline: "Where I'm located",
@@ -106,15 +103,15 @@ export default {
         consent_modal: {
             title: 'We use cookies!',
             description:
-                'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+                'Hi, this website uses only necessary cookies to ensure the proper operation of the website. Privacy is very important to me, so neither Performance and Analytics, nor Advertisement and Targeting cookies are used. <button type="button" data-cc="c-settings" class="cc-link">More Information</button>',
             primary_btn: {
-                text: 'Accept all',
+                text: 'Perfect!',
                 role: 'accept_all', // 'accept_selected' or 'accept_all'
             },
-            secondary_btn: {
-                text: 'Reject all',
-                role: 'accept_necessary', // 'settings' or 'accept_necessary'
-            },
+            // secondary_btn: {
+            //     text: 'Alle ablehnen',
+            //     role: 'accept_necessary', // 'settings' or 'accept_necessary'
+            // },
         },
         settings_modal: {
             title: 'Cookie preferences',
@@ -130,60 +127,39 @@ export default {
             ],
             blocks: [
                 {
-                    title: 'Cookie usage 📢',
+                    title: 'Use of cookies 📢',
                     description:
-                        'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.',
+                        'Cookies are used to provide basic website functionality and nothing more. For more details about cookies and other sensitive data, please read the full <a href="https://raphaelbernhart.at/imprint" class="cc-link">Privacy Policy</a>.',
                 },
                 {
-                    title: 'Strictly necessary cookies',
+                    title: 'Necessary Cookies',
                     description:
-                        'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                        'These cookies are essential for the proper functioning of this website. Without these cookies the website would not function properly',
                     toggle: {
                         value: 'necessary',
                         enabled: true,
                         readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
                     },
-                },
-                {
-                    title: 'Performance and Analytics cookies',
-                    description:
-                        'These cookies allow the website to remember the choices you have made in the past',
-                    toggle: {
-                        value: 'analytics', // your cookie category
-                        enabled: false,
-                        readonly: false,
-                    },
                     cookie_table: [
                         // list of all expected cookies
                         {
-                            col1: '^_ga', // match all cookies starting with "_ga"
-                            col2: 'google.com',
-                            col3: '2 years',
-                            col4: 'description ...',
-                            is_regex: true,
+                            col1: 'cc_cookie', // name
+                            col2: '.raphaelbernhart.at', // domain
+                            col3: '6 Monate', // ablauf
+                            col4: 'This cookie is used to accept the cookie confirmation field only every half year. If you click Accept All, you will not be asked again on your next visit.', // description
                         },
                         {
-                            col1: '_gid',
-                            col2: 'google.com',
-                            col3: '1 day',
-                            col4: 'description ...',
+                            col1: 'i18n_redirected', // name
+                            col2: 'raphaelbernhart.at', // domain
+                            col3: '1 Jahr', // ablauf
+                            col4: `This cookie is used to store which language you are using, so you don't have to select it every time you switch pages.`, // description
                         },
                     ],
                 },
                 {
-                    title: 'Advertisement and Targeting cookies',
+                    title: 'More Information',
                     description:
-                        'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
-                    toggle: {
-                        value: 'targeting',
-                        enabled: false,
-                        readonly: false,
-                    },
-                },
-                {
-                    title: 'More information',
-                    description:
-                        'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                        'For questions about our cookies, how they are handled, or your choices, please <a class="cc-link" href="https://raphaelbernhart.at/contact">contact me</a>.',
                 },
             ],
         },

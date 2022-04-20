@@ -13,7 +13,7 @@ const cookieConsentPlugin: Plugin = () => {
         current_lang: 'de',
         autoclear_cookies: false, // default: false
         page_scripts: false, // default: false
-        autolanguage: true,
+        autolanguage: 'browser',
         languages: {
             de: de.cookieconsent,
             en: en.cookieconsent,
@@ -32,6 +32,8 @@ const cookieConsentPlugin: Plugin = () => {
             },
         },
     });
+
+    return cookieConsent;
 };
 
 export default cookieConsentPlugin;
