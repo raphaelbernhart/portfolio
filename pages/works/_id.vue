@@ -270,7 +270,7 @@ export default Vue.extend({
         // Set Image
         this.image = `https://content.raphaelbernhart.at/assets/${
             (this as any).project.image
-        }`;
+        }?quality=90&format=webp`;
     },
     methods: {
         animateHead() {
