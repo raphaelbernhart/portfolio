@@ -106,21 +106,21 @@ export default {
         consent_modal: {
             title: 'Es werden Cookies verwendet!',
             description:
-                'Hallo, diese Website verwendet notwendige Cookies um den ordnungsgemäßen Betrieb der Website zu gewährleisten, und Tracking-Cookies, um zu verstehen, wie Sie mit der Website interagieren. Letztere werden nur nach Zustimmung gesetzt. <button type="button" data-cc="c-settings" class="cc-link">Lass mich entscheiden</button>',
+                'Hi, diese Website verwendet nur notwendige Cookies um den ordnungsgemäßen Betrieb der Website zu gewährleisten. Bei mir wird Privatsphäre großgeschrieben, deshalb werden weder Performance and Analytics, noch Advertisement and Targeting Cookies verwendet. <button type="button" data-cc="c-settings" class="cc-link">Mehr Information</button>',
             primary_btn: {
-                text: 'Alles akzeptieren',
+                text: 'Super!',
                 role: 'accept_all', // 'accept_selected' or 'accept_all'
             },
-            secondary_btn: {
-                text: 'Alle ablehnen',
-                role: 'accept_necessary', // 'settings' or 'accept_necessary'
-            },
+            // secondary_btn: {
+            //     text: 'Alle ablehnen',
+            //     role: 'accept_necessary', // 'settings' or 'accept_necessary'
+            // },
         },
         settings_modal: {
             title: 'Cookie Einstellungen',
             save_settings_btn: 'Speichern',
-            accept_all_btn: 'Alle akzeptieren',
-            reject_all_btn: 'Alle ablehnen',
+            accept_all_btn: 'Akzeptieren',
+            // reject_all_btn: 'Alle ablehnen',
             close_btn_label: 'Schließen',
             cookie_table_headers: [
                 { col1: 'Name' },
@@ -132,58 +132,37 @@ export default {
                 {
                     title: 'Verwendung von Cookies 📢',
                     description:
-                        'Es werden Cookies verwendet, um die grundlegenden Funktionen der Website zu gewährleisten und um Ihr Online-Erlebnis zu verbessern. Sie können für jede Kategorie wählen, ob Sie sich annehmen oder ablehnen möchten. Für weitere Einzelheiten zu Cookies und anderen sensiblen Daten lesen Sie bitte die vollständige <a href="https://raphaelbernhart.at/imprint" class="cc-link">Datenschutzerklärung</a>.',
+                        'Es werden Cookies verwendet, um die grundlegenden Funktionen der Website zu gewährleisten und nicht mehr. Für weitere Einzelheiten zu Cookies und anderen sensiblen Daten lesen Sie bitte die vollständige <a href="https://raphaelbernhart.at/imprint" class="cc-link">Datenschutzerklärung</a>.',
                 },
                 {
                     title: 'Notwendige Cookies',
                     description:
-                        'Diese Cookies sind für das ordnungsgemäße Funktionieren meiner Website unerlässlich. Ohne diese Cookies würde die Website nicht richtig funktionieren',
+                        'Diese Cookies sind für das ordnungsgemäße Funktionieren dieser Website unerlässlich. Ohne diese Cookies würde die Website nicht richtig funktionieren',
                     toggle: {
                         value: 'necessary',
                         enabled: true,
                         readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
                     },
-                },
-                {
-                    title: 'Performance and Analytics Cookies',
-                    description:
-                        'Diese Cookies ermöglichen es der Website, sich an die von Ihnen in der Vergangenheit getroffenen Auswahlen zu erinnern',
-                    toggle: {
-                        value: 'analytics', // your cookie category
-                        enabled: false,
-                        readonly: false,
-                    },
                     cookie_table: [
                         // list of all expected cookies
                         {
-                            col1: '^_ga', // match all cookies starting with "_ga"
-                            col2: 'google.com',
-                            col3: '2 years',
-                            col4: 'description ...',
-                            is_regex: true,
+                            col1: 'cc_cookie', // name
+                            col2: '.raphaelbernhart.at', // domain
+                            col3: '6 Monate', // ablauf
+                            col4: 'Dieser Cookie wird verwendet um das Cookie Bestätigungsfeld nur jedes halbe Jahr akzeptieren zu müssen. Wenn Sie auf Alles akzeptieren klicken, werden Sie beim nächsten Besuch nicht wieder gefragt.', // description
                         },
                         {
-                            col1: '_gid',
-                            col2: 'google.com',
-                            col3: '1 day',
-                            col4: 'description ...',
+                            col1: 'i18n_redirected', // name
+                            col2: 'raphaelbernhart.at', // domain
+                            col3: '1 Jahr', // ablauf
+                            col4: 'Mit diesem cookie wird gespeichert welche Sprache Sie verwenden, um es nicht jedes mal beim wechseln einer Seite auswählen zu müssen.', // description
                         },
                     ],
                 },
                 {
-                    title: 'Advertisement and Targeting cookies',
+                    title: 'Mehr Information',
                     description:
-                        'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
-                    toggle: {
-                        value: 'targeting',
-                        enabled: false,
-                        readonly: false,
-                    },
-                },
-                {
-                    title: 'More information',
-                    description:
-                        'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                        'Bei Fragen zu unseren Cookies, wie damit umgegangen wird oder Ihre Auswahl bitte <a class="cc-link" href="https://raphaelbernhart.at/contact">kontaktieren Sie mich</a>.',
                 },
             ],
         },
