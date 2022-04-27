@@ -92,7 +92,12 @@ export default Vue.extend({
 
                 this.projects = res.data.data;
                 this.projects.forEach((project: Record<string, any>) => {
-                    project.hidden = false;
+                    if (
+                        project.status === 'draft' ||
+                        project.status === 'archived'
+                    )
+                        project.hidden = true;
+                    else project.hidden = false;
                 });
             } catch (err: any) {}
         },
@@ -111,10 +116,13 @@ export default Vue.extend({
                 }
 
                 const projectIndex = this.projects.indexOf(project);
-                if (categoryContained) {
-                    this.projects[projectIndex].hidden = false;
-                } else {
-                    this.projects[projectIndex].hidden = true;
+                const status = this.projects[projectIndex].status;
+                if (status !== 'draft' && status !== 'archived') {
+                    if (categoryContained) {
+                        this.projects[projectIndex].hidden = false;
+                    } else {
+                        this.projects[projectIndex].hidden = true;
+                    }
                 }
             });
             this.$forceUpdate();
@@ -125,7 +133,12 @@ export default Vue.extend({
         getProjectCount() {
             let count = 0;
             this.projects.forEach((project: Record<string, any>) => {
-                if (!project.hidden) count++;
+                if (
+                    !project.hidden &&
+                    project.status !== 'draft' &&
+                    project.status !== 'archived'
+                )
+                    count++;
             });
 
             return count > 10 ? count : '0' + count;
