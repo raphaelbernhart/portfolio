@@ -148,7 +148,7 @@
                         <div class="w-full h-full inline-block">
                             <img
                                 class="w-full object-cover max-h-[650px]"
-                                :src="project.image[0]"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imageCarousel[0].directus_files_id}?width=960&height=650&quality=90&format=webp`"
                                 alt=""
                             />
                         </div>
@@ -161,7 +161,7 @@
                         <div class="w-full inline-block">
                             <img
                                 class="w-full h-full object-cover max-h-[350px]"
-                                :src="project.image[1]"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imageCarousel[1].directus_files_id}?width=500&height=300&quality=90&format=webp`"
                                 alt=""
                             />
                         </div>
@@ -226,7 +226,7 @@
 import Vue from 'vue';
 export default Vue.extend({
     name: 'ProjectPage',
-    async asyncData({ $axios, params }) {
+    async asyncData({ $axios, params, error }) {
         const id = params.id;
 
         if (id.length <= 1) {
@@ -236,10 +236,13 @@ export default Vue.extend({
 
         // Get Project
         const res = await $axios.get(
-            `${process.env.CONTENT_API_URL}items/rb_portfolio_projects/${id}`,
+            `${process.env.CONTENT_API_URL}items/rb_portfolio_projects/${id}?fields=*,imageCarousel.*`,
         );
 
         const project = res.data.data;
+
+        if (project.status === 'draft' || project.status === 'archived')
+            error({ statusCode: 404, message: 'Post not found' });
 
         return { id, project };
     },
