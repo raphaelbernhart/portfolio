@@ -93,7 +93,7 @@ export default Vue.extend({
         async fetchFeaturedProjects() {
             try {
                 const res = await this.$axios.get(
-                    `${process.env.CONTENT_API_URL}items/rb_portfolio_projects?limit=2`,
+                    `${process.env.CONTENT_API_URL}items/rb_portfolio_projects?limit=2&filter={"status": { "_eq": "published" }}`,
                 );
 
                 this.projects = res.data.data;
