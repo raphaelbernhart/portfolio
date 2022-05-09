@@ -226,7 +226,7 @@
 import Vue from 'vue';
 export default Vue.extend({
     name: 'ProjectPage',
-    async asyncData({ $axios, params }) {
+    async asyncData({ $axios, params, error }) {
         const id = params.id;
 
         if (id.length <= 1) {
@@ -240,6 +240,9 @@ export default Vue.extend({
         );
 
         const project = res.data.data;
+
+        if (project.status === 'draft' || project.status === 'archived')
+            error({ statusCode: 404, message: 'Post not found' });
 
         return { id, project };
     },
