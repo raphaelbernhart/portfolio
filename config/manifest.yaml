@@ -20,7 +20,7 @@ spec:
         spec:
             containers:
                 - name: portfolio
-                  image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:2.0.0
+                  image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:2.0.12
                   env:
                       - name: MAIL_USER
                         valueFrom:
