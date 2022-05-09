@@ -1,97 +1,92 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: portfolio
-  namespace: personal
-  labels:
-    owner: raphaelbernhart
-    env: prod
+    name: portfolio-v1
+    namespace: personal
+    labels:
+        owner: raphaelbernhart
+        env: prod
 spec:
-  selector:
-    matchLabels:
-      app: portfolio
-  replicas: 2
-  strategy:
-    type: RollingUpdate
-  template:
-    metadata:
-      labels:
-        app: portfolio
-    spec:
-      containers:
-      - name: portfolio
-        image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.1.9
-        imagePullPolicy: Always
-        livenessProbe:
-          failureThreshold: 5
-          httpGet:
-            path: /
-            port: 80
-            scheme: HTTP
-          initialDelaySeconds: 10
-          successThreshold: 1
-          timeoutSeconds: 5
-        readinessProbe:
-          failureThreshold: 5
-          httpGet:
-            path: /
-            port: 80
-            scheme: HTTP
-          initialDelaySeconds: 10
-          successThreshold: 2
-          timeoutSeconds: 5
-        ports:
-        - containerPort: 80
-        resources:
-          requests:
-            memory: "6M"
-            cpu: "20m"
-          limits:
-            memory: "12M"
-            cpu: "60m"
-      imagePullSecrets:
-      - name: regcred
+    selector:
+        matchLabels:
+            app: portfolio-v1
+    replicas: 1
+    strategy:
+        type: RollingUpdate
+    template:
+        metadata:
+            labels:
+                app: portfolio-v1
+        spec:
+            containers:
+                - name: portfolio
+                  image: registry.raphaelbernhart.at/raphaelbernhart/raphaelbernhart.at:1.2.1
+                  livenessProbe:
+                      failureThreshold: 5
+                      httpGet:
+                          path: /
+                          port: 80
+                          scheme: HTTP
+                      initialDelaySeconds: 10
+                      successThreshold: 1
+                      timeoutSeconds: 5
+                  readinessProbe:
+                      failureThreshold: 5
+                      httpGet:
+                          path: /
+                          port: 80
+                          scheme: HTTP
+                      initialDelaySeconds: 10
+                      successThreshold: 2
+                      timeoutSeconds: 5
+                  ports:
+                      - containerPort: 80
+                  resources:
+                      requests:
+                          memory: "6M"
+                          cpu: "20m"
+                      limits:
+                          memory: "12M"
+                          cpu: "60m"
+            imagePullSecrets:
+                - name: regcred
 
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: portfolio
-  namespace: personal
-  annotations:
-    metallb.universe.tf/address-pool: production-public-ips
+    name: portfolio-v1
+    namespace: personal
+    annotations:
+        metallb.universe.tf/address-pool: production-public-ips
 spec:
-  selector:
-    app: portfolio
-  ports:
-  - port: 80
-    targetPort: 80
+    selector:
+        app: portfolio-v1
+    ports:
+        - port: 80
+          targetPort: 80
 
 ---
-
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: portfolio
-  namespace: personal
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-    nginx.ingress.kubernetes.io/limit-rps: "10"
-    external-dns.alpha.kubernetes.io/hostname: 'raphaelbernhart.at, www.raphaelbernhart.at'
+    name: portfolio-v1
+    namespace: personal
+    annotations:
+        kubernetes.io/ingress.class: "nginx"
+        cert-manager.io/cluster-issuer: "letsencrypt-prod"
+        nginx.ingress.kubernetes.io/limit-rps: "5"
+        external-dns.alpha.kubernetes.io/hostname: "v1.raphaelbernhart.at"
 spec:
-  tls:
-  - hosts:
-    - raphaelbernhart.at
-    - www.raphaelbernhart.at
-    secretName: raphaelbernhart-at-tls
-  rules:
-  - host: raphaelbernhart.at
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: portfolio
-          servicePort: 80
+    tls:
+        - hosts:
+              - v1.raphaelbernhart.at
+          secretName: v1-raphaelbernhart-at-tls
+    rules:
+        - host: v1.raphaelbernhart.at
+          http:
+              paths:
+                  - path: /
+                    backend:
+                        serviceName: portfolio-v1
+                        servicePort: 80
