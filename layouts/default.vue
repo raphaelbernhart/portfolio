@@ -18,12 +18,13 @@
                 <Footer data-scroll-section />
             </div>
         </LocomotiveScroll>
-        <Transition />
+        <Transition v-if="!config.dev" />
     </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import config from '@/nuxt.config';
 import Transition from '@/components/TransitionComponent.vue';
 import SocialMediaFixed from '~/components/SocialMediaFixed.vue';
 
@@ -32,6 +33,11 @@ export default Vue.extend({
     components: {
         Transition,
         SocialMediaFixed,
+    },
+    data() {
+        return {
+            config,
+        };
     },
     computed: {
         isWorksRoute() {
