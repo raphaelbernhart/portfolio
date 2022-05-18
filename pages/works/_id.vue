@@ -393,7 +393,9 @@ export default Vue.extend({
     },
     head() {
         return {
-            title: (this as any).project.title,
+            title:
+                (this as any).title().charAt(0).toUpperCase() +
+                (this as any).title().slice(1),
             meta: [
                 {
                     hid: 'description',
