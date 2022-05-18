@@ -92,7 +92,10 @@
                             </span>
                         </div>
                         <div class="h-[1px] w-full bg-primary"></div>
-                        <div class="flex flex-col gap-y-2">
+                        <div
+                            v-if="project.client"
+                            class="flex flex-col gap-y-2"
+                        >
                             <h3 class="font-bold">Client</h3>
                             <span>{{ project.client[0] }}</span>
                         </div>
@@ -143,12 +146,15 @@
                 </div>
             </div>
             <div class="container">
-                <div class="md:grid grid-cols-12 gap-x-14">
+                <div
+                    v-if="project.imageCarousel"
+                    class="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-x-14"
+                >
                     <div data-scroll data-scroll-speed="1.3" class="col-span-8">
                         <div class="w-full h-full inline-block">
                             <img
-                                class="w-full object-cover max-h-[650px]"
-                                :src="`https://content.raphaelbernhart.at/assets/${project.imageCarousel[0].directus_files_id}?width=960&height=650&quality=90&format=webp`"
+                                class="w-full object-cover h-full max-h-[650px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imageCarousel[0].directus_files_id}?width=960&height=620&quality=90&format=webp`"
                                 alt=""
                             />
                         </div>
@@ -156,18 +162,145 @@
                     <div
                         data-scroll
                         data-scroll-speed="1.3"
-                        class="col-span-4 mt-14 md:mt-0"
+                        data-scroll-delay="0.1"
+                        class="col-span-4 mt-8 md:mt-0 grid gap-y-8 md:gap-y-14"
                     >
-                        <div class="w-full inline-block">
+                        <div
+                            v-if="project.imageCarousel[1]"
+                            class="w-full inline-block"
+                        >
                             <img
-                                class="w-full h-full object-cover max-h-[350px]"
-                                :src="`https://content.raphaelbernhart.at/assets/${project.imageCarousel[1].directus_files_id}?width=500&height=300&quality=90&format=webp`"
+                                class="w-full h-full object-cover max-h-[300px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imageCarousel[1].directus_files_id}?width=460&height=300&quality=90&format=webp`"
+                                alt=""
+                            />
+                        </div>
+                        <div
+                            v-if="project.imageCarousel[2]"
+                            class="w-full inline-block"
+                        >
+                            <img
+                                class="w-full h-full object-cover max-h-[350px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imageCarousel[2].directus_files_id}?width=460&height=300&quality=90&format=webp`"
                                 alt=""
                             />
                         </div>
                     </div>
                 </div>
-                <div
+
+                <!-- Section TEXT1 -->
+                <section class="my-48 md:ml-12 space-y-16">
+                    <div>
+                        <h2 v-if="project.heading1" class="text-3xl font-bold">
+                            {{ project.heading1 }}
+                        </h2>
+                        <ParagraphComponent
+                            v-if="project.text1"
+                            class="max-w-3xl mt-8"
+                            :text="project.text1"
+                        />
+                    </div>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-y-0"
+                    >
+                        <div
+                            v-if="project.imagesTxt1[0]"
+                            data-scroll
+                            data-scroll-speed="1.3"
+                            class="w-full inline-block md:col-span-2"
+                        >
+                            <img
+                                class="w-full h-full object-cover max-h-[600px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imagesTxt1[0].directus_files_id}?width=1536&height=600&quality=90&format=webp`"
+                                alt=""
+                            />
+                        </div>
+                        <div
+                            v-if="project.imagesTxt1[1]"
+                            data-scroll
+                            data-scroll-speed="1.3"
+                            data-scroll-delay="0.2"
+                            class="w-full inline-block"
+                        >
+                            <img
+                                class="w-full h-full object-cover max-h-[400px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imagesTxt1[1].directus_files_id}?width=750&height=400&quality=90&format=webp`"
+                                alt=""
+                            />
+                        </div>
+                        <div
+                            v-if="project.imagesTxt1[2]"
+                            data-scroll
+                            data-scroll-speed="1.3"
+                            data-scroll-delay="0.1"
+                            class="w-full inline-block"
+                        >
+                            <img
+                                class="w-full h-full object-cover max-h-[400px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imagesTxt1[2].directus_files_id}?width=750&height=400&quality=90&format=webp`"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section TEXT2 -->
+                <section class="my-48 md:ml-12 space-y-16">
+                    <div>
+                        <h2 v-if="project.heading2" class="text-3xl font-bold">
+                            {{ project.heading2 }}
+                        </h2>
+                        <ParagraphComponent
+                            v-if="project.text2"
+                            class="max-w-3xl mt-8"
+                            :text="project.text2"
+                        />
+                    </div>
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-y-0"
+                    >
+                        <div
+                            v-if="project.imagesTxt2[0]"
+                            data-scroll
+                            data-scroll-speed="1.3"
+                            class="w-full inline-block md:col-span-2"
+                        >
+                            <img
+                                class="w-full h-full object-cover max-h-[600px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imagesTxt2[0].directus_files_id}?width=1536&height=600&quality=90&format=webp`"
+                                alt=""
+                            />
+                        </div>
+                        <div
+                            v-if="project.imagesTxt2[1]"
+                            data-scroll
+                            data-scroll-speed="1.3"
+                            data-scroll-delay="0.2"
+                            class="w-full inline-block"
+                        >
+                            <img
+                                class="w-full h-full object-cover max-h-[400px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imagesTxt2[1].directus_files_id}?width=750&height=400&quality=90&format=webp`"
+                                alt=""
+                            />
+                        </div>
+                        <div
+                            v-if="project.imagesTxt2[2]"
+                            data-scroll
+                            data-scroll-speed="1.3"
+                            data-scroll-delay="0.1"
+                            class="w-full inline-block"
+                        >
+                            <img
+                                class="w-full h-full object-cover max-h-[400px] rounded-lg"
+                                :src="`https://content.raphaelbernhart.at/assets/${project.imagesTxt2[2].directus_files_id}?width=750&height=400&quality=90&format=webp`"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </section>
+
+                <!-- <div
                     v-if="project.text1"
                     data-scroll
                     data-scroll-class="FADE_UP"
@@ -180,7 +313,7 @@
                             :text="project.text1"
                         />
                     </div>
-                </div>
+                </div> -->
                 <!-- TODO VIDEO -->
                 <!-- <div v-if="video">
                     <iframe
@@ -193,7 +326,7 @@
                         title="Rebound University Project"
                     ></iframe>
                 </div> -->
-                <div class="md:grid grid-cols-2 md:px-28 my-24 md:my-44">
+                <!-- <div class="md:grid grid-cols-2 md:px-28 my-24 md:my-44">
                     <div
                         v-if="project.text2"
                         data-scroll
@@ -215,7 +348,7 @@
                             :text="project.text3"
                         />
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
     </div>
@@ -224,6 +357,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import config from '@/nuxt.config';
+
 export default Vue.extend({
     name: 'ProjectPage',
     async asyncData({ $axios, params, error }) {
@@ -236,13 +371,15 @@ export default Vue.extend({
 
         // Get Project
         const res = await $axios.get(
-            `${process.env.CONTENT_API_URL}items/rb_portfolio_projects/${id}?fields=*,imageCarousel.*`,
+            `${process.env.CONTENT_API_URL}items/rb_portfolio_projects/${id}?fields=*,imageCarousel.*,imagesTxt1.*,imagesTxt2.*,imagesTxt3.*`,
         );
 
         const project = res.data.data;
 
-        if (project.status === 'draft' || project.status === 'archived')
-            error({ statusCode: 404, message: 'Post not found' });
+        if (!config.dev) {
+            if (project.status === 'draft' || project.status === 'archived')
+                error({ statusCode: 404, message: 'Post not found' });
+        }
 
         return { id, project };
     },
@@ -256,7 +393,9 @@ export default Vue.extend({
     },
     head() {
         return {
-            title: (this as any).project.title,
+            title:
+                (this as any).title().charAt(0).toUpperCase() +
+                (this as any).title().slice(1),
             meta: [
                 {
                     hid: 'description',

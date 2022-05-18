@@ -39,6 +39,8 @@ export default {
         host: '0.0.0.0',
     },
 
+    dev: process.env.NODE_ENV !== 'production',
+
     publicRuntimeConfig: {
         PROJECT_VERSION: pkg.version,
     },
@@ -119,7 +121,7 @@ export default {
         server: 'https://analytics.raphaelbernhart.at',
         domainId: '35e91438-e98e-4177-9bf5-c482df5e12df',
         detailed: 'opt-out',
-        ignoreLocalhost: false,
+        ignoreLocalhost: true,
     },
 
     mail: {
