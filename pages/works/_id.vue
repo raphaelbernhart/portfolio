@@ -92,7 +92,10 @@
                             </span>
                         </div>
                         <div class="h-[1px] w-full bg-primary"></div>
-                        <div class="flex flex-col gap-y-2">
+                        <div
+                            v-if="project.client"
+                            class="flex flex-col gap-y-2"
+                        >
                             <h3 class="font-bold">Client</h3>
                             <span>{{ project.client[0] }}</span>
                         </div>
