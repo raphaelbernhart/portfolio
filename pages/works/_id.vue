@@ -241,8 +241,10 @@ export default Vue.extend({
 
         const project = res.data.data;
 
-        if (project.status === 'draft' || project.status === 'archived')
-            error({ statusCode: 404, message: 'Post not found' });
+        if (!config.dev) {
+            if (project.status === 'draft' || project.status === 'archived')
+                error({ statusCode: 404, message: 'Post not found' });
+        }
 
         return { id, project };
     },
