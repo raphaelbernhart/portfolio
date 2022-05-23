@@ -413,6 +413,11 @@ export default Vue.extend({
         this.image = `https://content.raphaelbernhart.at/assets/${
             (this as any).project.image
         }?quality=90&format=webp`;
+
+        // Update Locomotive Scroll
+        setTimeout(() => {
+            this.$nuxt.$emit('update-locomotive');
+        }, 2500);
     },
     methods: {
         animateHead() {

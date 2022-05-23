@@ -901,6 +901,12 @@ export default Vue.extend({
             ],
         };
     },
+    mounted() {
+        // Update Locomotive Scroll
+        setTimeout(() => {
+            this.$nuxt.$emit('update-locomotive');
+        }, 150);
+    },
 });
 </script>
 

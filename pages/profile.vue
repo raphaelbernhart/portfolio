@@ -196,6 +196,11 @@ export default Vue.extend({
     mounted() {
         this.animateHead();
         this.animateSection2Txt();
+
+        // Update Locomotive Scroll
+        setTimeout(() => {
+            this.$nuxt.$emit('update-locomotive');
+        }, 150);
     },
     methods: {
         sanitize,

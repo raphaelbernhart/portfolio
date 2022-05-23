@@ -112,6 +112,12 @@ export default Vue.extend({
             ],
         };
     },
+    mounted() {
+        // Update Locomotive Scroll
+        setTimeout(() => {
+            this.$nuxt.$emit('update-locomotive');
+        }, 150);
+    },
     methods: {
         handleContactForm() {
             // Return if required field is null

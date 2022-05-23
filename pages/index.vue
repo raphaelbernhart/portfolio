@@ -72,6 +72,11 @@ export default Vue.extend({
         }
 
         this.fetchFeaturedProjects();
+
+        // Update Locomotive Scroll
+        setTimeout(() => {
+            this.$nuxt.$emit('update-locomotive');
+        }, 150);
     },
     methods: {
         sanitize,
