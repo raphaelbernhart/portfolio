@@ -80,6 +80,8 @@ export default Vue.extend({
 
         // Scroll a little bit down to activate image scrolling animation
         setTimeout(() => {
+            // Update Locomotive Scroll
+            this.$nuxt.$emit('update-locomotive');
             this.$nuxt.$emit('scroll-locomotive', 5);
         }, 75);
     },
