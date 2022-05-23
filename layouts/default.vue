@@ -46,17 +46,6 @@ export default Vue.extend({
             else return true;
         },
     },
-    watch: {
-        $route(_to, _from) {
-            setTimeout(() => {
-                this.$nuxt.$emit('update-locomotive');
-                this.$nuxt.$emit('scroll-top-locomotive', {
-                    duration: 0,
-                    disableLerp: true,
-                });
-            }, 150);
-        },
-    },
     mounted() {
         window.addEventListener('load', () => {
             this.$nuxt.$emit('update-locomotive');

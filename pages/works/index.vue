@@ -126,9 +126,9 @@ export default Vue.extend({
                 }
             });
             this.$forceUpdate();
-            setTimeout(() => {
-                this.$nuxt.$emit('update-locomotive');
-            }, 100);
+            // setTimeout(() => {
+            //     this.$nuxt.$emit('update-locomotive');
+            // }, 100);
         },
         getProjectCount() {
             let count = 0;
