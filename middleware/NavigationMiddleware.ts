@@ -16,7 +16,7 @@ const navigationMiddleware: Middleware = (context: Context) => {
         // Update locomotive scroll when route to a new page
         setTimeout(() => {
             window.$nuxt.$emit('update-locomotive');
-        }, 250);
+        }, 350);
     }
 };
 
