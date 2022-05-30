@@ -147,7 +147,7 @@
             </div>
             <div class="container">
                 <div
-                    v-if="project.imageCarousel"
+                    v-if="project.imageCarousel[0]"
                     class="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-x-14"
                 >
                     <div data-scroll data-scroll-speed="1.3" class="col-span-8">
