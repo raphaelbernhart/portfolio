@@ -12,6 +12,7 @@
         >
             <div
                 ref="text"
+                :class="{ hidden: !showText }"
                 class="text-center text-primary text-2xl font-bold uppercase"
             >
                 <div class="overflow-hidden">
@@ -22,7 +23,7 @@
                     ><br />
                 </div>
                 <div class="overflow-hidden">
-                    <span class="inline-block">Portfolio 2022</span>
+                    <span class="inline-block">{{ text }}</span>
                 </div>
             </div>
         </div>
@@ -44,9 +45,17 @@
 import Vue from 'vue';
 export default Vue.extend({
     name: 'TransitionComponent',
+    props: {
+        text: {
+            type: String,
+            required: false,
+            default: 'Portfolio 2022',
+        },
+    },
     data() {
         return {
             timeline: {} as any,
+            showText: false,
         };
     },
     mounted() {
@@ -57,6 +66,8 @@ export default Vue.extend({
             const text = this.$refs.text as HTMLElement;
             const loadingCover = this.$refs.loadingCover as HTMLElement;
             const store = this.$store;
+
+            this.showText = true;
 
             const layer = document.querySelectorAll('.left-layer');
 
