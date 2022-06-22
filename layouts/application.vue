@@ -14,13 +14,13 @@
                 class="min-h-screen w-screen bg-white transition-opacity duration-75"
                 data-scroll-container
             >
-                <Navigation />
-                <SocialMediaFixed />
+                <!-- <Navigation /> -->
+                <!-- <SocialMediaFixed /> -->
                 <Nuxt data-scroll-section />
-                <Footer data-scroll-section />
+                <!-- <Footer data-scroll-section /> -->
             </div>
         </LocomotiveScroll>
-        <Transition v-if="!config.dev" />
+        <Transition v-if="!config.dev" :text="transitionText" />
     </div>
 </template>
 
@@ -28,17 +28,16 @@
 import Vue from 'vue';
 import config from '@/nuxt.config';
 import Transition from '@/components/TransitionComponent.vue';
-import SocialMediaFixed from '~/components/SocialMediaFixed.vue';
 
 export default Vue.extend({
-    name: 'HomePage',
+    name: 'ApplicationLayout',
     components: {
         Transition,
-        SocialMediaFixed,
     },
     data() {
         return {
             config,
+            transitionText: 'An Honest Application',
         };
     },
     computed: {
@@ -47,6 +46,12 @@ export default Vue.extend({
             if (path !== '/works' && path !== '/en/works') return false;
             else return true;
         },
+    },
+    created() {
+        // Change Transition Text
+        this.$nuxt.$on('change-transition-title', (text: string) => {
+            this.transitionText = text;
+        });
     },
     mounted() {
         window.addEventListener('load', () => {
