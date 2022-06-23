@@ -85,6 +85,7 @@ export default {
         '@nuxtjs/google-fonts',
         'nuxt-animejs',
         '@nuxtjs/ackee',
+        // '@unlighthouse/nuxt',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -188,6 +189,15 @@ export default {
             useCookie: true,
             cookieKey: 'i18n_redirected',
             redirectOn: 'root', // recommended
+        },
+    },
+
+    unlighthouse: {
+        debug: true,
+        // exclude: [],
+        scanner: {
+            ignoreI18nPages: true,
+            device: 'mobile',
         },
     },
 
