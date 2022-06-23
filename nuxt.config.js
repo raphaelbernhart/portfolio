@@ -100,6 +100,10 @@ export default {
         '@nuxtjs/robots',
     ],
 
+    tailwindcss: {
+        viewer: false,
+    },
+
     googleFonts: {
         families: {
             Poppins: {
