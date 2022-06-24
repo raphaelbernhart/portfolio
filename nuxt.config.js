@@ -108,7 +108,7 @@ export default {
     googleFonts: {
         families: {
             Poppins: {
-                wght: [200, 400, 600],
+                wght: [200, 400, 600, 700],
                 ital: [300, 400, 600],
             },
         },
