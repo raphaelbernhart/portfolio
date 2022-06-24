@@ -10,7 +10,7 @@
         rel="noopener noreferrer"
     >
         <div class="flex items-center">
-            {{ text }}
+            <span>{{ text }}</span>
             <svg
                 class="hover-target ml-2 inline-block h-5 w-5 fill-current transition-transform"
                 xmlns="http://www.w3.org/2000/svg"
