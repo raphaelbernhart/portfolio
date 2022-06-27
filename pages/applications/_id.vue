@@ -5,18 +5,21 @@
         >
             <h1
                 ref="headTitle"
-                class="md:pt-12 text-primary text-8xl lg:text-9xl font-display max-w-2xl break-words"
+                class="md:pt-12 text-primary text-7xl xs:text-8xl lg:text-9xl font-display max-w-2xl break-words"
             >
                 An Honest Application
             </h1>
-            <div class="flex justify-between items-center">
+            <div
+                class="flex flex-col gap-y-8 sm:flex-row sm:gap-y-0 justify-between items-center"
+            >
                 <div
                     data-scroll
                     data-scroll-speed="2"
                     data-scroll-position="top"
+                    class="hidden sm:block"
                 >
                     <a
-                        class="text-3xl font-light tracking-widest hover:text-gray-400 transition-colors"
+                        class="text-xl sm:text-3xl font-light tracking-widest hover:text-gray-400 transition-colors"
                         href="mailto:mail@raphaelbernhart.at"
                         >mail@raphaelbernhart.at
                     </a>
@@ -146,48 +149,54 @@
                 </div>
             </div>
         </section>
-        <section class="container h-[60vh] md:h-[45vh] my-24">
-            <div class="grid grid-cols-2">
+        <section class="container md:h-[45vh] my-36 sm:my-24">
+            <div class="grid grid-cols-1 md:grid-cols-2">
                 <h2
                     data-scroll
                     data-scroll-speed="2.8"
                     data-scroll-delay="1.4"
-                    class="text-7xl font-display leading-[1.1]"
+                    class="text-7xl font-display leading-[1] md:leading-[1.1]"
                 >
                     <span
-                        class="before:block before:absolute before:-inset-1 before:bg-hover2 before:h-11 before:w-[97%] before:transform before:translate-x-7 before:translate-y-10 relative inline-block"
+                        class="md:before:block md:before:absolute before:-inset-1 before:bg-hover2 before:h-11 before:w-[97%] before:transform before:translate-x-7 before:translate-y-10 relative inline-block"
                     >
                         <span class="relative">Sehr geehrte</span> </span
                     ><br />
                     <span
-                        class="ml-8 before:block before:absolute before:-inset-1 before:bg-hover2 before:h-11 before:w-[97%] before:transform before:translate-x-7 before:translate-y-10 relative inline-block"
+                        class="md:ml-8 md:before:block md:before:absolute before:-inset-1 before:bg-hover2 before:h-11 before:w-[97%] before:transform before:translate-x-7 before:translate-y-10 relative inline-block"
                     >
                         <span class="relative">Frau Schoner</span>
                     </span>
                 </h2>
                 <div
-                    class="text-white grid grid-cols-2 max-w-3xl leading-[1.9] gap-x-14 -ml-24 mt-[24%]"
+                    class="text-white grid grid-cols-1 mt-[24%] max-w-3xl leading-[1.9] gap-x-14 gap-y-6 sm:grid-cols-2 sm:gap-y-0 sm:-ml-24"
                 >
-                    <p data-scroll data-scroll-speed="1.4">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <ParagraphComponent
+                        data-scroll
+                        data-scroll-speed="1.4"
+                        text="Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Nemo sit, quia magnam beatae minima mollitia, aspernatur
                         aliquam necessitatibus perferendis dolorum quasi ab
                         adipisci facilis iure, totam explicabo quibusdam maxime
-                        omnis veritatis.
-                    </p>
-                    <p data-scroll data-scroll-speed="2">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        omnis veritatis."
+                    />
+                    <ParagraphComponent
+                        data-scroll
+                        data-scroll-speed="1.4"
+                        text="                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Ea blanditiis suscipit explicabo numquam modi dolorum,
                         cum maiores, aliquam molestiae eum ducimus dolore
-                        similique debitis iusto.
-                    </p>
+                        similique debitis iusto."
+                    />
                 </div>
             </div>
         </section>
-        <section class="container my-24 pb-40">
-            <div class="grid grid-cols-7 gap-x-32">
-                <div class="col-span-3" data-scroll data-scroll-speed="2.4">
-                    <div class="grid grid-cols-2 gap-x-16">
+        <section class="container mt-36 sm:my-24 pb-40">
+            <div
+                class="grid grid-cols-1 sm:grid-cols-7 gap-y-24 gap-x-32 sm:gap-y-0"
+            >
+                <div class="sm:col-span-3" data-scroll data-scroll-speed="2.4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-16">
                         <div>
                             <ApplicationsHeadline
                                 text="Un<br/>cover<br/>letter"
@@ -196,7 +205,7 @@
                             />
                         </div>
                     </div>
-                    <div class="grid grid-cols-2 gap-16 mt-24">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-16 mt-24">
                         <ParagraphComponent
                             text="Lorem ipsum dolor sit amet consectetur adipisicing
                             elit. Fugit sed nostrum praesentium sapiente ab! Id
@@ -214,10 +223,12 @@
                         />
                     </div>
                 </div>
-                <div class="col-span-4">
-                    <div class="grid grid-cols-3 gap-x-12 mt-52">
+                <div class="sm:col-span-4">
+                    <div
+                        class="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-12 sm:gap-y-0 md:mt-52"
+                    >
                         <div
-                            class="pt-24 flex flex-col gap-y-16"
+                            class="md:pt-24 flex flex-col gap-y-16"
                             data-scroll
                             data-scroll-speed="1.5"
                         >
@@ -305,7 +316,7 @@
                             </div>
                         </div>
                         <div
-                            class="pt-32 flex flex-col gap-y-16"
+                            class="md:pt-32 flex flex-col gap-y-16"
                             data-scroll
                             data-scroll-speed="1.2"
                         >
@@ -358,14 +369,14 @@
                 </div>
             </div>
             <!-- Link -->
-            <div class="w-full flex flex-row-reverse mt-12">
+            <div class="w-full flex flex-row-reverse mt-24 sm:mt-12">
                 <Link
                     text="To the About Page"
                     link="https://raphaelbernhart.at/profile"
                 />
             </div>
         </section>
-        <section class="mt-24">
+        <section class="pb-24 sm:pb-8 sm:mt-24">
             <ApplicationLink
                 title="My Works"
                 description="Find my work here"

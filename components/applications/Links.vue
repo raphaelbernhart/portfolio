@@ -2,14 +2,14 @@
     <div class="relative">
         <nuxt-link
             :to="localePath(`/${page}`)"
-            class="relative z-10 flex items-center h-[300px] group peer"
+            class="relative z-10 flex items-center h-[240px] sm:h-[300px] group peer"
         >
             <div
                 class="relative flex flex-col text-primary group-hover:text-gray-300 transition-colors container"
             >
                 <h3
                     :class="{ 'text-right': align === 'r' }"
-                    class="text-9xl uppercase font-display leading-none"
+                    class="text-7xl md:text-9xl uppercase font-display leading-none"
                 >
                     {{ title }}
                 </h3>
@@ -17,7 +17,7 @@
                     :class="{ 'flex-row-reverse': align === 'r' }"
                     class="flex items-center gap-x-6 text-gray-500 group-hover:text-gray-300 transition-colors"
                 >
-                    <span class="text-3xl uppercase tracking-wide">
+                    <span class="text-2xl md:text-3xl uppercase tracking-wide">
                         {{ description }}
                     </span>
                     <div
