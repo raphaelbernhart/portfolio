@@ -1,3 +1,148 @@
+<script lang="ts">
+/* eslint-disable vue/no-v-html */
+import Vue from 'vue';
+
+import ApplicationsHeadline from '@/components/applications/Headline.vue';
+import ParagraphComponent from '~/components/global/ParagraphComponent.vue';
+import ApplicationListWorks from '@/components/applications/ListWorks.vue';
+import ApplicationLink from '@/components/applications/Links.vue';
+
+import { randomFloat } from '@/services/Helpers';
+import config from '@/nuxt.config';
+
+export default Vue.extend({
+    name: 'ApplicationPage',
+    components: {
+        ApplicationsHeadline,
+        ParagraphComponent,
+        ApplicationListWorks,
+        ApplicationLink,
+    },
+    layout: 'application',
+    async asyncData({ $axios, params, error }) {
+        const id = params.id;
+
+        if (id.length <= 1) {
+            error({ statusCode: 404, message: 'Application not found' });
+        }
+
+        // Get Application
+        const res = await $axios.get(
+            `${process.env.CONTENT_API_URL}items/applications/${id}`,
+        );
+        const application = res.data.data;
+
+        if (!config.dev) {
+            if (
+                application.status === 'draft' ||
+                application.status === 'archived'
+            )
+                error({ statusCode: 404, message: 'Application not found' });
+        }
+
+        return { id, application };
+    },
+    data() {
+        return {
+            anime: {} as any,
+        };
+    },
+    head() {
+        return {
+            title: 'Application',
+            meta: [
+                {
+                    hid: 'description',
+                    name: 'description',
+                    content: 'Test',
+                },
+            ],
+        };
+    },
+    mounted() {
+        this.$nuxt.$emit('change-transition-title', this.getTitle());
+
+        // Animate Head
+        this.anime = (this as any).$anime;
+        this.animateHead();
+
+        // Update Locomotive Scroll
+        setTimeout(() => {
+            this.$nuxt.$emit('update-locomotive');
+        }, 2500);
+    },
+    methods: {
+        getTitle() {
+            const id = (this as any).application.title;
+            if (id) {
+                const title = id.replace('-', ' ');
+                const words = title.split(' ');
+                const wordsArray = words.map((word: string) => {
+                    return (
+                        word.charAt(0).toUpperCase() +
+                        word.substring(1).toLowerCase()
+                    );
+                });
+
+                let finalTitle = '';
+                wordsArray.forEach((word: string) => {
+                    finalTitle = finalTitle + ' ' + word;
+                });
+                return finalTitle;
+            }
+            return '';
+        },
+        animateHead() {
+            const ref = this.$refs.headTitle;
+
+            if (window.innerWidth > 480) {
+                const letters: any = this.$letterize({
+                    targets: ref,
+                    className: 'inline-block',
+                });
+
+                // Add Lerp Effect
+                letters.listAll.forEach((e: HTMLElement) => {
+                    const randomNumber = randomFloat(2, 4, 1);
+
+                    const html = e.innerHTML;
+                    e.innerHTML = `<span>${html}</span>`;
+
+                    // Add the effect
+                    e.children[0].classList.add('inline-block');
+                    e.children[0].setAttribute('data-scroll', '');
+                    e.children[0].setAttribute(
+                        'data-scroll-speed',
+                        randomNumber.toString(),
+                    );
+                    e.children[0].setAttribute('data-scroll-position', 'top');
+                    // (e.children[0] as HTMLElement).style.marginTop =
+                    //     randomNumber.toString();
+                    // e.children[0].setAttribute(
+                    //     'data-scroll-delay',
+                    //     randomFloat(0, 1.6, 1).toString(),
+                    // );
+                });
+
+                // animation.add(
+                //     {
+                //         targets: letters.listAll,
+                //         translateY: [70, 0],
+                //         opacity: [0, 1],
+                //         easing: 'easeOutQuad',
+                //         duration: 1000,
+                //         delay(_el: any, i: number) {
+                //             return i * 120;
+                //         },
+                //     },
+                //     1000,
+                // );
+            }
+        },
+    },
+});
+</script>
+
 <template>
     <main class="bg-primary text-primary">
         <section
@@ -149,7 +294,7 @@
                 </div>
             </div>
         </section>
-        <section class="container md:h-[45vh] my-36 sm:my-24">
+        <!-- <section class="container md:h-[45vh] my-36 sm:my-24">
             <div class="grid grid-cols-1 md:grid-cols-2">
                 <h2
                     data-scroll
@@ -200,7 +345,7 @@
                     />
                 </div>
             </div>
-        </section>
+        </section> -->
         <section class="container mt-36 sm:my-24 pb-40">
             <div
                 class="grid grid-cols-1 sm:grid-cols-7 gap-y-24 gap-x-32 sm:gap-y-0"
@@ -209,28 +354,33 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-16">
                         <div>
                             <ApplicationsHeadline
-                                text="Un<br/>cover<br/>letter"
+                                text="Cover<br/>letter"
                                 size="lg"
                                 align="right"
                             />
                         </div>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-16 mt-24">
-                        <ParagraphComponent
-                            text="Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Fugit sed nostrum praesentium sapiente ab! Id
-                            praesentium illo veritatis earum! Sunt, unde
-                            perferendis ipsum molestias maxime quia magni
-                            repellat, non distinctio provident, rem illum beatae
-                            sint cumque. Sequi quasi iure mollitia.<br/><br/>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse laboriosam atque possimus quod. Animi minima, corrupti porro debitis maiores libero ipsam? Accusantium quod maxime labore doloremque? Voluptate animi tempore earum."
-                        />
-                        <ParagraphComponent
-                            text="Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Fugit sed nostrum praesentium sapiente ab! Id
-                            praesentium illo veritatis earum! Sunt, unde
-                            perferendis ipsum molestias maxime quia."
-                        />
+                        <div
+                            :class="{
+                                'text-lg leading-8 md:text-base md:leading-7':
+                                    size === 'base',
+                                'text-xl leading-loose md:text-lg':
+                                    size === 'large',
+                                'text-base md:text-sm': size === 'small',
+                            }"
+                            v-html="application.text_intro_row_1"
+                        ></div>
+                        <div
+                            :class="{
+                                'text-lg leading-8 md:text-base md:leading-7':
+                                    size === 'base',
+                                'text-xl leading-loose md:text-lg':
+                                    size === 'large',
+                                'text-base md:text-sm': size === 'small',
+                            }"
+                            v-html="application.text_intro_row_2"
+                        ></div>
                     </div>
                 </div>
                 <div class="sm:col-span-4">
@@ -401,7 +551,7 @@
             <!-- Link -->
             <div class="w-full flex flex-row-reverse mt-24 sm:mt-12">
                 <Link
-                    text="To the About Page"
+                    :text="$t('applications.uncoverLetter.linkAboutPage')"
                     link="https://raphaelbernhart.at/profile"
                 />
             </div>
@@ -423,147 +573,3 @@
         </section>
     </main>
 </template>
-
-<script lang="ts">
-import Vue from 'vue';
-
-import ApplicationsHeadline from '@/components/applications/Headline.vue';
-import ParagraphComponent from '~/components/global/ParagraphComponent.vue';
-import ApplicationListWorks from '@/components/applications/ListWorks.vue';
-import ApplicationLink from '@/components/applications/Links.vue';
-
-import { randomFloat } from '@/services/Helpers';
-import config from '@/nuxt.config';
-
-export default Vue.extend({
-    name: 'ApplicationPage',
-    components: {
-        ApplicationsHeadline,
-        ParagraphComponent,
-        ApplicationListWorks,
-        ApplicationLink,
-    },
-    layout: 'application',
-    async asyncData({ $axios, params, error }) {
-        const id = params.id;
-
-        if (id.length <= 1) {
-            error({ statusCode: 404, message: 'Application not found' });
-        }
-
-        // Get Application
-        const res = await $axios.get(
-            `${process.env.CONTENT_API_URL}items/applications/${id}`,
-        );
-        const application = res.data.data;
-
-        if (!config.dev) {
-            if (
-                application.status === 'draft' ||
-                application.status === 'archived'
-            )
-                error({ statusCode: 404, message: 'Application not found' });
-        }
-
-        return { id, application };
-    },
-    data() {
-        return {
-            anime: {} as any,
-        };
-    },
-    head() {
-        return {
-            title: 'Application',
-            meta: [
-                {
-                    hid: 'description',
-                    name: 'description',
-                    content: 'Test',
-                },
-            ],
-        };
-    },
-    mounted() {
-        this.$nuxt.$emit('change-transition-title', this.getTitle());
-
-        // Animate Head
-        this.anime = (this as any).$anime;
-        this.animateHead();
-
-        // Update Locomotive Scroll
-        setTimeout(() => {
-            this.$nuxt.$emit('update-locomotive');
-        }, 2500);
-    },
-    methods: {
-        getTitle() {
-            const id = (this as any).application.title;
-            if (id) {
-                const title = id.replace('-', ' ');
-                const words = title.split(' ');
-                const wordsArray = words.map((word: string) => {
-                    return (
-                        word.charAt(0).toUpperCase() +
-                        word.substring(1).toLowerCase()
-                    );
-                });
-
-                let finalTitle = '';
-                wordsArray.forEach((word: string) => {
-                    finalTitle = finalTitle + ' ' + word;
-                });
-                return finalTitle;
-            }
-            return '';
-        },
-        animateHead() {
-            const ref = this.$refs.headTitle;
-
-            if (window.innerWidth > 480) {
-                const letters: any = this.$letterize({
-                    targets: ref,
-                    className: 'inline-block',
-                });
-
-                // Add Lerp Effect
-                letters.listAll.forEach((e: HTMLElement) => {
-                    const randomNumber = randomFloat(2, 4, 1);
-
-                    const html = e.innerHTML;
-                    e.innerHTML = `<span>${html}</span>`;
-
-                    // Add the effect
-                    e.children[0].classList.add('inline-block');
-                    e.children[0].setAttribute('data-scroll', '');
-                    e.children[0].setAttribute(
-                        'data-scroll-speed',
-                        randomNumber.toString(),
-                    );
-                    e.children[0].setAttribute('data-scroll-position', 'top');
-                    // (e.children[0] as HTMLElement).style.marginTop =
-                    //     randomNumber.toString();
-                    // e.children[0].setAttribute(
-                    //     'data-scroll-delay',
-                    //     randomFloat(0, 1.6, 1).toString(),
-                    // );
-                });
-
-                // animation.add(
-                //     {
-                //         targets: letters.listAll,
-                //         translateY: [70, 0],
-                //         opacity: [0, 1],
-                //         easing: 'easeOutQuad',
-                //         duration: 1000,
-                //         delay(_el: any, i: number) {
-                //             return i * 120;
-                //         },
-                //     },
-                //     1000,
-                // );
-            }
-        },
-    },
-});
-</script>
