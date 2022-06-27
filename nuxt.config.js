@@ -146,6 +146,20 @@ export default {
     robots: {
         UserAgent: '*',
         Allow: '/',
+        Disallow: '/applications/',
+    },
+
+    sitemap: {
+        hostname: 'https://raphaelbernhart.at',
+        gzip: true,
+        exclude: ['/applications/**'],
+        routes: [
+            '/works/syndena',
+            '/works/the-campers',
+            '/works/rebound',
+            '/works/wieso-musikvideo',
+            '/works/tetris-musikvideo',
+        ],
     },
 
     router: {
