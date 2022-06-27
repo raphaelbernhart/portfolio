@@ -5,9 +5,9 @@
         >
             <h1
                 ref="headTitle"
-                class="md:pt-12 text-primary text-7xl xs:text-8xl lg:text-9xl font-display max-w-2xl break-words"
+                class="md:pt-12 text-primary text-7xl xs:text-8xl lg:text-9xl font-display max-w-3xl break-words"
             >
-                An Honest Application
+                {{ getTitle() }}
             </h1>
             <div
                 class="flex flex-col gap-y-8 sm:flex-row sm:gap-y-0 justify-between items-center"
@@ -160,12 +160,29 @@
                     <span
                         class="md:before:block md:before:absolute before:-inset-1 before:bg-hover2 before:h-11 before:w-[97%] before:transform before:translate-x-7 before:translate-y-10 relative inline-block"
                     >
-                        <span class="relative">Sehr geehrte</span> </span
+                        <span class="relative"
+                            >Sehr
+                            <span
+                                v-if="
+                                    application.gender_hiring_manager === 'male'
+                                "
+                                >geehrter</span
+                            ><span v-else>geehrte</span></span
+                        > </span
                     ><br />
                     <span
                         class="md:ml-8 md:before:block md:before:absolute before:-inset-1 before:bg-hover2 before:h-11 before:w-[97%] before:transform before:translate-x-7 before:translate-y-10 relative inline-block"
                     >
-                        <span class="relative">Frau Schoner</span>
+                        <span class="relative">
+                            <span
+                                v-if="
+                                    application.gender_hiring_manager === 'male'
+                                "
+                                >Herr</span
+                            >
+                            <span v-else>Frau</span>
+                            {{ application.hiring_manager_name }}</span
+                        >
                     </span>
                 </h2>
                 <div
@@ -174,19 +191,12 @@
                     <ParagraphComponent
                         data-scroll
                         data-scroll-speed="1.4"
-                        text="Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Nemo sit, quia magnam beatae minima mollitia, aspernatur
-                        aliquam necessitatibus perferendis dolorum quasi ab
-                        adipisci facilis iure, totam explicabo quibusdam maxime
-                        omnis veritatis."
+                        :text="application.text_intro_row_1"
                     />
                     <ParagraphComponent
                         data-scroll
                         data-scroll-speed="1.4"
-                        text="                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Ea blanditiis suscipit explicabo numquam modi dolorum,
-                        cum maiores, aliquam molestiae eum ducimus dolore
-                        similique debitis iusto."
+                        :text="application.text_intro_row_2"
                     />
                 </div>
             </div>
@@ -234,7 +244,9 @@
                         >
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
-                                    text="Who I am"
+                                    :text="
+                                        $t('applications.uncoverLetter.whoIAm')
+                                    "
                                     size="md"
                                     align="left"
                                 />
@@ -248,7 +260,11 @@
                             </div>
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
-                                    text="Things I love"
+                                    :text="
+                                        $t(
+                                            'applications.uncoverLetter.thingsILove',
+                                        )
+                                    "
                                     size="md"
                                     align="left"
                                 />
@@ -274,7 +290,11 @@
                         >
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
-                                    text="Education"
+                                    :text="
+                                        $t(
+                                            'applications.uncoverLetter.education',
+                                        )
+                                    "
                                     size="md"
                                     align="left"
                                 />
@@ -296,7 +316,9 @@
                             </div>
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
-                                    text="skills"
+                                    :text="
+                                        $t('applications.uncoverLetter.skills')
+                                    "
                                     size="md"
                                     align="left"
                                 />
@@ -322,7 +344,11 @@
                         >
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
-                                    text="Work Experiences"
+                                    :text="
+                                        $t(
+                                            'applications.uncoverLetter.workExperiences',
+                                        )
+                                    "
                                     size="md"
                                     align="left"
                                 />
@@ -346,7 +372,11 @@
                             </div>
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
-                                    text="future goals"
+                                    :text="
+                                        $t(
+                                            'applications.uncoverLetter.futureGoals',
+                                        )
+                                    "
                                     size="md"
                                     align="left"
                                 />
@@ -378,14 +408,14 @@
         </section>
         <section class="pb-24 sm:pb-8 sm:mt-24">
             <ApplicationLink
-                title="My Works"
-                description="Find my work here"
+                :title="$t('applications.links.works.title')"
+                :description="$t('applications.links.works.subTitle')"
                 page="works"
                 background="https://content.raphaelbernhart.at/assets/39211516-d3aa-4932-b4f0-b4f611dc25a8"
             />
             <ApplicationLink
-                title="Contact"
-                description="Let's stay in touch"
+                :title="$t('applications.links.contact.title')"
+                :description="$t('applications.links.contact.subTitle')"
                 page="contact"
                 background="https://content.raphaelbernhart.at/assets/7f81bdb4-0288-44da-a88f-fe34025be585"
                 align="r"
@@ -396,14 +426,17 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 import ApplicationsHeadline from '@/components/applications/Headline.vue';
 import ParagraphComponent from '~/components/global/ParagraphComponent.vue';
 import ApplicationListWorks from '@/components/applications/ListWorks.vue';
 import ApplicationLink from '@/components/applications/Links.vue';
+
 import { randomFloat } from '@/services/Helpers';
+import config from '@/nuxt.config';
 
 export default Vue.extend({
-    name: 'ProjectPage',
+    name: 'ApplicationPage',
     components: {
         ApplicationsHeadline,
         ParagraphComponent,
@@ -411,9 +444,29 @@ export default Vue.extend({
         ApplicationLink,
     },
     layout: 'application',
-    // asyncData({ $axios, params, error }) {
-    //     return '';
-    // },
+    async asyncData({ $axios, params, error }) {
+        const id = params.id;
+
+        if (id.length <= 1) {
+            error({ statusCode: 404, message: 'Application not found' });
+        }
+
+        // Get Application
+        const res = await $axios.get(
+            `${process.env.CONTENT_API_URL}items/applications/${id}`,
+        );
+        const application = res.data.data;
+
+        if (!config.dev) {
+            if (
+                application.status === 'draft' ||
+                application.status === 'archived'
+            )
+                error({ statusCode: 404, message: 'Application not found' });
+        }
+
+        return { id, application };
+    },
     data() {
         return {
             anime: {} as any,
@@ -444,11 +497,26 @@ export default Vue.extend({
         }, 2500);
     },
     methods: {
-        // title() {
-        //     const id = (this as any).id;
-        //     if (id) return id.replace('-', ' ');
-        //     return '';
-        // },
+        getTitle() {
+            const id = (this as any).application.title;
+            if (id) {
+                const title = id.replace('-', ' ');
+                const words = title.split(' ');
+                const wordsArray = words.map((word: string) => {
+                    return (
+                        word.charAt(0).toUpperCase() +
+                        word.substring(1).toLowerCase()
+                    );
+                });
+
+                let finalTitle = '';
+                wordsArray.forEach((word: string) => {
+                    finalTitle = finalTitle + ' ' + word;
+                });
+                return finalTitle;
+            }
+            return '';
+        },
         animateHead() {
             const ref = this.$refs.headTitle;
 

@@ -91,6 +91,26 @@ export default {
         },
         mailSent: 'Die mail wurde versendet!',
     },
+    applications: {
+        uncoverLetter: {
+            whoIAm: 'Wer ich bin',
+            thingsILove: 'Dinge die ich liebe',
+            education: 'Ausbildung',
+            skills: 'Skills',
+            workExperiences: 'Arbeits<br/>erfahrung',
+            futureGoals: 'Ziele',
+        },
+        links: {
+            works: {
+                title: 'Meine Arbeiten',
+                subTitle: 'Finde meine Arbeiten hier',
+            },
+            contact: {
+                title: 'Kontakt',
+                subTitle: 'Bleiben wir in Kontakt',
+            },
+        },
+    },
     footer: {
         leading: 'In Verbindung bleiben',
         imprint: 'Impressum',

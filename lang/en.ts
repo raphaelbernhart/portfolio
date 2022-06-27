@@ -89,6 +89,26 @@ export default {
         },
         mailSent: 'The mail was sent!',
     },
+    applications: {
+        uncoverLetter: {
+            whoIAm: 'Who I am',
+            thingsILove: 'things I love',
+            education: 'education',
+            skills: 'Skills',
+            workExperiences: 'Work Experiences',
+            futureGoals: 'Future Goals',
+        },
+        links: {
+            works: {
+                title: 'My Works',
+                subTitle: 'Find my work here',
+            },
+            contact: {
+                title: 'Contact',
+                subTitle: `Let's stay in touch`,
+            },
+        },
+    },
     footer: {
         leading: "Let's stay <br>in touch",
         imprint: 'Imprint',
