@@ -22,7 +22,7 @@
             <!-- Projects -->
             <div
                 id="projects-container"
-                class="relative flex flex-col mt-6 xs:mt-14 md:mt-28 pb-24 gap-y-48 md:gap-y-52"
+                class="relative flex flex-col mt-6 xs:mt-8 md:mt-16 pb-24 gap-y-48 md:gap-y-52"
             >
                 <Project
                     v-for="project in projects"
