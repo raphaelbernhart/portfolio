@@ -17,9 +17,11 @@
                 <!-- <Navigation /> -->
                 <!-- <SocialMediaFixed /> -->
                 <Nuxt data-scroll-section />
+                <RightsBar data-scroll-section class="-mt-0.5" />
                 <!-- <Footer data-scroll-section /> -->
             </div>
         </LocomotiveScroll>
+
         <Transition v-if="!config.dev" :text="transitionText" />
     </div>
 </template>
