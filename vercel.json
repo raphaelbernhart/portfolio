@@ -5,14 +5,10 @@
             "src": "nuxt.config.js",
             "use": "@nuxtjs/vercel-builder",
             "config": {
-                "serverFiles": ["package.json"]
-            }
-        },
-        {
-            "src": "nuxt.config.js",
-            "use": "@nuxtjs/now-builder",
-            "config": {
-                "serverFiles": [".nuxt/dist/sitemap-routes.json"]
+                "serverFiles": [
+                    "package.json",
+                    ".nuxt/dist/sitemap-routes.json"
+                ]
             }
         }
     ],
