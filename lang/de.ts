@@ -99,6 +99,7 @@ export default {
             skills: 'Skills',
             workExperiences: 'Arbeits<br/>erfahrung',
             futureGoals: 'Ziele',
+            linkAboutPage: 'Zur About Seite',
         },
         links: {
             works: {

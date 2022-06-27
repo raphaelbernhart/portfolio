@@ -97,6 +97,7 @@ export default {
             skills: 'Skills',
             workExperiences: 'Work Experiences',
             futureGoals: 'Future Goals',
+            linkAboutPage: 'To the About Page',
         },
         links: {
             works: {
