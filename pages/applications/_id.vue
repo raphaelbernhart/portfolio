@@ -452,11 +452,6 @@ export default Vue.extend({
         animateHead() {
             const ref = this.$refs.headTitle;
 
-            const animation = this.anime.timeline({
-                duration: 1250,
-                easing: 'easeInOutQuad',
-            });
-
             if (window.innerWidth > 480) {
                 const letters: any = this.$letterize({
                     targets: ref,
