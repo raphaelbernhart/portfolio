@@ -485,7 +485,7 @@ export default Vue.extend({
         };
     },
     mounted() {
-        this.$nuxt.$emit('change-transition-title', 'Colorphyl Bewerbung');
+        this.$nuxt.$emit('change-transition-title', this.getTitle());
 
         // Animate Head
         this.anime = (this as any).$anime;
