@@ -1,29 +1,5 @@
-<template>
-    <div
-        :class="{
-            'text-left': align === 'left',
-            'text-right': align === 'right',
-            'pb-4': size === 'lg',
-            'pb-2': size === 'md',
-        }"
-        class="relative text-primary max-w-[280px]"
-    >
-        <!-- Text -->
-        <h3
-            lang="en"
-            :class="{ 'text-6xl': size === 'lg', 'text-4xl': size === 'md' }"
-            class="font-bold lowercase"
-            v-html="sanitize(text)"
-        />
-        <!-- Underline -->
-        <span
-            :class="{ '-bottom-4': size === 'lg', '-bottom-2': size === 'md' }"
-            class="absolute left-0 w-full h-0.5 bg-primaryColor"
-        ></span>
-    </div>
-</template>
-
 <script lang="ts">
+/* eslint-disable vue/no-v-html */
 import Vue from 'vue';
 import { sanitize } from '@/services/Helpers';
 
@@ -51,6 +27,31 @@ export default Vue.extend({
     },
 });
 </script>
+
+<template>
+    <div
+        :class="{
+            'text-left': align === 'left',
+            'text-right': align === 'right',
+            'pb-4': size === 'lg',
+            'pb-2': size === 'md',
+        }"
+        class="relative text-primary max-w-[280px]"
+    >
+        <!-- Text -->
+        <h3
+            lang="en"
+            :class="{ 'text-6xl': size === 'lg', 'text-4xl': size === 'md' }"
+            class="font-bold lowercase"
+            v-html="sanitize(text)"
+        />
+        <!-- Underline -->
+        <span
+            :class="{ '-bottom-4': size === 'lg', '-bottom-2': size === 'md' }"
+            class="absolute left-0 w-full h-0.5 bg-primaryColor"
+        ></span>
+    </div>
+</template>
 
 <style lang="css" scoped>
 h3 {
