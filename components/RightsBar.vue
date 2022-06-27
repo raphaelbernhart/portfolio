@@ -1,14 +1,14 @@
 <template>
     <div class="relative py-6 w-full bg-primary">
         <div
-            class="relative container grid grid-cols-1 text-primary md:grid-cols-4"
+            class="relative container grid grid-cols-1 gap-y-8 text-primary sm:gap-y-0 md:grid-cols-4"
         >
-            <div class="pr-4 text-sm flex items-center">
+            <div class="sm:pr-4 order-3 sm:order-1 text-sm flex items-center">
                 © {{ new Date().getFullYear() }} Raphael Bernhart | All Rights
                 Reserved
             </div>
             <div
-                class="col-span-3 flex flex-wrap items-center gap-x-6 mt-4 md:mt-0 gap-y-4 md:gap-y-0"
+                class="sm:col-span-3 flex flex-wrap items-center gap-x-6 sm:mt-4 md:mt-0 gap-y-4 order-1 sm:order-2 md:gap-y-0"
             >
                 <nuxt-link
                     :to="localePath('/imprint')"
@@ -27,7 +27,7 @@
                 </nuxt-link>
             </div>
             <div
-                class="relative mt-16 sm:mt-0 sm:absolute bottom-0 md:bottom-auto right-0 text-sm flex items-center"
+                class="relative sm:absolute order-2 sm:order-3 bottom-0 md:bottom-auto right-0 text-sm flex items-center"
             >
                 <span>
                     <a
