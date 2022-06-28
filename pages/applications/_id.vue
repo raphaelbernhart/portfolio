@@ -362,23 +362,11 @@ export default Vue.extend({
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-16 mt-24">
                         <div
-                            :class="{
-                                'text-lg leading-8 md:text-base md:leading-7':
-                                    size === 'base',
-                                'text-xl leading-loose md:text-lg':
-                                    size === 'large',
-                                'text-base md:text-sm': size === 'small',
-                            }"
+                            class="text-lg leading-8 md:text-base md:leading-7"
                             v-html="application.text_intro_row_1"
                         ></div>
                         <div
-                            :class="{
-                                'text-lg leading-8 md:text-base md:leading-7':
-                                    size === 'base',
-                                'text-xl leading-loose md:text-lg':
-                                    size === 'large',
-                                'text-base md:text-sm': size === 'small',
-                            }"
+                            class="text-lg leading-8 md:text-base md:leading-7"
                             v-html="application.text_intro_row_2"
                         ></div>
                     </div>
