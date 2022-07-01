@@ -40,6 +40,7 @@ module.exports = {
                 primary: '#f5f1e6',
                 text: '#171716',
                 hover: '#293B2F',
+                hover2: '#272729',
             },
             height: {
                 lg: '320px',
