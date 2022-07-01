@@ -194,7 +194,7 @@ export default {
                 name: 'English',
             },
         ],
-        baseUrl: 'http://localhost:3000',
+        baseUrl: 'https://raphaelbernhart.at',
         defaultLocale: 'de',
         lazy: true,
         langDir: '~/lang/',
