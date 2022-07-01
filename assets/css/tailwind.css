@@ -1,3 +1,16 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@layer base {
+    .style-children-links a {
+        /* @apply text-[#e3d7ba]; */
+        @apply text-white;
+        @apply hover:text-gray-300;
+        /* @apply underline; */
+        @apply hover:underline;
+        @apply font-semibold;
+        /* @apply italic; */
+        @apply transition-colors;
+    }
+}
