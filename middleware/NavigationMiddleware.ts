@@ -6,12 +6,12 @@ const navigationMiddleware: Middleware = (context: Context) => {
 
     if (process.client) {
         // // Scroll top on route change
-        setTimeout(() => {
-            window.$nuxt.$emit('scroll-top-locomotive', {
-                duration: 0,
-                disableLerp: true,
-            });
-        }, 150);
+        // setTimeout(() => {
+        window.$nuxt.$emit('scroll-top-locomotive', {
+            duration: 25,
+            disableLerp: true,
+        });
+        // }, 250);
 
         // Update locomotive scroll when route to a new page
         // setTimeout(() => {
