@@ -6,6 +6,7 @@ import ApplicationsHeadline from '@/components/applications/Headline.vue';
 import ParagraphComponent from '~/components/global/ParagraphComponent.vue';
 import ApplicationListWorks from '@/components/applications/ListWorks.vue';
 import ApplicationLink from '@/components/applications/Links.vue';
+import File from '@/components/applications/File.vue';
 
 import { randomFloat } from '@/services/Helpers';
 import config from '@/nuxt.config';
@@ -17,6 +18,7 @@ export default Vue.extend({
         ParagraphComponent,
         ApplicationListWorks,
         ApplicationLink,
+        File,
     },
     layout: 'application',
     async asyncData({ $axios, params, error }) {
@@ -40,7 +42,13 @@ export default Vue.extend({
                 error({ statusCode: 404, message: 'Application not found' });
         }
 
-        return { id, application };
+        // Get Files like diplomas oso
+        const filesResponse = await $axios.get(
+            `${process.env.CONTENT_API_URL}files?filter[folder][_eq]=6199a627-f972-4273-8ed6-9ecd86eb99aa&fields=id,title,type,filesize,filename_download`,
+        );
+        const files = filesResponse.data.data;
+
+        return { id, application, files };
     },
     data() {
         return {
@@ -346,7 +354,7 @@ export default Vue.extend({
                 </div>
             </div>
         </section> -->
-        <section class="container mt-36 sm:my-24 pb-40">
+        <section class="container mt-36 sm:my-24 pb-12">
             <div
                 class="grid grid-cols-1 sm:grid-cols-7 gap-y-24 gap-x-32 sm:gap-y-0"
             >
@@ -383,17 +391,19 @@ export default Vue.extend({
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
                                     :text="
-                                        $t('applications.uncoverLetter.whoIAm')
+                                        $t(
+                                            'applications.uncoverLetter.whoIAm.title',
+                                        )
                                     "
                                     size="md"
                                     align="left"
                                 />
                                 <ParagraphComponent
-                                    text="Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Fugit sed nostrum praesentium sapiente ab! Id
-                                        praesentium illo veritatis earum! Sunt, unde
-                                        perferendis ipsum molestias maxime quia.<br/><br/>
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit."
+                                    :text="
+                                        $t(
+                                            'applications.uncoverLetter.whoIAm.text',
+                                        )
+                                    "
                                 />
                             </div>
                             <div class="flex flex-col gap-y-12">
@@ -407,16 +417,17 @@ export default Vue.extend({
                                     align="left"
                                 />
                                 <ParagraphComponent
+                                    class="lowercase"
                                     text="
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
+                                    Filmen<br/>
+                                    Musik<br/>
+                                    Skifahren<br/>
+                                    Fußball<br/>
+                                    Gaming<br/>
+                                    writing<br/>
+                                    DevOps<br/>
+                                    Kochen<br/>
+                                    Wandern<br/>
                                     "
                                 />
                             </div>
@@ -436,21 +447,28 @@ export default Vue.extend({
                                     size="md"
                                     align="left"
                                 />
-                                <ParagraphComponent
-                                    text="
-                                    <b>2008/2012</b><br/>
-                                    Volksschule Brixen im Thale<br/>
-                                    <br/>
-                                    <b>2008/2012</b><br/>
-                                    Volksschule Brixen im Thale<br/>
-                                    <br/>
-                                    <b>2008/2012</b><br/>
-                                    Volksschule Brixen im Thale<br/>
-                                    <br/>
-                                    <b>2008/2012</b><br/>
-                                    Volksschule Brixen im Thale<br/>
-                                    "
-                                />
+                                <!-- <b>2008/2012</b><br />
+                                Volksschule Brixen im Thale<br />
+                                <br />
+                                <b>2012/2016</b><br />
+                                Sportmittelschule Wörgl<br />
+                                <br />
+                                <b>2016/2017</b><br />
+                                Polytechnikum Brixen im Thale<br />
+                                <br /> -->
+                                <div class="text-base flex flex-col gap-y-6">
+                                    <div>
+                                        <h4 class="font-bold">2017/2018</h4>
+                                        <h5>
+                                            Ausbildung Grafik & Mediendesign
+                                            Saalfelden
+                                        </h5>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">2018/2020</h4>
+                                        <h5>Werbedesign Akademie Innsbruck</h5>
+                                    </div>
+                                </div>
                             </div>
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
@@ -460,19 +478,25 @@ export default Vue.extend({
                                     size="md"
                                     align="left"
                                 />
-                                <ParagraphComponent
-                                    text="
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
-                                    "
-                                />
+                                <!-- // Video
+                                <div class="text-base leading-loose">
+                                    Visual Studio Code<br />
+                                    NuxtJS Photoshop<br />
+                                    InDesign<br />
+                                    XD<br />
+                                    Illustrator<br />
+                                    After Effects<br />
+                                </div> -->
+                                <div class="text-base leading-loose">
+                                    Visual Studio Code<br />
+                                    NuxtJS<br />
+                                    VueJS<br />
+                                    Git/Github<br />
+                                    Kubernetes<br />
+                                    Tailwindcss<br />
+                                    XD<br />
+                                    Typescript
+                                </div>
                             </div>
                         </div>
                         <div
@@ -518,19 +542,11 @@ export default Vue.extend({
                                     size="md"
                                     align="left"
                                 />
-                                <ParagraphComponent
-                                    text="
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
-                                    skiing<br/>
-                                    noch mehr skiing<br/>
-                                    anderes<br/>
-                                    "
-                                />
+                                <div class="text-base leading-loose">
+                                    Dokumentation drehen<br />
+                                    Open Source contributing<br />
+                                    Japan bereisen
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -544,7 +560,23 @@ export default Vue.extend({
                 />
             </div>
         </section>
-        <section class="pb-24 sm:pb-8 sm:mt-24">
+        <!-- Files Section -->
+        <section class="container">
+            <h3 class="text-lg font-semibold mb-8">Files</h3>
+            <div class="flex flex-wrap gap-x-6">
+                <File
+                    v-for="file in files"
+                    :id="file.id"
+                    :key="file.id"
+                    :title="file.title"
+                    :type="file.type"
+                    :filename="file.filename_download"
+                    :filesize="file.filesize"
+                />
+            </div>
+        </section>
+        <!-- Links Section -->
+        <section class="pb-24 sm:pb-8 sm:mt-48">
             <ApplicationLink
                 :title="$t('applications.links.works.title')"
                 :description="$t('applications.links.works.subTitle')"
