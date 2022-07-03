@@ -46,7 +46,7 @@ export default {
         },
         head: {
             lead: 'Über mich',
-            paragraph: `Hier erfährst du woher ich komme, welche Ausbildung ich genossen habe, was ich in meiner Freizeit so mache und wo ich schon gearbeitet habe. Solltest du noch weitere Fragen haben oder willst dich einfach mit mir in Verbindung setzten, schreibe mir gerne <nuxt-link class="font-bold text-primary cursor-pointer underline" :to="{ path: '/contact' }">hier.</nuxt-link>`,
+            paragraph: `Hier erfährst du woher ich komme, welche Ausbildung ich genossen habe, was ich in meiner Freizeit so mache und wo ich schon gearbeitet habe. Solltest du noch weitere Fragen haben oder willst dich einfach mit mir in Verbindung setzten, schreibe mir gerne <a href="https://raphaelbernhart.at/contact" class="font-bold text-primary cursor-pointer underline">hier.</a>`,
             marking:
                 'Das bin ich :) Weiter unten erfährst du mehr über mich und was ich bis jetzt so gemacht habe!',
         },
@@ -93,7 +93,10 @@ export default {
     },
     applications: {
         uncoverLetter: {
-            whoIAm: 'Wer ich bin',
+            whoIAm: {
+                title: 'Wer ich bin',
+                text: 'Hi, das ist der Teil, indem ich langweilige Dinge über mich erzähle.<br/><br/> Ich bin 20 Jahre alt und komme aus Tirol, genauer gesagt dem Brixental. Ich versuche ein bis zwei ehrenamtliche Dienste im Monat beim Roten Kreuz als Rettungssanitäter einzubauen und wenn sich Zeit findet koche ich auch gerne mit Freunden und höre dabei Musik.',
+            },
             thingsILove: 'Dinge die ich liebe',
             education: 'Ausbildung',
             skills: 'Skills',
