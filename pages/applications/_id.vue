@@ -455,19 +455,23 @@ export default Vue.extend({
                                 <b>2016/2017</b><br />
                                 Polytechnikum Brixen im Thale<br />
                                 <br /> -->
-                                <div class="text-base flex flex-col gap-y-6">
-                                    <div>
-                                        <h4 class="font-bold">2017/2018</h4>
-                                        <h5>
-                                            Ausbildung Grafik & Mediendesign
-                                            Saalfelden
-                                        </h5>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold">2018/2020</h4>
-                                        <h5>Werbedesign Akademie Innsbruck</h5>
-                                    </div>
-                                </div>
+                                <ParagraphComponent
+                                    text="
+                                    <span class='flex flex-col gap-y-6'>
+                                        <span>
+                                            <span class='font-bold block'>2017/2018</span>
+                                            <span>
+                                                Ausbildung Grafik & Mediendesign
+                                                Saalfelden
+                                            </span>
+                                        </span>
+                                        <span>
+                                            <span class='font-bold block'>2018/2020</span>
+                                            <span>Werbedesign Akademie Innsbruck</span>
+                                        </span>
+                                    </span>
+                                    "
+                                />
                             </div>
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
@@ -486,7 +490,9 @@ export default Vue.extend({
                                     Illustrator<br />
                                     After Effects<br />
                                 </div> -->
-                                <div class="text-base leading-loose">
+                                <ParagraphComponent
+                                    class="lowercase"
+                                    text="
                                     Visual Studio Code<br />
                                     NuxtJS<br />
                                     VueJS<br />
@@ -496,7 +502,8 @@ export default Vue.extend({
                                     XD<br />
                                     NodeJS<br />
                                     Typescript
-                                </div>
+                                    "
+                                />
                             </div>
                         </div>
                         <div
@@ -542,11 +549,14 @@ export default Vue.extend({
                                     size="md"
                                     align="left"
                                 />
-                                <div class="text-base leading-loose">
+                                <ParagraphComponent
+                                    class="lowercase"
+                                    text="
                                     Dokumentation drehen<br />
                                     Open Source contributing<br />
                                     Japan bereisen
-                                </div>
+                                    "
+                                />
                             </div>
                         </div>
                     </div>
@@ -561,9 +571,9 @@ export default Vue.extend({
             </div>
         </section>
         <!-- Files Section -->
-        <section class="container">
+        <section class="container my-32 md:my-0">
             <h3 class="text-lg font-semibold mb-8">Files</h3>
-            <div class="flex flex-wrap gap-x-6">
+            <div class="flex flex-wrap gap-6">
                 <File
                     v-for="file in files"
                     :id="file.id"
