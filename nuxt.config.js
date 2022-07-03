@@ -85,6 +85,7 @@ export default {
         '@nuxtjs/google-fonts',
         'nuxt-animejs',
         '@nuxtjs/ackee',
+        // '@unlighthouse/nuxt',
     ],
 
     // Modules: https://go.nuxtjs.dev/config-modules
@@ -100,18 +101,21 @@ export default {
         '@nuxtjs/robots',
     ],
 
+    tailwindcss: {
+        viewer: false,
+    },
+
     googleFonts: {
         families: {
             Poppins: {
-                wght: [200, 400, 600],
+                wght: [200, 400, 600, 700],
                 ital: [300, 400, 600],
             },
         },
         subsets: ['latin'],
         display: 'swap',
         prefetch: true,
-        preconnect: false,
-        preload: true,
+        preconnect: true,
         download: true,
         base64: false,
         useStylesheet: false,
@@ -141,6 +145,20 @@ export default {
     robots: {
         UserAgent: '*',
         Allow: '/',
+        Disallow: '/applications/',
+    },
+
+    sitemap: {
+        hostname: 'https://raphaelbernhart.at',
+        gzip: true,
+        exclude: ['/applications/**'],
+        routes: [
+            '/works/syndena',
+            '/works/the-campers',
+            '/works/rebound',
+            '/works/wieso-musikvideo',
+            '/works/tetris-musikvideo',
+        ],
     },
 
     router: {
@@ -176,7 +194,7 @@ export default {
                 name: 'English',
             },
         ],
-        baseUrl: 'http://localhost:3000',
+        baseUrl: 'https://raphaelbernhart.at',
         defaultLocale: 'de',
         lazy: true,
         langDir: '~/lang/',
@@ -184,6 +202,15 @@ export default {
             useCookie: true,
             cookieKey: 'i18n_redirected',
             redirectOn: 'root', // recommended
+        },
+    },
+
+    unlighthouse: {
+        debug: true,
+        // exclude: [],
+        scanner: {
+            ignoreI18nPages: true,
+            device: 'mobile',
         },
     },
 

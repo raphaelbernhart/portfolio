@@ -21,3 +21,13 @@ export const sanitize = (text: string) => {
     const regex = /<script\b[^>]*>([\s\S]*?)<\/script>/gm;
     return text.replace(regex, ' ');
 };
+
+export const randomFloat = (
+    min: number,
+    max: number,
+    decimals: number,
+): number => {
+    const str = (Math.random() * (max - min) + min).toFixed(decimals);
+
+    return parseFloat(str);
+};

@@ -23,6 +23,9 @@ export default Vue.extend({
     },
     methods: {
         sanitize,
+        getText() {
+            if (typeof this.text === 'string') return sanitize(this.text);
+        },
     },
 });
 </script>
@@ -30,11 +33,10 @@ export default Vue.extend({
 <template>
     <p
         :class="{
-            'text-base': size === 'base',
-            'text-lg leading-loose': size === 'large',
-            'text-sm': size === 'small',
+            'text-lg leading-8 md:text-base md:leading-7': size === 'base',
+            'text-xl leading-loose md:text-lg': size === 'large',
+            'text-base md:text-sm': size === 'small',
         }"
-        class="leading-7"
-        v-html="sanitize(text)"
+        v-html="getText()"
     ></p>
 </template>

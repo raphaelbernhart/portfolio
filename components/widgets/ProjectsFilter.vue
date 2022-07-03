@@ -1,17 +1,52 @@
 <template>
-    <div class="flex flex-wrap gap-y-4 pt-8 md:pt-0 gap-x-6 items-center">
-        <span class="text-primary mr-6">Filter:</span>
+    <div
+        class="relative flex flex-wrap gap-y-4 pt-8 md:pt-0 gap-x-6 items-center w-full sm:w-auto z-20"
+    >
+        <span
+            class="text-primary text-xl sm:text-lg mr-6 flex items-center gap-x-2 cursor-pointer sm:cursor-default"
+            @click="toggleFilterHide()"
+            >Filter
+            <span class="hidden sm:inline-block">:</span>
+            <span class="inline-block sm:hidden">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    class="h-6 w-6"
+                >
+                    <title>filter</title>
+                    <g
+                        stroke-linejoin="round"
+                        stroke-linecap="round"
+                        stroke-width="2"
+                        fill="none"
+                        class="stroke-current"
+                    >
+                        <path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"></path>
+                    </g>
+                </svg>
+            </span>
+        </span>
         <div
-            v-for="(prop, index) in filterProps"
-            :key="prop"
+            class="absolute rounded-xl sm:rounded-none sm:relative w-full sm:w-auto left-0 top-20 sm:top-0 flex flex-wrap gap-x-2 gap-y-2 items-center overflow-hidden transition-all bg-hover2 sm:bg-transparent px-4 sm:px-0 shadow-lg sm:shadow-none z-20"
             :class="{
-                'bg-primaryColor text-text': activeFilters.includes(prop),
-                'bg-light text-primary': !activeFilters.includes(prop),
+                'h-0 py-0': filterHidden,
+                'h-[160px] py-4 sm:h-auto sm:py-0': !filterHidden,
             }"
-            class="flex gap-x-2 py-2 px-4 text-sm rounded-md cursor-pointer"
-            @click="toggleFilter(prop, index)"
         >
-            {{ prop }}
+            <div
+                v-for="(prop, index) in filterProps"
+                :key="prop"
+                :class="{
+                    'bg-primaryColor text-text': activeFilters.includes(prop),
+                    'bg-light text-primary': !activeFilters.includes(prop),
+                }"
+                class="flex gap-x-2 py-2 px-4 text-sm rounded-md cursor-pointer"
+                @click="toggleFilter(prop, index)"
+            >
+                {{ prop }}
+            </div>
         </div>
     </div>
 </template>
@@ -36,6 +71,7 @@ export default Vue.extend({
                 'Video Production',
             ],
             activeFilters: [],
+            filterHidden: true,
         };
     },
     watch: {
@@ -69,6 +105,8 @@ export default Vue.extend({
         }
 
         this.$emit('updateFilter', this.activeFilters);
+
+        if (window.innerWidth >= 640) this.filterHidden = false;
     },
     methods: {
         toggleFilter(prop: never) {
@@ -84,6 +122,10 @@ export default Vue.extend({
             this.activeFilters.push(prop);
 
             this.$emit('updateFilter', this.activeFilters);
+        },
+        toggleFilterHide() {
+            if (window.innerWidth <= 640)
+                this.filterHidden = !this.filterHidden;
         },
     },
 });

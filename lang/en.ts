@@ -89,6 +89,30 @@ export default {
         },
         mailSent: 'The mail was sent!',
     },
+    applications: {
+        uncoverLetter: {
+            whoIAm: {
+                title: 'Wer ich bin',
+                text: 'Hi, this is the part where I tell boring things about myself.<br/><br/>I am 20 years old and from Tyrol, more precisely the Brixental. I try one to two volunteer services a month at the Red Cross as a paramedic and if there is time I also like to cook with friends and listen to music.',
+            },
+            thingsILove: 'things I love',
+            education: 'education',
+            skills: 'Skills',
+            workExperiences: 'Work Experiences',
+            futureGoals: 'Future Goals',
+            linkAboutPage: 'To the About Page',
+        },
+        links: {
+            works: {
+                title: 'My Works',
+                subTitle: 'Find my work here',
+            },
+            contact: {
+                title: 'Contact',
+                subTitle: `Let's stay in touch`,
+            },
+        },
+    },
     footer: {
         leading: "Let's stay <br>in touch",
         imprint: 'Imprint',
