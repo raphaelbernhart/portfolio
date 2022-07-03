@@ -51,8 +51,8 @@ export default Vue.extend({
             type: String,
             required: false,
             default: 'normal',
-            validator: (v) => {
-                const acceptedValues = ['normal', 'large'];
+            validator: (v: string) => {
+                const acceptedValues: Array<string> = ['normal', 'large'];
 
                 return acceptedValues.includes(v);
             },
