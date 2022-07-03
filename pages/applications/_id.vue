@@ -381,12 +381,12 @@ export default Vue.extend({
                 </div>
                 <div class="sm:col-span-4">
                     <div
-                        class="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-12 sm:gap-y-0 md:mt-52"
+                        class="grid grid-cols-1 md:grid-cols-3 gap-y-16 gap-x-12 sm:gap-y-0 md:mt-40"
                     >
                         <div
-                            class="md:pt-24 flex flex-col gap-y-16"
+                            class="md:pt-6 flex flex-col gap-y-16"
                             data-scroll
-                            data-scroll-speed="1.5"
+                            data-scroll-speed="2.4"
                         >
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
@@ -424,7 +424,6 @@ export default Vue.extend({
                                     Skifahren<br/>
                                     Fußball<br/>
                                     Gaming<br/>
-                                    writing<br/>
                                     DevOps<br/>
                                     Kochen<br/>
                                     Wandern<br/>
@@ -435,7 +434,7 @@ export default Vue.extend({
                         <div
                             class="flex flex-col gap-y-16"
                             data-scroll
-                            data-scroll-speed="2"
+                            data-scroll-speed="1.5"
                         >
                             <div class="flex flex-col gap-y-12">
                                 <ApplicationsHeadline
@@ -495,6 +494,7 @@ export default Vue.extend({
                                     Kubernetes<br />
                                     Tailwindcss<br />
                                     XD<br />
+                                    NodeJS<br />
                                     Typescript
                                 </div>
                             </div>
