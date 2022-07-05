@@ -382,6 +382,8 @@ export default Vue.extend({
         }
 
         if (!config.dev) {
+            if (!project)
+                error({ statusCode: 404, message: 'Application not found' });
             if (project.status === 'draft' || project.status === 'archived')
                 error({ statusCode: 404, message: 'Post not found' });
         }
