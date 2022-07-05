@@ -80,6 +80,7 @@ export default {
     buildModules: [
         // https://go.nuxtjs.dev/typescript
         '@nuxt/typescript-build',
+        '@nuxtjs/pwa',
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
         '@nuxtjs/google-fonts',
@@ -92,8 +93,6 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/axios
         '@nuxtjs/axios',
-        // https://go.nuxtjs.dev/pwa
-        '@nuxtjs/pwa',
         '@nuxtjs/i18n',
         'nuxt-leaflet',
         'nuxt-mail',
@@ -175,6 +174,9 @@ export default {
     // PWA module configuration: https://go.nuxtjs.dev/pwa
     pwa: {
         manifest: {
+            lang: 'de',
+        },
+        meta: {
             lang: 'de',
         },
     },

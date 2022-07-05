@@ -370,13 +370,20 @@ export default Vue.extend({
         }
 
         // Get Project
-        const res = await $axios.get(
-            `${process.env.CONTENT_API_URL}items/rb_portfolio_projects/${id}?fields=*,imageCarousel.*,imagesTxt1.*,imagesTxt2.*,imagesTxt3.*`,
-        );
+        let project;
+        try {
+            const res = await $axios.get(
+                `${process.env.CONTENT_API_URL}items/rb_portfolio_projects/${id}?fields=*,imageCarousel.*,imagesTxt1.*,imagesTxt2.*,imagesTxt3.*`,
+            );
 
-        const project = res.data.data;
+            project = res.data.data;
+        } catch (err) {
+            error({ statusCode: 404, message: 'Project not found' });
+        }
 
         if (!config.dev) {
+            if (!project)
+                error({ statusCode: 404, message: 'Application not found' });
             if (project.status === 'draft' || project.status === 'archived')
                 error({ statusCode: 404, message: 'Post not found' });
         }

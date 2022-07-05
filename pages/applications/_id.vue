@@ -28,13 +28,21 @@ export default Vue.extend({
             error({ statusCode: 404, message: 'Application not found' });
         }
 
+        let application;
+
         // Get Application
-        const res = await $axios.get(
-            `${process.env.CONTENT_API_URL}items/applications/${id}`,
-        );
-        const application = res.data.data;
+        try {
+            const res = await $axios.get(
+                `${process.env.CONTENT_API_URL}items/applications/${id}`,
+            );
+            application = res.data.data;
+        } catch (err) {
+            error({ statusCode: 404, message: 'Application not found' });
+        }
 
         if (!config.dev) {
+            if (!application)
+                error({ statusCode: 404, message: 'Application not found' });
             if (
                 application.status === 'draft' ||
                 application.status === 'archived'
