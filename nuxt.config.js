@@ -163,7 +163,8 @@ export default {
             const { data } = await axios.get(
                 `https://content.raphaelbernhart.at/items/rb_portfolio_projects?filter[status][_eq]=published&fields=title,date_updated,priority`,
             );
-            return data.data.map((project) => {
+
+            const routes = data.data.map((project) => {
                 return {
                     url: `/works/${project.title}`,
                     priority: project.priority,
@@ -171,6 +172,29 @@ export default {
                     lastmod: project.date_updated,
                 };
             });
+            const customRoutes = [
+                {
+                    url: '/',
+                    priority: 1.0,
+                },
+                {
+                    url: '/works',
+                    priority: 0.9,
+                },
+                {
+                    url: '/profile',
+                    priority: 0.7,
+                },
+                {
+                    url: '/contact',
+                    priority: 0.7,
+                },
+            ];
+            customRoutes.forEach((route) => {
+                routes.push(route);
+            });
+
+            return routes;
         },
     },
 
