@@ -1,4 +1,6 @@
 import pkg from './package.json';
+// eslint-disable-next-line nuxt/no-cjs-in-config
+const axios = require('axios');
 
 export default {
     // Global page headers: https://go.nuxtjs.dev/config-head
@@ -151,13 +153,25 @@ export default {
         hostname: 'https://raphaelbernhart.at',
         gzip: true,
         exclude: ['/applications/**'],
-        routes: [
-            '/works/syndena',
-            '/works/the-campers',
-            '/works/rebound',
-            '/works/wieso-musikvideo',
-            '/works/tetris-musikvideo',
-        ],
+        i18n: true,
+        defaults: {
+            changefreq: 'weekly',
+            priority: 0.5,
+            lastmod: new Date(),
+        },
+        routes: async () => {
+            const { data } = await axios.get(
+                `https://content.raphaelbernhart.at/items/rb_portfolio_projects?filter[status][_eq]=published&fields=title,date_updated,priority`,
+            );
+            return data.data.map((project) => {
+                return {
+                    url: `/works/${project.title}`,
+                    priority: project.priority,
+                    changefreq: 'monthly',
+                    lastmod: project.date_updated,
+                };
+            });
+        },
     },
 
     router: {
