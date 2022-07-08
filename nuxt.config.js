@@ -113,7 +113,6 @@ export default {
                 ital: [300, 400, 600],
             },
         },
-        subsets: ['latin'],
         display: 'swap',
         prefetch: true,
         preconnect: true,
