@@ -113,7 +113,6 @@ export default {
                 ital: [300, 400, 600],
             },
         },
-        subsets: ['latin'],
         display: 'swap',
         prefetch: true,
         preconnect: true,
@@ -124,7 +123,7 @@ export default {
 
     ackee: {
         server: 'https://analytics.raphaelbernhart.at',
-        domainId: '35e91438-e98e-4177-9bf5-c482df5e12df',
+        domainId: '4f86c51c-1496-404f-bcf4-f0f6398f38b4',
         detailed: 'opt-out',
         ignoreLocalhost: true,
     },
