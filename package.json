@@ -32,7 +32,7 @@
         "vue": "^2.7.1",
         "vue-server-renderer": "^2.7.1",
         "vue-template-compiler": "^2.7.1",
-        "webpack": "^4.46.0"
+        "webpack": "^5.74.0"
     },
     "prettier": "@raphaelbernhart/prettier-config",
     "devDependencies": {
