@@ -78,6 +78,20 @@ export default {
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
 
+    hooks: {
+        render: {
+            // Send Errors to sentry
+            errorMiddleware(app) {
+                app.use((error, _req, _res, next) => {
+                    if (error) {
+                        process.sentry.captureException(error);
+                    }
+                    next(error);
+                });
+            },
+        },
+    },
+
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
         // https://go.nuxtjs.dev/typescript
@@ -100,6 +114,7 @@ export default {
         'nuxt-mail',
         '@nuxtjs/sitemap',
         '@nuxtjs/robots',
+        '@nuxtjs/sentry',
     ],
 
     tailwindcss: {
@@ -251,6 +266,11 @@ export default {
             ignoreI18nPages: true,
             device: 'mobile',
         },
+    },
+
+    sentry: {
+        dsn: 'https://0ff9f888bd394c02936e368e2da46590@o440126.ingest.sentry.io/6627543',
+        lazy: true,
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
