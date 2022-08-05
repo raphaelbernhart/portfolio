@@ -101,7 +101,9 @@ export default Vue.extend({
                         project.hidden = true;
                     else project.hidden = false;
                 });
-            } catch (err: any) {}
+            } catch (err: any) {
+                (this as any).$sentry.captureException(err);
+            }
         },
         updateFilter(newFilter: Array<string>) {
             this.projectsFilter = newFilter;

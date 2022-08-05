@@ -21,10 +21,11 @@ export default Vue.extend({
         File,
     },
     layout: 'application',
-    async asyncData({ $axios, params, error }) {
+    async asyncData({ $axios, params, error, $sentry }) {
         const id = params.id;
 
         if (id.length <= 1) {
+            $sentry.captureException(new Error('Application not found'));
             error({ statusCode: 404, message: 'Application not found' });
         }
 
@@ -37,12 +38,15 @@ export default Vue.extend({
             );
             application = res.data.data;
         } catch (err) {
+            $sentry.captureException(err);
             error({ statusCode: 404, message: 'Application not found' });
         }
 
         if (!config.dev) {
-            if (!application)
+            if (!application) {
+                $sentry.captureException(new Error('Application not found'));
                 error({ statusCode: 404, message: 'Application not found' });
+            }
             if (
                 application.status === 'draft' ||
                 application.status === 'archived'

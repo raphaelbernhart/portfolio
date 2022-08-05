@@ -105,7 +105,9 @@ export default Vue.extend({
                 this.projects.forEach((project: Record<string, any>) => {
                     project.hidden = false;
                 });
-            } catch (err: any) {}
+            } catch (err: any) {
+                (this as any).$sentry.captureException(err);
+            }
         },
     },
 });
