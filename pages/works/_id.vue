@@ -361,7 +361,7 @@ import config from '@/nuxt.config';
 
 export default Vue.extend({
     name: 'ProjectPage',
-    async asyncData({ $axios, params, error }) {
+    async asyncData({ $axios, params, error, $sentry }) {
         const id = params.id;
 
         if (id.length <= 1) {
@@ -378,12 +378,16 @@ export default Vue.extend({
 
             project = res.data.data;
         } catch (err) {
+            $sentry.captureException(new Error('Application not found'));
             error({ statusCode: 404, message: 'Project not found' });
         }
 
         if (!config.dev) {
-            if (!project)
+            if (!project) {
+                $sentry.captureException(new Error('Application not found'));
                 error({ statusCode: 404, message: 'Application not found' });
+            }
+
             if (project.status === 'draft' || project.status === 'archived')
                 error({ statusCode: 404, message: 'Post not found' });
         }
