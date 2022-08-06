@@ -76,7 +76,7 @@ export default Vue.extend({
         // Update Locomotive Scroll
         setTimeout(() => {
             this.$nuxt.$emit('update-locomotive');
-        }, 150);
+        }, 350);
     },
     methods: {
         sanitize,
