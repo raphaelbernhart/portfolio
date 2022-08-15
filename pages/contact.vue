@@ -119,7 +119,7 @@ export default Vue.extend({
         }, 150);
     },
     methods: {
-        handleContactForm() {
+        async handleContactForm() {
             // Return if required field is null
             let emptyField = false;
             const entries = Object.entries(this.form);
@@ -153,11 +153,21 @@ export default Vue.extend({
             `;
 
             // Send Mail
-            (this as any).$mail.send({
-                from: 'noreply@raphaelbernhart.at',
-                subject: 'Anfrage raphaelbernhart.at',
-                html: message,
-            });
+            try {
+                await (this as any).$mail.send({
+                    from: 'noreply@raphaelbernhart.at',
+                    subject: 'Anfrage raphaelbernhart.at',
+                    html: message,
+                });
+            } catch (err) {
+                (this as any).$sentry.captureException(err);
+                this.error =
+                    'Die Mail wurde nicht abgesendet. Bitte kontaktiere mail@raphaelbernhart.at';
+                setTimeout(() => {
+                    this.error = '';
+                }, 10000);
+                return;
+            }
 
             this.mailSent = true;
         },
