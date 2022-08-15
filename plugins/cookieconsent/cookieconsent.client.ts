@@ -1,6 +1,6 @@
 import { Plugin } from '@nuxt/types';
 import './cookieconsent.css';
-import 'vanilla-cookieconsent/src/cookieconsent.js';
+import 'vanilla-cookieconsent/dist/cookieconsent.js';
 import de from '../../lang/de';
 import en from '../../lang/en';
 
