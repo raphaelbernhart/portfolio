@@ -33,7 +33,7 @@
         "vue-plausible": "^1.3.2",
         "vue-server-renderer": "^2.7.1",
         "vue-template-compiler": "^2.7.1",
-        "webpack": "^4.46.0"
+        "webpack": "^5.75.0"
     },
     "prettier": "@raphaelbernhart/prettier-config",
     "devDependencies": {
