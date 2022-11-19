@@ -8,8 +8,7 @@ export default {
         title: 'Portfolio',
         // all titles will be injected into this template
         titleTemplate: '%s | Raphael Bernhart',
-        meta: [
-            {
+        meta: [{
                 charset: 'utf-8',
             },
             {
@@ -26,14 +25,12 @@ export default {
                 content: 'telephone=no',
             },
         ],
-        link: [
-            {
-                rel: 'shortcut icon',
-                type: 'image/x-icon',
-                href: '/favicon-dark.svg',
-                id: 'favicon-tag',
-            },
-        ],
+        link: [{
+            rel: 'shortcut icon',
+            type: 'image/x-icon',
+            href: '/favicon-dark.svg',
+            id: 'favicon-tag',
+        }, ],
     },
 
     server: {
@@ -101,7 +98,6 @@ export default {
         '@nuxtjs/tailwindcss',
         '@nuxtjs/google-fonts',
         'nuxt-animejs',
-        '@nuxtjs/ackee',
         // '@unlighthouse/nuxt',
     ],
 
@@ -115,6 +111,7 @@ export default {
         '@nuxtjs/sitemap',
         '@nuxtjs/robots',
         '@nuxtjs/sentry',
+        'vue-plausible',
     ],
 
     tailwindcss: {
@@ -136,11 +133,12 @@ export default {
         useStylesheet: false,
     },
 
-    ackee: {
-        server: 'https://analytics.raphaelbernhart.at',
-        domainId: '4f86c51c-1496-404f-bcf4-f0f6398f38b4',
-        detailed: 'opt-out',
-        ignoreLocalhost: true,
+    plausible: {
+        domain: 'raphaelbernhart.at',
+        trackLocalhost: false,
+        apiHost: 'https://plausible.raphaelbernhart.at',
+        hashMode: true,
+        enableAutoOutboundTracking: true,
     },
 
     mail: {
@@ -173,7 +171,7 @@ export default {
             priority: 0.5,
             lastmod: new Date(),
         },
-        routes: async () => {
+        routes: async() => {
             const { data } = await axios.get(
                 `https://content.raphaelbernhart.at/items/rb_portfolio_projects?filter[status][_eq]=published&fields=title,date_updated,priority`,
             );
@@ -186,8 +184,7 @@ export default {
                     lastmod: project.date_updated,
                 };
             });
-            const customRoutes = [
-                {
+            const customRoutes = [{
                     url: '/',
                     priority: 1.0,
                 },
@@ -234,8 +231,7 @@ export default {
     },
 
     i18n: {
-        locales: [
-            {
+        locales: [{
                 code: 'de',
                 iso: 'de-DE',
                 file: 'de.ts',
