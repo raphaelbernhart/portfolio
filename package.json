@@ -24,7 +24,7 @@
         "core-js": "^3.19.3",
         "letterizejs": "^2.0.1",
         "locomotive-scroll": "^4.1.3",
-        "nuxt": "^2.12.2",
+        "nuxt": "^3.2.0",
         "nuxt-animejs": "^1.2.2",
         "nuxt-leaflet": "0.0.27",
         "nuxt-mail": "^3.0.23",
