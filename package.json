@@ -19,7 +19,7 @@
         "@nuxtjs/i18n": "^7.2.0",
         "@nuxtjs/pwa": "^3.3.5",
         "@nuxtjs/robots": "^2.5.0",
-        "@nuxtjs/sentry": "^5.1.7",
+        "@nuxtjs/sentry": "^7.1.2",
         "@nuxtjs/sitemap": "^2.4.0",
         "core-js": "^3.19.3",
         "letterizejs": "^2.0.1",
