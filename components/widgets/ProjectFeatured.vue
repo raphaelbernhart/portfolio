@@ -1,13 +1,13 @@
 <template>
     <div
         :class="{ 'justify-end': isEven }"
-        class="flex w-full"
+        class="w-full md:flex"
         data-scroll
         data-scroll-class="FADE_UP"
     >
         <nuxt-link
             :to="localePath(`/works/${id}`)"
-            class="duration-400 relative flex cursor-pointer flex-col sm:flex-row sm:items-end text-text transition-colors hover:text-hover"
+            class="relative flex flex-col transition-colors cursor-pointer duration-400 sm:flex-row sm:items-end text-text hover:text-hover"
             @mouseenter="enterElement($event)"
             @mouseleave="leaveElement($event)"
         >
@@ -33,7 +33,7 @@
                     'sm:order-1 sm:-mr-48': isEven,
                     'sm:order-2 sm:-ml-48': !isEven,
                 }"
-                class="relative sm:mb-24 mt-10 sm:mt-0"
+                class="relative mt-10 sm:mb-24 sm:mt-0"
             >
                 <div
                     class="relative z-10 flex flex-col max-w-lg gap-y-4 md:gap-y-8"
