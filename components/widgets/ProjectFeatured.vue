@@ -17,13 +17,13 @@
             >
                 <img
                     v-if="image"
-                    class="h-full w-full object-cover opacity-70"
+                    class="object-cover w-full h-full md:opacity-70"
                     :src="image"
                     alt=""
                 />
                 <img
                     v-else
-                    class="h-full w-full object-cover opacity-70"
+                    class="object-cover w-full h-full md:opacity-70"
                     src="~/assets/images/placeholder.jpg"
                     alt=""
                 />
@@ -35,12 +35,14 @@
                 }"
                 class="relative sm:mb-24 mt-10 sm:mt-0"
             >
-                <div class="relative z-10 flex max-w-lg flex-col gap-y-8">
+                <div
+                    class="relative z-10 flex flex-col max-w-lg gap-y-4 md:gap-y-8"
+                >
                     <h3
                         data-scroll
                         data-scroll-speed="1.2"
                         data-scroll-delay="1.6"
-                        class="max-w-md font-display text-7xl md:text-8xl uppercase"
+                        class="max-w-md uppercase break-words font-display text-7xl md:text-8xl"
                     >
                         {{ title }}
                     </h3>
@@ -54,17 +56,15 @@
                         data-scroll
                         data-scroll-speed="1.2"
                         data-scroll-delay="0.2"
-                        class="flex gap-x-1"
+                        class="flex flex-wrap gap-x-1"
                     >
                         <span
                             v-for="(category, iCat) in categories"
                             :key="category"
-                            class="inline-block text-sm font-bold"
+                            class="inline-block text-sm font-bold whitespace-nowrap"
                         >
-                            {{ category
-                            }}<span v-if="categories.length !== iCat + 1"
-                                >,
-                            </span>
+                            {{ category }}
+                            <span v-if="categories.length !== iCat + 1">,</span>
                         </span>
                     </div>
                 </div>
