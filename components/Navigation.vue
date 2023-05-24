@@ -48,16 +48,26 @@
                 >
                     <div class="pt-[3px] font-display text-xl">
                         <nuxt-link
-                            class="cursor-pointer transition-colors hover:text-gray-400"
+                            class="transition-colors cursor-pointer"
+                            :class="{
+                                'text-gray-500 hover:text-gray-300':
+                                    $i18n.locale !== 'en',
+                            }"
                             :to="switchLocalePath($i18n.locales[1].code)"
-                            >EN</nuxt-link
                         >
+                            EN
+                        </nuxt-link>
                         /
                         <nuxt-link
-                            class="cursor-pointer transition-colors hover:text-gray-400"
+                            class="transition-colors cursor-pointer"
+                            :class="{
+                                'text-gray-500 hover:text-gray-300':
+                                    $i18n.locale !== 'de',
+                            }"
                             :to="switchLocalePath($i18n.locales[0].code)"
-                            >DE</nuxt-link
                         >
+                            DE
+                        </nuxt-link>
                     </div>
                     <div
                         id="burgerMenu"
