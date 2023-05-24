@@ -5,11 +5,11 @@
             class="pointer-events-none fixed z-40 w-screen bg-primary px-10 md:px-12 p-12 py-8 md:py-12 text-[#fffbef] md:bg-transparent md:mix-blend-difference"
         >
             <div
-                class="relative flex w-full items-center justify-between gap-x-4"
+                class="relative flex items-center justify-between w-full gap-x-4"
             >
                 <!-- LOGO -->
                 <nuxt-link
-                    class="pointer-events-auto relative z-40 h-14 w-14 flex-initial cursor-pointer transition-colors hover:text-gray-400"
+                    class="relative z-40 flex-initial transition-colors cursor-pointer pointer-events-auto h-14 w-14 hover:text-gray-400"
                     :to="localePath('/')"
                 >
                     <svg
@@ -44,7 +44,7 @@
 
                 <!-- Links -->
                 <div
-                    class="pointer-events-auto relative z-40 flex items-center gap-x-10 font-thin"
+                    class="relative z-40 flex items-center font-thin pointer-events-auto gap-x-10"
                 >
                     <div class="pt-[3px] font-display text-xl">
                         <nuxt-link
@@ -71,11 +71,11 @@
                     </div>
                     <div
                         id="burgerMenu"
-                        class="h-10 w-10 cursor-pointer p-2 transition-colors hover:text-gray-400"
+                        class="w-10 h-10 p-2 transition-colors cursor-pointer hover:text-gray-400"
                         @click="toggleNavigation()"
                     >
                         <svg
-                            class="h-full w-full"
+                            class="w-full h-full"
                             version="1.1"
                             xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink"
