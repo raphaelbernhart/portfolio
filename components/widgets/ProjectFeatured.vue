@@ -1,13 +1,13 @@
 <template>
     <div
         :class="{ 'justify-end': isEven }"
-        class="flex w-full"
+        class="w-full md:flex"
         data-scroll
         data-scroll-class="FADE_UP"
     >
         <nuxt-link
             :to="localePath(`/works/${id}`)"
-            class="duration-400 relative flex cursor-pointer flex-col sm:flex-row sm:items-end text-text transition-colors hover:text-hover"
+            class="relative flex flex-col transition-colors cursor-pointer duration-400 sm:flex-row sm:items-end text-text hover:text-hover"
             @mouseenter="enterElement($event)"
             @mouseleave="leaveElement($event)"
         >
@@ -17,13 +17,13 @@
             >
                 <img
                     v-if="image"
-                    class="h-full w-full object-cover opacity-70"
+                    class="object-cover w-full h-full md:opacity-70"
                     :src="image"
                     alt=""
                 />
                 <img
                     v-else
-                    class="h-full w-full object-cover opacity-70"
+                    class="object-cover w-full h-full md:opacity-70"
                     src="~/assets/images/placeholder.jpg"
                     alt=""
                 />
@@ -33,14 +33,16 @@
                     'sm:order-1 sm:-mr-48': isEven,
                     'sm:order-2 sm:-ml-48': !isEven,
                 }"
-                class="relative sm:mb-24 mt-10 sm:mt-0"
+                class="relative mt-10 sm:mb-24 sm:mt-0"
             >
-                <div class="relative z-10 flex max-w-lg flex-col gap-y-8">
+                <div
+                    class="relative z-10 flex flex-col max-w-lg gap-y-4 md:gap-y-8"
+                >
                     <h3
                         data-scroll
                         data-scroll-speed="1.2"
                         data-scroll-delay="1.6"
-                        class="max-w-md font-display text-7xl md:text-8xl uppercase"
+                        class="max-w-md uppercase break-words font-display text-7xl md:text-8xl"
                     >
                         {{ title }}
                     </h3>
@@ -54,17 +56,15 @@
                         data-scroll
                         data-scroll-speed="1.2"
                         data-scroll-delay="0.2"
-                        class="flex gap-x-1"
+                        class="flex flex-wrap gap-x-1"
                     >
                         <span
                             v-for="(category, iCat) in categories"
                             :key="category"
-                            class="inline-block text-sm font-bold"
+                            class="inline-block text-sm font-bold whitespace-nowrap"
                         >
-                            {{ category
-                            }}<span v-if="categories.length !== iCat + 1"
-                                >,
-                            </span>
+                            {{ category }}
+                            <span v-if="categories.length !== iCat + 1">,</span>
                         </span>
                     </div>
                 </div>
