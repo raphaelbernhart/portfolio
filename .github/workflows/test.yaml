@@ -22,9 +22,6 @@ jobs:
               with:
                   node-version: 14.17.0
 
-            - name: Gen Package-lock
-              run: npm install --package-lock-only
-
             - name: Install Node dependencies
               run: npm ci
 
