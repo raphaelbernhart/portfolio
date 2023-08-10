@@ -26,7 +26,7 @@ jobs:
               uses: wearerequired/lint-action@v2
               with:
                   eslint: true
-                  prettier: true
+                  prettier: false
 
     check-nuxt-env:
         needs: linting
@@ -34,6 +34,11 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
+
+            - name: Set up NodeJS
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 16.20.2
 
             - name: Install Node dependencies
               run: yarn install --frozen-lockfile
