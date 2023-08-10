@@ -2,13 +2,10 @@ name: Linting&Testing
 
 on:
     push:
-        branches: [master]
+        branches: [master, development]
 
     # Allows to run this workflow manually from the Actions tab
     workflow_dispatch:
-
-env:
-    DATREE_TOKEN: ${{ secrets.DATREE_TOKEN }}
 
 jobs:
     linting:
@@ -20,10 +17,10 @@ jobs:
             - name: Set up NodeJS
               uses: actions/setup-node@v1
               with:
-                  node-version: 14.17.0
+                  node-version: 16.20.2
 
             - name: Install Node dependencies
-              run: npm ci
+              run: yarn install --frozen-lockfile
 
             - name: Lint Project
               uses: wearerequired/lint-action@v2
@@ -38,27 +35,12 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
-            - name: Gen Package-lock
-              run: npm install --package-lock-only
-
             - name: Install Node dependencies
-              run: npm ci
+              run: yarn install --frozen-lockfile
 
             - name: Build project
-              run: npm run build
+              run: yarn run build
 
             - name: Run Project
-              run: npm run start
+              run: yarn run start
               timeout-minutes: 1
-
-    k8s-manifest-testing:
-        runs-on: ubuntu-latest
-
-        steps:
-            - uses: actions/checkout@v2
-
-            - name: Install Datree
-              run: curl https://get.datree.io | /bin/bash
-
-            - name: Run Datree's policy check
-              run: datree test ./config/manifest.yaml
