@@ -1,13 +1,8 @@
 <template>
-    <div
-        data-scroll
-        :data-scroll-call="`PROFILE_SECTION3_ANIMATE_${index}`"
-        :data-scroll-offset="scrollOffset"
-        class="grid grid-cols-5"
-    >
+    <div class="grid grid-cols-5">
         <div class="col-span-3 flex items-center">
             <div>
-                <div data-scroll data-scroll-speed="3" data-scroll-delay="0.6">
+                <div>
                     <h2
                         ref="title"
                         class="font-display text-4xl sm:text-6xl max-w-xl no-ligature"
@@ -15,14 +10,14 @@
                         {{ title }}
                     </h2>
                 </div>
-                <div data-scroll data-scroll-speed="3" data-scroll-delay="0.2">
+                <div>
                     <h3
                         ref="year"
                         class="italic font-light text-2xl flex items-center gap-x-3 mt-4"
                     >
                         {{ from }}
-                        <span class="w-16 h-[1px] bg-text inline-block"></span
-                        >{{ to }}
+                        <span class="w-16 h-[1px] bg-text inline-block"></span>
+                        {{ to }}
                     </h3>
                 </div>
             </div>
@@ -137,12 +132,7 @@ export default Vue.extend({
                 '-=1000',
             );
 
-            setTimeout(() => {
-                this.$locomotive.on('call', (e: any) => {
-                    if (e === `PROFILE_SECTION3_ANIMATE_${this.index}`)
-                        animation.play();
-                });
-            }, 100);
+            animation.play();
         },
     },
 });

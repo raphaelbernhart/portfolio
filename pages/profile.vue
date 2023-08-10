@@ -111,9 +111,6 @@
 
         <section class="container my-48 mt-64 sm:mt-auto">
             <h2
-                ref="section2txt"
-                data-scroll
-                data-scroll-call="PROFILE_SECTION2_ANIMATE_PARAGRAPH"
                 class="font-display text-4xl sm:text-6xl md:text-7xl max-w-5xl leading-tight break-words"
             >
                 {{ $t('profile.section-2.paragraph') }}
@@ -122,17 +119,10 @@
 
         <section class="container relative my-56 space-y-20 sm:-space-y-24">
             <div class="relative block sm:hidden mb-24">
-                <h2
-                    data-scroll
-                    data-scroll-class="FADE_UP"
-                    class="font-display text-5xl font-bold"
-                >
+                <h2 class="font-display text-5xl font-bold">
                     {{ $t('profile.section-3.headline') }}
                 </h2>
                 <div
-                    data-scroll
-                    data-scroll-speed="1"
-                    data-scroll-class="FADE_UP"
                     class="absolute right-3/4 -bottom-8 h-[1px] w-screen bg-primary lg:right-0"
                 ></div>
             </div>

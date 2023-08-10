@@ -5,6 +5,7 @@ import Vue from 'vue';
 import MarkComponent from '@/components/widgets/MarkComponent.vue';
 import ServiceLink from '@/components/widgets/ServicesLink.vue';
 import ProjectFeatured from '~/components/widgets/ProjectFeatured.vue';
+import config from '@/nuxt.config';
 import { sanitize } from '~/services/Helpers';
 
 export default Vue.extend({
@@ -19,6 +20,7 @@ export default Vue.extend({
             initAnimationFinished: false,
             initAnimation: {} as any,
             projects: [] as any,
+            config,
         };
     },
     head() {
@@ -66,17 +68,15 @@ export default Vue.extend({
             },
         });
 
-        if (this.$store.state.transitions.initTransitionFinished) {
+        if (
+            this.$store.state.transitions.initTransitionFinished ||
+            this.config.dev
+        ) {
             this.initAnimation.play();
             this.animateHeadImage();
         }
 
         this.fetchFeaturedProjects();
-
-        // Update Locomotive Scroll
-        setTimeout(() => {
-            this.$nuxt.$emit('update-locomotive');
-        }, 350);
     },
     methods: {
         sanitize,
@@ -124,12 +124,12 @@ export default Vue.extend({
                     class="z-10 flex max-w-4xl flex-col font-display text-7xl uppercase text-primary dark:text-text md:text-8xl lg:text-9xl"
                 >
                     <span class="flex flex-wrap gap-x-8 overflow-hidden">
-                        <span>Creative </span>
+                        <span>Creative</span>
                         <span>and</span>
                     </span>
                     <span class="flex flex-wrap gap-x-8 overflow-hidden">
-                        <span>dev </span>
-                        <span>from </span>
+                        <span>dev</span>
+                        <span>from</span>
                     </span>
                     <span class="overflow-hidden">Austria</span>
                 </h1>

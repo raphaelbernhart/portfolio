@@ -8,7 +8,8 @@ export default {
         title: 'Portfolio',
         // all titles will be injected into this template
         titleTemplate: '%s | Raphael Bernhart',
-        meta: [{
+        meta: [
+            {
                 charset: 'utf-8',
             },
             {
@@ -25,12 +26,14 @@ export default {
                 content: 'telephone=no',
             },
         ],
-        link: [{
-            rel: 'shortcut icon',
-            type: 'image/x-icon',
-            href: '/favicon-dark.svg',
-            id: 'favicon-tag',
-        }, ],
+        link: [
+            {
+                rel: 'shortcut icon',
+                type: 'image/x-icon',
+                href: '/favicon-dark.svg',
+                id: 'favicon-tag',
+            },
+        ],
     },
 
     server: {
@@ -65,11 +68,9 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        { src: '~/plugins/both.ts' },
-        { src: '~/plugins/client.ts', mode: 'client' },
-        { src: '~/plugins/server.ts', mode: 'server' },
         '@/plugins/letterizejs/letterizejs.client.ts',
         '@/plugins/cookieconsent/cookieconsent.client.ts',
+        '@/plugins/lenis/lenis.client.ts',
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -171,7 +172,7 @@ export default {
             priority: 0.5,
             lastmod: new Date(),
         },
-        routes: async() => {
+        routes: async () => {
             const { data } = await axios.get(
                 `https://content.raphaelbernhart.at/items/rb_portfolio_projects?filter[status][_eq]=published&fields=title,date_updated,priority`,
             );
@@ -184,7 +185,8 @@ export default {
                     lastmod: project.date_updated,
                 };
             });
-            const customRoutes = [{
+            const customRoutes = [
+                {
                     url: '/',
                     priority: 1.0,
                 },
@@ -231,7 +233,8 @@ export default {
     },
 
     i18n: {
-        locales: [{
+        locales: [
+            {
                 code: 'de',
                 iso: 'de-DE',
                 file: 'de.ts',
