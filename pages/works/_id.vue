@@ -1,9 +1,9 @@
 <template>
     <div v-if="project">
-        <div class="relative h-screen w-full bg-white">
+        <div class="relative w-full h-screen bg-white">
             <!-- Title -->
             <div
-                class="relative h-full w-full flex px-12 md:px-0 items-end md:items-center justify-center text-white md:mix-blend-difference z-10"
+                class="relative z-10 flex items-end justify-center w-full h-full px-12 text-white md:px-0 md:items-center md:mix-blend-difference"
             >
                 <h1
                     ref="headTitle"
@@ -18,7 +18,7 @@
                 </h1>
             </div>
             <div
-                class="absolute left-0 top-0 w-screen h-screen pt-12 flex items-start justify-center text-white md:mix-blend-difference z-10"
+                class="absolute top-0 left-0 z-10 flex items-start justify-center w-screen h-screen pt-12 text-white md:mix-blend-difference"
             >
                 <h4 ref="headCategories" class="text-lg uppercase">
                     <span
@@ -40,7 +40,7 @@
                 <div class="relative bg-primary w-full h-[115%]">
                     <!-- <img
                         v-if="image"
-                        class="w-full h-full object-cover brightness-50 md:brightness-100"
+                        class="object-cover w-full h-full brightness-50 md:brightness-100"
                         :src="image"
                         alt=""
                     /> -->
@@ -48,8 +48,8 @@
             </div>
         </div>
 
-        <section class="relative my-48 mt-56 md:mt-96 container md:px-80">
-            <div class="md:grid grid-cols-7 gap-x-48">
+        <section class="container relative my-48 mt-56 md:mt-96 md:px-80">
+            <div class="grid-cols-7 md:grid gap-x-48">
                 <div class="col-span-4">
                     <div
                         data-scroll
@@ -68,7 +68,7 @@
                 <div
                     data-scroll
                     data-scroll-class="FADE_UP"
-                    class="col-span-3 relative inline-block mt-36 md:mt-0"
+                    class="relative inline-block col-span-3 mt-36 md:mt-0"
                 >
                     <div class="flex flex-col gap-y-6">
                         <div class="flex flex-col gap-y-2">
@@ -140,7 +140,7 @@
                             data-scroll-speed="1.3"
                             data-scroll-offset="-150%"
                             :src="image"
-                            class="md:absolute -top-36 bg-gray-600 h-full w-full object-cover"
+                            class="object-cover w-full h-full bg-gray-600 md:absolute -top-36"
                         />
                     </div>
                 </div>
@@ -148,10 +148,10 @@
             <div class="container">
                 <div
                     v-if="project.imageCarousel[0]"
-                    class="grid grid-cols-1 md:grid-cols-12 gap-0 md:gap-x-14"
+                    class="grid grid-cols-1 gap-0 md:grid-cols-12 md:gap-x-14"
                 >
                     <div data-scroll data-scroll-speed="1.3" class="col-span-8">
-                        <div class="w-full h-full inline-block">
+                        <div class="inline-block w-full h-full">
                             <img
                                 class="w-full object-cover h-full max-h-[650px] rounded-lg"
                                 :src="`https://content.raphaelbernhart.at/assets/${project.imageCarousel[0].directus_files_id}?width=960&height=620&quality=90&format=webp`"
@@ -163,11 +163,11 @@
                         data-scroll
                         data-scroll-speed="1.3"
                         data-scroll-delay="0.1"
-                        class="col-span-4 mt-8 md:mt-0 grid gap-y-8 md:gap-y-14"
+                        class="grid col-span-4 mt-8 md:mt-0 gap-y-8 md:gap-y-14"
                     >
                         <div
                             v-if="project.imageCarousel[1]"
-                            class="w-full inline-block"
+                            class="inline-block w-full"
                         >
                             <img
                                 class="w-full h-full object-cover max-h-[300px] rounded-lg"
@@ -177,7 +177,7 @@
                         </div>
                         <div
                             v-if="project.imageCarousel[2]"
-                            class="w-full inline-block"
+                            class="inline-block w-full"
                         >
                             <img
                                 class="w-full h-full object-cover max-h-[350px] rounded-lg"
@@ -189,7 +189,7 @@
                 </div>
 
                 <!-- Section TEXT1 -->
-                <section class="my-48 md:ml-12 space-y-16">
+                <section class="my-48 space-y-16 md:ml-12">
                     <div>
                         <h2 v-if="project.heading1" class="text-3xl font-bold">
                             {{ project.heading1 }}
@@ -201,13 +201,13 @@
                         />
                     </div>
                     <div
-                        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-y-0"
+                        class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-y-0"
                     >
                         <div
                             v-if="project.imagesTxt1[0]"
                             data-scroll
                             data-scroll-speed="1.3"
-                            class="w-full inline-block md:col-span-2"
+                            class="inline-block w-full md:col-span-2"
                         >
                             <img
                                 class="w-full h-full object-cover max-h-[600px] rounded-lg"
@@ -220,7 +220,7 @@
                             data-scroll
                             data-scroll-speed="1.3"
                             data-scroll-delay="0.2"
-                            class="w-full inline-block"
+                            class="inline-block w-full"
                         >
                             <img
                                 class="w-full h-full object-cover max-h-[400px] rounded-lg"
@@ -233,7 +233,7 @@
                             data-scroll
                             data-scroll-speed="1.3"
                             data-scroll-delay="0.1"
-                            class="w-full inline-block"
+                            class="inline-block w-full"
                         >
                             <img
                                 class="w-full h-full object-cover max-h-[400px] rounded-lg"
@@ -245,7 +245,7 @@
                 </section>
 
                 <!-- Section TEXT2 -->
-                <section class="my-48 md:ml-12 space-y-16">
+                <section class="my-48 space-y-16 md:ml-12">
                     <div>
                         <h2 v-if="project.heading2" class="text-3xl font-bold">
                             {{ project.heading2 }}
@@ -257,13 +257,13 @@
                         />
                     </div>
                     <div
-                        class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-y-0"
+                        class="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-y-0"
                     >
                         <div
                             v-if="project.imagesTxt2[0]"
                             data-scroll
                             data-scroll-speed="1.3"
-                            class="w-full inline-block md:col-span-2"
+                            class="inline-block w-full md:col-span-2"
                         >
                             <img
                                 class="w-full h-full object-cover max-h-[600px] rounded-lg"
@@ -276,7 +276,7 @@
                             data-scroll
                             data-scroll-speed="1.3"
                             data-scroll-delay="0.2"
-                            class="w-full inline-block"
+                            class="inline-block w-full"
                         >
                             <img
                                 class="w-full h-full object-cover max-h-[400px] rounded-lg"
@@ -289,7 +289,7 @@
                             data-scroll
                             data-scroll-speed="1.3"
                             data-scroll-delay="0.1"
-                            class="w-full inline-block"
+                            class="inline-block w-full"
                         >
                             <img
                                 class="w-full h-full object-cover max-h-[400px] rounded-lg"
@@ -304,7 +304,7 @@
                     v-if="project.text1"
                     data-scroll
                     data-scroll-class="FADE_UP"
-                    class="md:grid grid-cols-2 my-24 md:my-44"
+                    class="grid-cols-2 my-24 md:grid md:my-44"
                 >
                     <div></div>
                     <div>
@@ -326,7 +326,7 @@
                         title="Rebound University Project"
                     ></iframe>
                 </div> -->
-                <!-- <div class="md:grid grid-cols-2 md:px-28 my-24 md:my-44">
+                <!-- <div class="grid-cols-2 my-24 md:grid md:px-28 md:my-44">
                     <div
                         v-if="project.text2"
                         data-scroll
@@ -378,18 +378,18 @@ export default Vue.extend({
 
             project = res.data.data;
         } catch (err) {
-            $sentry.captureException(new Error('Application not found'));
+            $sentry.captureException(new Error('Fetch project data error'));
             error({ statusCode: 404, message: 'Project not found' });
         }
 
         if (!config.dev) {
             if (!project) {
-                $sentry.captureException(new Error('Application not found'));
-                error({ statusCode: 404, message: 'Application not found' });
+                error({ statusCode: 404, message: 'Project not found' });
+                return { id, project };
             }
 
-            if (project.status === 'draft' || project.status === 'archived')
-                error({ statusCode: 404, message: 'Post not found' });
+            if (project?.status === 'draft' || project?.status === 'archived')
+                error({ statusCode: 404, message: 'Project not found' });
         }
 
         return { id, project };
