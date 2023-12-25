@@ -1,5 +1,5 @@
 # Dockerfile
-FROM node:18.19.0 as build
+FROM node:16.20.2 as build
 
 # create destination directory
 RUN mkdir -p /app
@@ -10,7 +10,7 @@ COPY ./ /app/
 RUN yarn
 RUN yarn run build
 
-FROM node:18.19.0-alpine as production
+FROM node:16.20.2-alpine as production
 
 RUN mkdir -p /app
 WORKDIR /app
